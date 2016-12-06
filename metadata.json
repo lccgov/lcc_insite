@@ -1,0 +1,32 @@
+[
+    {
+        "name": "lcc_insite.master",
+        "metadata": {
+            "__metadata": {
+                "type": "SP.Data.OData__x005f_catalogs_x002f_masterpageItem"
+            },
+            "Title": "lcc_insite Masterpage",
+            "ContentTypeId": "0x010105"
+        }
+    },
+    {
+        "name": "layout_multi_sections_home.aspx",              
+        "metadata": {
+            "__metadata": {
+                "type": "SP.Data.OData__x005f_catalogs_x002f_masterpageItem"
+            },
+            "Title": "Multi Section Home Layout (LCC)",
+            "ContentTypeId": "0x01010007FF3E057FA8AB4AA42FCB67B453FFC100E214EEE741181F4E9F7ACC43278EE811"
+        }
+    },
+    {
+        "name": "layout_multi_sections.aspx",
+        "metadata": {
+            "__metadata": {
+                "type": "SP.Data.OData__x005f_catalogs_x002f_masterpageItem"
+            },
+            "Title": "Multi Section Layout (LCC)",
+            "ContentTypeId": "0x01010007FF3E057FA8AB4AA42FCB67B453FFC100E214EEE741181F4E9F7ACC43278EE811"
+        }
+    }
+]
