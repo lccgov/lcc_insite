@@ -1,5 +1,5 @@
 {
-  "name": "lcc_insite",
+  "name": "insite",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -21,21 +21,26 @@
     "file-system": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.13",
+    "gulp-foreach": "^0.1.0",
     "gulp-html-replace": "^1.6.1",
+    "gulp-ignore": "^2.0.2",
+    "gulp-mincer": "0.0.2",
     "gulp-notify": "^2.2.0",
+    "gulp-prompt": "^0.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-spsync-creds": "^2.2.6",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
-    "lcc_frontend_toolkit": "^0.41.0",
-    "lcc_templates_sharepoint": "^1.0.69",
+    "lcc_frontend_toolkit": "^0.209.0",
+    "lcc_sharepoint_toolkit": "^0.55.0",
+    "lcc_templates_sharepoint": "^1.1.103",
+    "lodash": "^4.17.2",
+    "mincer": "^1.5.0",
     "rmdir": "^1.2.0",
     "root-require": "^0.3.1",
-    "syncy": "^2.0.1"
-  },
-  "devDependencies": {
-    "lcc_templates_sharepoint": "^1.0.69"
+    "syncy": "^2.0.1",
+    "uuid": "^3.0.1"
   }
 }
