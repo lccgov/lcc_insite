@@ -13,6 +13,12 @@
 
 //base.scss
 
+// InSite specifi newcolor scheme
+$paleGold: #C0B283;
+$charcoal:#373737;
+$paper:#F4F4F4;
+$silk:#DCD0C0;
+
 //base colours
 $blue:#007299;
 $dark-blue: #003F55;
@@ -41,7 +47,8 @@ $base-link-visited-color:#4C2C92;
 $secondary-link-color:$dark-blue;
 $secondary-font-color:$dark-grey;
 $border-color:$light-grey;
-$brand-color:$green;
+$brand-color:$paleGold; 
+$brand-color:$paleGold;
 $button-color:$green;
 $button-hover-color:lighten($button-color,5%);
 $focus-color:$yellow;
@@ -52,8 +59,11 @@ $font-secondary:'Montserrat', sans-serif; // secondary font used for headings
 //$header-font-weight: 600;
 $alert-color:$red;
 
+// IS added base-font-color
+$base-font-color:$charcoal;
+
 //panel colours
-$panel-color:#E5F1F5;
+$panel-color:$paper;
 $panel-color-secondary:#DCDEE1;
 
 //global used on all partials to get a uniform spacing between elements
@@ -64,8 +74,12 @@ $panel-color-secondary:#DCDEE1;
 //$search-link:#333 ;
 
 // mainNav.scss
-$main-nav-background:darken( $brand-color, 3% );
+//$main-nav-background:darken( $brand-color, 3% );
 //$main-nav-link:#fff ;
+// IS - darkened the standard 3% main nav background
+$main-nav-background:$brand-color;
+// Altered the main nav link
+$main-nav-link:$charcoal ;//
 
 //footer.scss
 //$footer-font-color:#fff ;
@@ -110,7 +124,9 @@ $main-nav-background:darken( $brand-color, 3% );
 //$content-border-color:#ddd;
 
 //section backgrounds
-$sectionHeader-background-color:$brand-color;
+// IS lighten the sectionHeader rather than darkent the main-nav-background
+//$sectionHeader-background-color:$brand-color;
+$sectionHeader-background-color:lighten($brand-color, 10%);
 $sectionOne-background-color:#fff;
 $sectionTwo-background-color:#fff;
 $sectionThree-background-color:#fff;
@@ -125,7 +141,9 @@ $sectionFive-background-color:#fff;
 //$heroFontcolor:#fff; 
 
 //news
-//$news-button-background: #3498DB ;
+// IS overriden the news buttons and the hover states which are
+// darkened in the @imported stylesheets
+$news-button-background: $paleGold;
 $news-pod-back:#ffffff ;
 $news-pod-border-color:#ddd;
 
@@ -145,24 +163,36 @@ $news-pod-border-color:#ddd;
 //$highlighted-alt-font-color:#333 !default;
 
 //mega-promo
-$promo-background-color:$lighter-grey;
+// IS set promo background color
+// $promo-background-color:$lighter-grey;
+$promo-background-color:$paper;
 $promo-arrow-color:#9DA5B2;
-$promo-header-color:$blue;
+// IS try promo header color in charcoal
+// $promo-header-color:$blue;
+$promo-header-color:$charcoal;
 $promo-secondary-color:$black;
 $promo-highlight-background-color:$dark-blue;
 $promo-highlight-color:$white;
 
+//add a new border to mega-promos
+.mega-promo__item a, .groupPromo ul li a, .carousel-display, .sideNav{
+    border:solid 2px $brand-color;
+}
+
 //button colours
-$primary-button-background-color:$green;
+$primary-button-background-color:darken($paleGold,10%);
 $primary-button-color:$white;
-$secondary-button-background-color:$blue;
+$secondary-button-background-color:$paleGold;
 $secondary-button-color:$white;
 $outline-button-border-color:$blue;
 $outline-button-color:$blue;
 
 //group promo colours
-$group-promo-background-color: $lighter-grey;
-$group-promo-header-color: $blue;
+// IS altered the group promo color
+//$group-promo-background-color: $lighter-grey;
+$group-promo-background-color:$promo-background-color;
+$group-promo-header-color: $charcoal;
+// $group-promo-header-color: $blue;
 $group-promo-description-color: $black;
 $group-promo-arrow-color: $grey;
 
@@ -205,245 +235,1203 @@ $input-border-color:$grey;
 @import 'url-helper';
 @import 'webchat';
 
-//CUSTOM STYLES FOR LEEDS.GOV.UK
 
-//site background
-html{
-    background-color:$green;
+//CUSTOM STYLES FOR INSITE.GOV.UK
+
+// IS News button colors
+.sectionSubsite.news a.button:hover {
+    background-color: $silk;
+    color: #373737 !important; 
 }
 
+.sectionSubsite.news a.button {
+    color: #373737 !important; 
+}
 
-//header
-.logo {
-    background: url(../images/insiteLogo.svg) center center no-repeat;
-    background-size:100%;
-    height:60px;
-    width:150px;
-    margin:2px 0 0 0;
-   span{
-       display: none;
+#paging .contentPod a:hover{
+    background-color: $silk;
+}
+
+//IS - the darken function is built into brand-colors so we need an override
+.main-nav {
+    a:hover,    a:focus{
+       background-color: $silk !important;
+       color: $main-nav-link;
+    }
    }
-}
-
-a.promo{
-    img{
-        width:100%;
-    }
-    margin-bottom:30px;
-    display:inline-block;
-}
-
-.col-md-8 .groupPromo ul li {
-    width: calc(100% * (1/4) - 6px) !important;
-
-    @media (max-width:768px){
-        width: calc(100%) !important;
-    }
-}
-
-
-.groupPromo {
-
-    margin-bottom:30px;
-      h2{
-        margin:0px 0 15px 0;
-    }
-
-    ul li a 
-    {
-        padding:15px;
-
-        h3{
-            font-size:16px;
-            line-height:22px;
-            min-height:100px;
-        }
-    }
-    
-    &.blockback{
-          padding:15px;
-          h2{
-              margin:0 0 10px 0;
-              color:#fff;
-          }
-    }
-  
-    &.blockLinksGreen .listWebpart {
-        @include groupPromo(#76b15e, #002A15, #002A15,#fff);
-    }
-
-        &.blockLinksGreen.blockback {background:darken(#76b15e, 10%) ;
-        }
-
-        &.blockLinksPurple.blockback{background:darken(#5f215c, 10%) ;
-        }
    
-
-         &.blockLinksPink.blockback{background:darken(#B10042, 10%) ;
-         }
-  
-    
-}
-
-.cycle {
-
-    &.orange {
-        background: #CE5400;
-    }
-
-    &.purple{
-        background:#371E35;
-    }
-
-    &.gold{
-        background:#c2a041;
-    }
-
-    background:darken(#333,10%);
-    margin-bottom: 20px;
-    display: block;
-    clear: both;
-    color:#fff;
-    padding:20px 20px 15px 20px;
-
-    h2{
-        margin:0px 0 15px 0;
-        color:#fff;
-    }
-
-    &.jobs{
-        padding:0px;
-        background:transparent;
-
-        h2{
-            color:#424242;
-        }
-
-        li {
-            background:#c2a041;
-            min-height:200px;
-        }
-             a.arrow{
-                background:darken(#c2a041,10%);
-                padding:20px;
-
-                &:hover{
-                    background:darken(#c2a041,20%);
-                }
+   //site background
+   html{
+       background-color:$green;
+   }
+   
+   
+   //header
+   .logo {
+       background: url(../images/insiteLogo.svg) center center no-repeat;
+       background-size:100%;
+       height:60px;
+       width:150px;
+       margin:2px 0 0 0;
+      span{
+          display: none;
+      }
+   }
+   
+   a.promo{
+       img{
+           width:100%;
+       }
+       margin-bottom:30px;
+       display:inline-block;
+   }
+   
+   .col-md-8 .groupPromo ul li {
+       width: calc(100% * (1/4) - 6px) !important;
+   
+       @media (max-width:768px){
+           width: calc(100%) !important;
+       }
+   }
+   
+   
+   .groupPromo {
+   
+       margin-bottom:30px;
+         h2{
+           margin:0px 0 15px 0;
+       }
+   
+       ul li a 
+       {
+           padding:15px;
+   
+           h3{
+               font-size:16px;
+               line-height:22px;
+               min-height:100px;
+           }
+       }
+       
+       &.blockback{
+             padding:15px;
+             h2{
+                 margin:0 0 10px 0;
+                 color:#fff;
+             }
+       }
+     
+       &.blockLinksGreen .listWebpart {
+           @include groupPromo(#76b15e, #002A15, #002A15,#fff);
+       }
+   
+           &.blockLinksGreen.blockback {background:darken(#76b15e, 10%) ;
+           }
+   
+           &.blockLinksPurple.blockback{background:darken(#5f215c, 10%) ;
+           }
+      
+   
+            &.blockLinksPink.blockback{background:darken(#B10042, 10%) ;
             }
-    }
-
-    
-     &.staffroom  h2
-        {
-            padding-left:50px;
-
-            &:before{
-            content:'\f123';    
-            font-family: FontAwesome;
-            font-size: 30px;
-            font-weight:300;
-            position:absolute;
-            left:40px;
-        }
-
-        }
-
-        
-          &.business
-          
-{
-
-    img{
-        float:left;
-        max-width:40%;
-        margin-right:15px;
-    }
-          
-            h2
-            
-        {
-            padding-left:50px;
-
-            &:before{
-            content:'\f073';    
-            font-family: FontAwesome;
-            font-size: 30px;
-            font-weight:300;
-            position:absolute;
-            left:40px;
-        }
-        }
-}
-
-    ul{
+     
+       
+   }
+   
+   .cycle {
+   
+       &.orange {
+           background: #CE5400;
+       }
+   
+       &.purple{
+           background:#371E35;
+       }
+   
+       &.gold{
+           background:#c2a041;
+       }
+   
+       background:darken(#333,10%);
+       margin-bottom: 20px;
+       display: block;
+       clear: both;
+       color:#fff;
+       padding:20px 20px 15px 20px;
+   
+       h2{
+           margin:0px 0 15px 0;
+           color:#fff;
+       }
+   
+       &.jobs{
+           padding:0px;
+           background:transparent;
+   
+           h2{
+               color:#424242;
+           }
+   
+           li {
+               background:#c2a041;
+               min-height:200px;
+           }
+                a.arrow{
+                   background:darken(#c2a041,10%);
+                   padding:20px;
+   
+                   &:hover{
+                       background:darken(#c2a041,20%);
+                   }
+               }
+       }
+   
+       
+        &.staffroom  h2
+           {
+               padding-left:50px;
+   
+               &:before{
+               content:'\f123';    
+               font-family: FontAwesome;
+               font-size: 30px;
+               font-weight:300;
+               position:absolute;
+               left:40px;
+           }
+   
+           }
+   
+           
+             &.business
+             
+   {
+   
+       img{
+           float:left;
+           max-width:40%;
+           margin-right:15px;
+       }
+             
+               h2
+               
+           {
+               padding-left:50px;
+   
+               &:before{
+               content:'\f073';    
+               font-family: FontAwesome;
+               font-size: 30px;
+               font-weight:300;
+               position:absolute;
+               left:40px;
+           }
+           }
+   }
+   
+       ul{
+              background:#fff;
+              width:100% !important;
+       }
+   
+       li{  
            background:#fff;
            width:100% !important;
-    }
-
-    li{  
-        background:#fff;
-        width:100% !important;
+           
+           
+           a{
+               display:inline-block;
+               width:100% !important;
+               height:100%!important;
+               padding:20px;
+               text-decoration:none;
+               font-size:16px;
+               color:#333;
+               h3{
+               margin-top:0px;
+   
         
+           }
+   
+       
+           }
+   
+           
+   
         
-        a{
-            display:inline-block;
-            width:100% !important;
-            height:100%!important;
-            padding:20px;
-            text-decoration:none;
-            font-size:16px;
-            color:#333;
-            h3{
-            margin-top:0px;
-
-     
-        }
-
-    
-        }
-
-        
-
-     
-    }
-
-    a.arrow{
-        background:transparent;
-        color:#fff;
-        padding:20px 5px;
-        display:block;
-        text-decoration:none;
-
-        &:after{
-            content:'\f0da';    
-            font-family: FontAwesome;
-            font-size: 20px;
-            float:right;
-        }
-    }
-
-           a:hover{
-            background:#333;
-            color:#fff;
-
-            h3{
-                color:#fff;
-            }
-        }
-}
-
-
-.column-thirds{ 
-    
-    margin-left:-15px;
-    
-    .column-third {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-}
-
-
-
-
+       }
+   
+       a.arrow{
+           background:transparent;
+           color:#fff;
+           padding:20px 5px;
+           display:block;
+           text-decoration:none;
+   
+           &:after{
+               content:'\f0da';    
+               font-family: FontAwesome;
+               font-size: 20px;
+               float:right;
+           }
+       }
+   
+              a:hover{
+               background:#333;
+               color:#fff;
+   
+               h3{
+                   color:#fff;
+               }
+           }
+   }
+   
+   
+   .column-thirds{ 
+       
+       margin-left:-15px;
+       
+       .column-third {
+       padding-left: 15px;
+       padding-right: 15px;
+   }
+   }
+   
+   // LOADED IN FROM THE ADDITIONAL STYLESHEET 
+   
+   
+   /* My apologies for the over use of !Important tags. Purely done as this is an override CSS file.
+   
+   All style should be corrected via the SASS file for the site and a gulp upload task should then be run. */
+   
+   /* styles for sideNavs */
+   
+   /* relDocsNav */
+   
+   .sideNav.relDocsNav::before{
+       content: "\f15c";
+       color:#6b91c9;
+   }
+   
+   .sideNav.relDocsNav > h3{
+       color:#FFF;
+   }
+   
+   .sideNav.relDocsNav {
+       border:solid 2px #294772;
+       background-color:#375e97 !important
+   }
+   
+   .sideNav.relDocsNav > ul {
+       background-color:#dbe4f2;
+   }
+   
+   /* extLinksNav */
+   
+   .sideNav.extLinksNav::before{
+       content: "\f0c1";
+       color:#6b91c9;
+   }
+   
+   .sideNav.extLinksNav {
+       border:solid 2px #294772;
+       background-color:#375e97  !important
+   }
+   
+   .sideNav.extLinksNav > h3 {
+       color:#FFF;
+   }
+   
+   .sideNav.extLinksNav > ul {
+       background-color:#dbe4f2;
+   }
+   
+   /* intLinksNav */
+   
+   .sideNav.intLinksNav::before{
+       content: "\f0c1";
+       color:#6b91c9;
+   }
+   
+   .sideNav.intLinksNav {
+       border:solid 2px #294772;
+       background-color:#375e97 !important
+   }
+   
+   .sideNav.intLinksNav > h3{
+       color:#FFF;
+   }
+   
+   .sideNav.intLinksNav > ul {
+       background-color:#dbe4f2;
+   }
+   
+   /* doItOnlineNav */
+   
+   .sideNav.doItOnlineNav::before{
+       content: "\f059";
+       color:#037A57;
+   }
+   
+   .sideNav.doItOnlineNav {
+       border:solid 2px #011F16;
+       background-color:#1AAF83 !important
+   }
+   
+   .sideNav.doItOnlineNav > ul {
+       background-color:#D1EFE6;
+   }
+   
+   /* contactsNav */
+   
+   .sideNav.contactsNav::before{
+       content: "\f098";
+       color:#6b91c9;
+   }
+   
+   .sideNav.contactsNav > h3{
+       color:#FFF;
+   }
+   
+   .sideNav.contactsNav {
+       border:solid 2px #294772;
+       background-color:#375e97 !important
+   }
+   
+   .sideNav.contactsNav > ul {
+       background-color:#dbe4f2;
+   }
+   
+   /* trainingNav */
+   
+   .sideNav.trainingNav::before{
+       content: "\f02d";
+       color:#3f681c;
+   }
+   
+   .sideNav.trainingNav > h3{
+       color:#0e1806;
+   }
+   
+   .sideNav.trainingNav {
+       border:solid 2px #274011;
+       background-color:#70b832 !important
+   }
+   
+   .sideNav.trainingNav > ul {
+       background-color:#d9f0c6;
+   }
+   
+   /* ask */
+   
+   .sideNav.askSideNav::before{
+       content: "\f059";
+       color:#664b00;
+   }
+   
+   .sideNav.askSideNav > h3{
+       color:#664b00;
+   }
+   
+   .sideNav.askSideNav {
+       border:solid 2px #997000;
+       background-color:#cca333 !important
+   }
+   
+   .sideNav.askSideNav > ul {
+       background-color:#ffe499;
+   }
+   
+   /* Policies */
+   .sideNav.policiesNav::before{
+       content: "\f129";
+       color:#873302;
+   }
+   
+   .sideNav.policiesNav > h3{
+       color:#274011;
+   }
+   
+   .sideNav.policiesNav {
+       border:solid 2px #3f681c;
+       background-color:#70b832 !important
+   }
+   
+   .sideNav.policiesNav > ul {
+       background-color:#d9f0c6;
+   }
+   
+   /* Generic */
+   
+   .sideNav.coloredNav::before{
+       font-family: FontAwesome;
+       font-size:larger;
+       position:absolute;
+       margin:8px;
+   }
+   
+   .sideNav.coloredNav > h3{
+       margin-top:8px;
+       margin-left:32px;
+       margin-bottom:0px;
+       /*padding:0px;*/
+       border-bottom:none !important;
+   }
+   
+   .sideNav.coloredNav {
+       padding:0px !important;
+   }
+   
+   .sideNav.coloredNav > ul {
+       margin:0px !important;
+       padding:16px;
+   }
+   
+   /* end of sideNavs */
+   
+   
+   /* START Update site colours and a few correctional styles */
+   
+   #suiteBarLeft,
+   html,
+   .sectionHeader,
+   .main-nav,
+   .main-nav ul ul,
+   footer.main .footerGlobal
+   // Style replaced by SCSS file
+   // ,
+   // .masterhead ul.menu li a.main-menu {
+   //     background-color: #599aab !important;
+   // }
+   header .main-nav ul li a.selected,
+   .ms-core-listMenu-horizontalBox .ms-core-listMenu-selected,
+   .ms-core-listMenu-horizontalBox .ms-core-listMenu-selected:link,
+   .ms-core-listMenu-horizontalBox .ms-core-listMenu-selected:visited,
+   .ms-core-listMenu-horizontalBox a.ms-core-listMenu-item.ms-core-listMenu-selected:hover,
+   .ms-core-listMenu-horizontalBox a.ms-core-listMenu-item:hover,
+   .ms-tv-selected:link,
+   a.ms-tv-header:hover,
+   // Style replaced by SCSS file
+   // a.ms-tv-item:hover {
+   //     background-color: #447885 !important;
+   // }
+   .main-nav ul ul li:first-of-type {
+       border-top: 1px solid #e3e9e6 !important;
+   }
+   .main-nav ul ul li {
+       border-bottom: 1px solid #e3e9e6 !important;
+   }
+   .main-nav ul ul ul {
+       margin: -60px 0 0 255px;
+   }
+   .groupPromo ul li a p {
+       font-size: 15px !important;
+   }
+   .search-reset a {
+       display: block;
+       background-color: #e7e7e7;
+       padding: 6px;
+       color: #222;
+       margin: 5px 0;
+       text-align: center;
+       text-decoration: none;
+       height: 42px;
+   }
+   #ctl00_ctl46_g_136e953b_e9e7_4e72_b21d_0594dae542bd_csr1_Grouping {
+       margin: 0 0 30px 0;
+   }
+   .closing-date {
+       text-align: center;
+       background: #599aab;
+       color: #fff;
+       font-weight: 600;
+       padding: 3px 0;
+       margin: 0 0 3px;
+       font-size: 14px
+   }
+   .jobs span{
+       width:100%;
+       font-size: 18px;
+       background: #fff !important;
+       color: #222 !important;
+   }
+   p.jobsdescrip{
+       font-size: .75em !important;
+       width: 100%;
+       text-align: center;  
+   }
+   a.alljobs {
+   
+       right: 0;
+       font-weight: 600;
+   }
+   
+   .ms-ref-ellipsis, .ms-entity-resolved, .ms-entity-unresolved {
+       overflow: visible !important;
+   }
+   
+   
+   h2.toolkit {
+       border-bottom: 5px solid #599aab;
+       margin-top: 0;
+       margin-bottom: 15px;
+       margin: 0 0 15px;
+       padding: 0 0 10px;
+       font-size: 24px;
+       font-weight: 600;
+       font-family: Montserrat,sans-serif,sans-serif !important;
+   }
+   .sideNav {
+       margin: 0 0 30px !important;
+       padding: 15px !important;
+       // SideNav background now set to group-promo color - n.b. set to FFF in scaffolding.less
+       // background: #e5f1f5 !important;
+       background: $promo-background-color;
+   }
+   .sideNav .panel {
+       padding: 0 !important;
+   }
+   
+   .sideNav .panel h3 {
+       border-bottom: 5px solid #fff !important;
+   }
+   
+   
+   
+   
+   /* END Update site colours and a few correctional styles */
+   
+   
+   /* Jquery Tabs styles for toolkit guidance */
+   
+   .ui-widget-content {
+      border: 0px solid #d0dce8 !important;
+   }
+   
+   .ui-widget {
+       box-shadow: 0 0 0 0 #ccd5d7 !important;
+   }
+   .ui-tabs .ui-tabs-panel {
+       padding: 3px !important;
+   }
+   .ui-tabs .docList.one li a {
+       padding: 13px 4px 7px 35px !important;
+   
+   }
+   .ui-tabs .docList.one .listWebpart ul li a:before {
+       top: 15px;
+   }
+   .ui-tabs .docList a {
+       font-weight: 200 !important;
+   }
+   .ui-tabs .docList.one li a:before {
+       font-size: 17px !important;
+   }
+   .ui-tabs .ui-tabs-nav {
+       margin: 0 !important;
+       padding: 0 !important;
+   }
+   .ui-widget-header {
+       border: 0px solid #aaaaaa !important;
+       border-bottom:1px solid #599aab !important; 
+       background: none !important;
+   }
+   .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+       border: 1px solid #599aab;
+       // background: #599aab42 url() 50% 50% repeat-x !important;
+       font-weight: normal !important;
+       color: #212121 !important;
+   }
+   .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+        border: 1px solid #599aab;
+       background: none !important;
+       font-weight: normal !important;
+       color: #555555 !important;
+   }
+   .ui-widget {
+       font-family: "Open Sans",sans-serif,sans-serif !important;
+       font-size: .8em !important;
+   }
+   .docList.five, .docList.four, .docList.one, .docList.three, .docList.two {
+       margin: 10px 0 !important;
+   }
+   
+   
+   
+   .four.blockLink {
+       width: 20%;
+       float: left;
+   }
+   
+   .blockLink {
+       text-align: center;
+       padding: 10px;
+       margin: 0;
+       background: 0 0;
+       position: relative;
+   }
+   
+   
+   
+   
+   /* START Search result paging styles */
+   
+   .col-md-8 .ms-srch-Paging #PagingImageLink .ms-promlink-button-image img {
+       display: none
+   }
+   .col-md-8 .ms-srch-Paging #PagingSelf a {
+       font-weight: 400;
+       background: #007299!important;
+       color: #fff!important
+   }
+   .col-md-8 .ms-srch-Paging a {
+       color: #007299!important;
+       padding: 8px 15px!important;
+       background: #fff!important;
+       border: 1px solid #eceff1!important;
+       cursor: pointer!important
+   }
+   .col-md-8 .ms-srch-Paging a:hover {
+       background: #efefef!important;
+       color: #007299!important
+   }
+   .col-md-8 .ms-srch-Paging a {
+       color: #007299!important;
+       padding: 8px 15px!important;
+       background: #fff!important;
+       border: 1px solid #eceff1!important;
+       cursor: pointer!important;
+   }
+   .col-md-8 .ms-srch-Paging a:focus {
+       background: #599aab!important;
+       color: #fff!important
+   }
+   .sectionOne #PageLinkNext,.sectionOne #PageLinkPrev,.sectionTwo #PageLinkNext,.sectionTwo #PageLinkPrev {
+       -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+       -ms-border-radius: 50%;
+       border-radius: 50%;
+       height: 40px;
+       width: 40px
+   }
+   .ms-promlink-button span:before {
+       color: #007299 !important;
+   }
+   .ms-promlink-button, .pageNumbers a, .pageNumbers strong {
+       float: none !important;
+   }
+   
+   .sectionOne #PageLinkNext .ms-promlink-button-image,
+   .sectionOne #PageLinkPrev .ms-promlink-button-image,
+   .sectionTwo #PageLinkNext .ms-promlink-button-image,
+   .sectionTwo #PageLinkPrev .ms-promlink-button-image {
+       position: relative;
+       display: inline;
+       width: 40px;
+       height: 40px;
+       overflow: hidden;
+       margin: 0
+   }
+   .ms-srch-result #Paging li {
+       display: inline-block !important;
+   }
+   .sectionOne #PageLinkNext .ms-promlink-button-image::before,.sectionOne #PageLinkPrev .ms-promlink-button-image::before,.sectionTwo #PageLinkNext .ms-promlink-button-image::before,.sectionTwo #PageLinkPrev .ms-promlink-button-image::before {
+       font-family: FontAwesome;
+       position: relative;
+       top: -4px;
+       left: -4px;
+       text-rendering: auto;
+       -webkit-font-smoothing: antialiased
+   }
+   .sectionOne #PageLinkNext .ms-promlink-button-image::before,.sectionTwo #PageLinkNext .ms-promlink-button-image::before {
+       content: "\f061"
+   }
+   .sectionOne #PageLinkPrev .ms-promlink-button-image::before,.sectionTwo #PageLinkPrev .ms-promlink-button-image::before {
+       content: "\f060"
+   }
+   .ms-srch-resultFooter {
+       color: #455a64;
+       font-weight: 300
+   }
+   
+   .ms-srch-result a[rel]:after {
+       display: none
+   }
+   
+   .ms-srch-result a[rel]:before {
+       font-family: FontAwesome;
+       padding: 0 10px 0 0
+   }
+   
+   .ms-srch-result a[rel] span {
+       text-transform: uppercase;
+       font-size: 16px;
+       font-weight: 400;
+       color: #455a64
+   }
+   
+   .ms-srch-result a[rel=xls]:before,.ms-srch-result a[rel=xlsx]:before {
+       content: "\f1c3";
+       color: #269129
+   }
+   
+   .ms-srch-result a[rel=pdf]:before {
+       content: "\f1c1";
+       color: #ed1f24
+   }
+   
+   .ms-srch-result a[rel=doc]:before,.ms-srch-result a[rel=docx]:before {
+       content: "\f1c2";
+       color: #294ba0
+   }
+   
+   .ms-srch-result a[rel=ppt]:before,.ms-srch-result a[rel=pptx]:before {
+       content: "\f1c4";
+       color: orange
+   }
+   
+   .ms-srch-result a[rel=external]:before {
+       content: "\f08e"
+   }
+   
+   .search-results-title {
+       margin: 50px 0 15px!important;
+       font-size: 24px!important
+   }
+   .col-md-8 .ms-srch-group .ms-srch-group-content .ms-srch-item .ms-srch-item-body .ms-srch-item-summary {
+       font-size: 16px;
+       color: #263238;
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner {
+       margin-bottom: 10px
+   }
+   
+   .relatedPages,.sideNav {
+       margin: 0 0 30px;
+       padding: 0
+   }
+   
+   .relatedPages h2,.relatedPages h3,.sideNav h2,.sideNav h3 {
+       margin-top: 0;
+       margin-bottom: 15px;
+       padding-bottom: 10px;
+       font-size: 24px;
+       border-bottom: 5px solid #599aab !important;
+   }
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner {
+       padding: 0
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container {
+       border-bottom: 3px solid #e5f1f5;
+       padding: 0
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername {
+       background: #e5f1f5;
+       padding: 15px;
+       width: 100%;
+       font-size: 19px;
+       font-weight: 400;
+       position: relative;
+       padding-right: 30px;
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername .ms-ref-downarrow,.col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername .ms-ref-uparrow {
+       width: auto;
+       height: auto;
+       margin-top: 0;
+       float: right;
+       position: absolute;
+       right: 15px;
+       top: 18px;
+       color: #007299
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername .ms-ref-downarrow:after,.col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername .ms-ref-uparrow:after {
+       font-family: FontAwesome;
+       font-size: 20px
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername .ms-ref-uparrow {
+       background: 0 0;
+       display: inline-block
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername .ms-ref-uparrow:after {
+       content: "\f068"
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername .ms-ref-downarrow {
+       background: 0 0;
+       display: inline-block
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-refinername .ms-ref-downarrow:after {
+       content: "\f067"
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-allSec {
+       border-left: 3px solid #e5f1f5;
+       border-right: 3px solid #e5f1f5;
+       padding: 0;
+       color: #007299
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-allSec div {
+       width: 100%
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-allSec div a {
+       width: 100%;
+       color: #007299;
+       padding: 10px 15px
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-selSec,.col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-unselSec {
+       border-left: 3px solid #e5f1f5;
+       border-right: 3px solid #e5f1f5;
+       border-top: 0;
+       padding: 0
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-selSec div,.col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-unselSec div {
+       width: 100%!important;
+       padding: 0
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-selSec div a,.col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-unselSec div a {
+       text-decoration: none;
+       width: 100%;
+       padding: 10px 15px
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-selSec div a .ms-ref-name,.col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-unselSec div a .ms-ref-name {
+       color: #007299
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-selSec div a .ms-ref-name:hover,.col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-unselSec div a .ms-ref-name:hover {
+       text-decoration: underline!important
+   }
+   
+   .col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-selSec div a .ms-ref-count,.col-md-4 .ms-ref-ctrl .ms-ref-refiner #Container .ms-ref-unselSec div a .ms-ref-count {
+       color: #455a64
+   }
+   
+   .col-md-4 .ms-ref-name {
+       color: #007299
+   }
+   
+   /* END Search result paging styles */
+   
+   
+   /* START - Blog Styles */
+   
+   .ms-blog-MainArea {
+       min-width: 100%;
+       max-width: 100%;
+       width: 100%;
+       display: table;
+   }
+   .ms-blog-postList {
+       padding: 0px;
+       list-style-type: none;
+       margin-top: 0px;
+       margin-right: 0;
+       margin-bottom: 0px;
+       min-width: 100%;
+       max-width: 100%;
+   }
+   .ms-blog-listMenu-root {
+       width: 215px;
+       background-color: #599aab;
+       padding: 7px !important;
+   }
+   
+   /* END - Blog Styles */
+   
+   
+   .ms-srch-item-link {
+       font-weight: bold;
+       display: inline-block;
+       text-decoration: none;
+       font-size: 1.1em;
+   }
+   .ms-srch-item-body p {
+       font-weight: 600;
+       font-size: .9em;
+   }
+   .ms-srch-item-body p span {
+       font-weight: 100;
+   }
+   .ms-tileview-tile-content {
+       background-color: #599aab;
+       position: relative;
+       overflow: hidden;
+   }
+   .ms-tileview-tile-detailsBox {
+       top: 90px !important;
+   }
+   .ms-tileview-tile-titleTextMediumCollapsed {
+       max-height: 56px;
+       overflow: hidden;
+   }
+   .ms-comm-cat-defaultImage {
+       background-color: #599aab;
+   }
+   
+   ul.menu li a {
+       font-size: 17px;
+       font-weight: 700;
+       padding: 11px 15px;
+       line-height: 40px;
+       min-height: 0 !important;
+       display: block;
+       position: absolute;
+       top: 7px;
+       right: 31px;
+   }
+   ul.menu li a:focus, ul.menu li a:hover {
+       background: #f3f3f4!important;
+   }
+   .ms-srchnav-item {
+       padding: 6px 15px;
+       display: inline-block;
+       background-color: #f3f3f4;
+       margin: 0 5px 0 0;
+   }
+   .ms-srchnav-link:link, .ms-srchnav-link:visited {
+       color: #1d1b1b;
+       text-decoration: none !important;
+   }
+   @media (min-width: 641px){
+       .ms-srchnav-item h2 {
+       font-size: 22px;
+   }
+   
+   }
+   /* START - Toolkit guidance border styling */
+   .ui-widget-content-nav {
+   
+       border:solid 2px #873302 !important;
+       background-color:#FEF0E8 !important;
+       margin: 0 0 30px !important;
+       padding: 15px !important;
+   }
+   
+   .tookit-nav {
+   
+       border-bottom: 5px solid #873302;
+       margin-top: 0;
+       margin-bottom: 15px;
+       margin: 0 0 15px;
+       padding: 0 0 10px;
+       font-size: 24px;
+       font-weight: 600;
+       font-family: Montserrat,sans-serif,sans-serif !important;
+   }
+   
+   
+   /* END - Toolkit guidance border styling */
+   
+   /* START - styling for add new staff deal link */
+   .divAddNew
+   {
+   padding: 15px;
+   position: relative; 
+   background-color: #e5f1f5;
+   }
+   /* END - styling for add new staff deal link */
+   
+   /* START - styling for ratings */
+   .rating-clickable SPAN{
+       cursor: pointer;
+       padding-top: 9px;
+       padding-bottom: 9px;
+   }
+   
+   .rating-checked {
+       color: #3399bb;
+   }
+   
+   .rating-label {
+       padding-left: 8px;
+       padding-right: 8px;
+       float: left;
+       background: #ddd;
+       margin-right: 5px;
+   }
+   
+   .rating-comments {
+       margin-bottom: 10px;
+   }
+   
+   /* Modal Content/Box */
+   .rating-modal {
+       display: none; /* Hidden by default */
+       position: fixed; /* Stay in place */
+       z-index: 1; /* Sit on top */
+       left: 0;
+       top: 0;
+       width: 100%; /* Full width */
+       height: 100%; /* Full height */
+       overflow: auto; /* Enable scroll if needed */
+       background-color: rgb(0,0,0); /* Fallback color */
+       background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+   }
+   
+   .rating-modal-content {
+       background-color: #fefefe;
+       margin: 15% auto; /* 15% from the top and centered */
+       padding: 20px;
+       border: 1px solid #888;
+       width: 500px !important; /* Could be more or less, depending on screen size */
+       height: 350px;
+       text-align: center;
+   }
+   
+   @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+   
+   /****** Style Star Rating *****/
+   
+   .rating { 
+     border: none;
+     float: left;
+     padding-left: 140px;
+   }
+   
+   .rating > input { display: none; } 
+   .rating > label:before { 
+     margin: 5px;
+     font-size: 1.25em;
+     font-family: FontAwesome;
+     display: inline-block;
+     content: "\f005";
+   }
+   
+   .rating > .half:before { 
+     content: "\f089";
+     position: absolute;
+   }
+   
+   .rating > label { 
+     color: #000000; 
+    float: right; 
+   }
+   
+   .rating > input:checked ~ label, /* show red star when clicked */
+   .rating:not(:checked) > label:hover, /* hover current star */
+   .rating:not(:checked) > label:hover ~ label { color: #3399bb;  } /* hover previous stars in list */
+   
+   .rating > input:checked + label:hover, /* hover current star when changing rating */
+   .rating > input:checked ~ label:hover,
+   .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+   .rating > input:checked ~ label:hover ~ label { color: #3399bb;  } 
+   /* END - styling for ratings */
+   
+   .phone::before{content:"\f095" !important} 
+   .directorate::before{content:"\f1ad" !important} 
+   .contact::before{content:"\f007" !important} 
+   .fax::before{content:"\f1ac" !important} 
+   .emailadd::before{content:"\f1fa" !important} 
+   .web::before{content:"\f0ac" !important} 
+   .BuildingInfoDetail{font-weight:500 !important}
+   
+   /* START - Carousel */
+   
+    .carousel-control{
+       top:-100px !important;
+       margin:-25px
+   }
+   
+   .carousel-caption{
+   
+       margin-top:-10px !important;
+       margin-bottom:10px !important;
+       margin-right:-30px;
+       margin-left:-30px;
+   
+   }
+   
+   #carouselButtons{
+       display:none;
+   }
+   
+   .carousel-display{
+       // IS carousel now using the $promo-background-color
+       //background-color:#f6f7fa;
+       background-color: $promo-background-color;
+       overflow:hidden;
+   }
+   
+   .carousel-title{
+       padding-top:20px;
+       padding-left:30px;
+   }
+   
+   .carousel-font
+   {
+       font-size: 1.5em;
+   }
+   
+   .image-left{
+       padding: 10px;
+       width: 40%; 
+       height: 80%; 
+       margin-top: 20px; 
+       float: left;
+   }
+   
+   .div-right{
+       padding: 10px;
+       width: 60%;
+       height: 100%;
+       margin-top: 10px;
+       float: right;
+   }
+   
+   .white-background{
+       background-color:white !important;
+   }
+   
+   .font-bold{
+       font-weight:bold;
+   }
+   
+   .fontsize{
+       font-size:.75em;
+   }
+   
+   .text-padding-top{
+       padding-top: 50px; 
+   }
+   
+   .text-padding-left{
+       padding-left:10px;
+   }
+   
+   .carousel-title-Jobs{
+       padding-left:60px;
+       padding-top:10px;
+   }
+   /* END - Carousel */
+   
+   /* START - News webpat(Home page) */
+   .text-color{
+       //color:$charcoal;
+       color:#007299 !important;
+   }
+   
+   /* END - News webpat(Home page) */
+   
+   /* START - Contacts */
+   .contact-email {
+       word-break: break-all;
+   }
+   /* END - Contacts */
+   
+   // En of additional stylesheet
+   /*# sourceMappingURL=application.css.map */
+   
+   
