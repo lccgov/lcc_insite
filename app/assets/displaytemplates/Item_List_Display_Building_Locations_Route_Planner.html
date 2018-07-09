@@ -1,0 +1,135 @@
+﻿<!--
+	Display Template Version 1.0
+	Date: 31/01/2017
+-->
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <title>Item List Display Building Locations Route Planner</title>
+
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+
+    <mso:ManagedPropertyMapping msdt:dt="string">    &#39;Title&#39;:&#39;Title&#39;,
+    &#39;BuildingEasting&#39;:&#39;BuildingeastingOWSNMBR&#39;,
+    &#39;BuildingNorthing&#39;:&#39;BuildingnorthingOWSNMBR&#39;,
+    &#39;BuildingAddress&#39;:&#39;BuildingAddress&#39;,
+    &#39;PostCode&#39;:&#39;PostCodeOWSTEXT&#39;,
+    &#39;UKGridRef&#39;:&#39;UKGridReferenceOWSTEXT&#39;,
+    &#39;XCoord&#39;:&#39;Longitude&#39;,
+    &#39;YCoord&#39;:&#39;Latitude&#39;
+    </mso:ManagedPropertyMapping>
+	
+
+    <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+    <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+    <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Item_List_Display_Building_Locations_Route_Planner.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+	
+</head>
+
+<body>
+    <script>
+		$includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+		$includeCSS(this.url, "~sitecollection/catalogs/masterpage/public/stylesheets/lcc-template.css");
+    </script>
+		
+        <div id="Bulding_Location_Item" class="panel">
+            <!--#_
+            
+                var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_Accordion_");
+                var ID = $getItemValue(ctx, "ListItemID");
+                var Title = $getItemValue(ctx, "Title"); 
+                var BuildingEasting= $getItemValue(ctx, "BuildingEasting"); 
+                var BuildingNorthing= $getItemValue(ctx, "BuildingNorthing"); 
+                var BuildingAddress= $getItemValue(ctx, "BuildingAddress");
+                var Postcode= $getItemValue(ctx, "PostCode"); 
+                var UKGridRef= $getItemValue(ctx, "UKGridRef"); 
+                var XCoord= $getItemValue(ctx, "XCoord"); 
+                var YCoord= $getItemValue(ctx, "YCoord");
+				
+            _#-->					
+			<div class="panel">
+				<form id="routePlanner">
+					<h3>Plan your route</h3>
+						<div class="form-group">
+
+							<h4>Where are you traveling to?</h4>
+							<div  id="toLocation" class="form-group">
+								<fieldset>
+									<legend class="sr-only">Where are you traveling to?</legend>	
+									
+									<label style="width:100%" class="block-label active" for="to-building" data-target="to-building">
+										<input type="radio" id="to-building" name="radio-to-location-group" value="LCC Building" checked="true" aria-controls="to-building" aria-expanded="false" class="js-toggle-active">
+										LCC Building
+									</label>
+									<div class="panel panel-border-narrow js-hidden" id="to-building">							
+										<label class="form-label" for="to-building-location">Select a building</label>								
+										<select class="form-control" name="to-building-location" type="text" id="selectEnd">
+											<option value="_#= Postcode =#_"> _#= Title =#_ </option>
+										</select>								
+									</div>
+
+									<label style="width:100%" class="block-label" for="to-postcode" data-target="to-postcode">
+										<input type="radio" id="to-postcode" name="radio-to-location-group" value="Postcode" aria-controls="to-postcode" aria-expanded="false" class="js-toggle-active">
+											Postcode
+									</label>			
+									<div class="panel panel-border-narrow js-hidden" id="to-postcode">							
+										<label class="form-label" for="to-postcode-location">Enter a postcode</label>
+										<input class="form-control" name="to-postcode-location" type="text" id="to-postcode-location">								
+									</div>	
+								</fieldset>
+							</div>					
+
+							<h4>Where are you traveling from?</h4>
+							<div  id="fromLocation" class="form-group">
+								<fieldset>
+									<legend class="sr-only">Where are you traveling from?</legend>	
+
+									<label style="width:100%" class="block-label" for="from-building" data-target="from-building">
+										<input type="radio" id="from-building" name="radio-from-location-group" value="LCC Building" aria-controls="from-building" aria-expanded="false" class="js-toggle-active">
+										LCC Building
+									</label>
+									<div class="panel panel-border-narrow js-hidden" id="from-building">					
+										<label class="form-label" for="from-building-location">Select a building</label>
+										<span class="error-message" style="visibility: hidden">Choose a building</span>						
+										<select class="form-control" name="from-building-location" type="text" id="selectStart">
+											<option> Select... </option>
+										</select>						
+									</div>
+
+									<label style="width:100%" class="block-label" for="from-postcode" data-target="from-postcode">
+										<input type="radio" id="from-postcode" name="radio-from-location-group" value="Postcode" aria-controls="from-postcode" aria-expanded="false" class="js-toggle-active">
+										Postcode
+									</label>			
+									<div class="panel panel-border-narrow js-hidden" id="from-postcode">						
+										<label class="form-label" for="from-postcode-location">Enter a postcode</label>
+										<input class="form-control" name="from-postcode-location" type="text" id="from-postcode-location">							
+									</div>	
+								</fieldset>
+							</div>
+								
+							<div class="row">
+								<div class="col-sm-12">
+									<button class="btn btn-primary btn-arrow js-build-map-url" id="sendToMapsMaps" type="button" style="width:100%">
+										Go
+									</button>
+								</div>
+							</div>
+						</div>
+				</form>	
+			</div>		
+		</div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+﻿<!--
+	Display Template Version 1.0
+	Date: 31/01/2017
+-->
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>Item Ask Results</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;PublishingImage;PictureURL;PictureThumbnailURL&#39;,&#39;Question&#39;{Question}:&#39;QuestionOWSTEXT&#39;,&#39;AskAnswer&#39;{AskAnswer}:&#39;AskAnswerOWSMTXT&#39;,&#39;RefinableString00&#39;:&#39;RefinableString00&#39;,&#39;SecondaryFileExtension&#39;,&#39;ContentTypeId&#39;</mso:ManagedPropertyMapping>
+<mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Item_Ask_Results.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+    </script>
+
+    <div id="">
+
+<!--#_
+
+var Question = $getItemValue(ctx, "Question");
+var AskAnswer = $getItemValue(ctx, "AskAnswer");
+var pictureURL = $getItemValue(ctx, "Picture URL");
+var RelatedLinks = $getItemValue(ctx, "RefinableString00");
+
+
+var dataDisplayTemplateTitle = "Accordion";
+
+ _#-->
+
+        
+		<div id="AskResults">
+
+			<h2>_#= Question =#_</h2>
+            <hr>
+			<div class="content-block">
+				_#= pictureURL =#_ _#= STSHtmlDecode(AskAnswer.value) =#_
+  			</div>
+  			<div class="relatedLinks-block">
+				
+  			</div>
+
+		</div>
+	</div>      
+</body>
+</html>
+

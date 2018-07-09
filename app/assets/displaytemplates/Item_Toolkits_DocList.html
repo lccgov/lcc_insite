@@ -1,0 +1,44 @@
+﻿<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>Item Toolkits Document List</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Link&#39;:&#39;Path&#39;,&#39;Line 1&#39;{Line 1}:&#39;Title&#39;,&#39;Grouping&#39;:&#39;Audience1OWSCHCS&#39;,&#39;FileSize&#39;{FileSize}:&#39;Size&#39;,&#39;FileType&#39;{FileType}:&#39;FileType&#39;,&#39;Custom Css Class&#39;{Custom CSS class}:&#39;&#39;,&#39;Custom Css Class Toolkit&#39;{Custom CSS class toolkit}:&#39;&#39;</mso:ManagedPropertyMapping>
+<mso:MasterPageDescription msdt:dt="string">jQuery UI Tabs Item Template</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Item_Toolkits_DocList.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+    <div id="item_jQueryUI">
+<!--#_
+	var line1 = $getItemValue(ctx, "Line 1");
+	var grouping = $getItemValue(ctx, "Grouping");
+	var linkURL = $getItemValue(ctx, "Link");
+	var FileSize = $getItemValue(ctx, "FileSize");
+	var FileType = $getItemValue(ctx, "FileType");
+				
+	if(FileType == "pdf")  {   
+		var content = String.format('<li class="pdf"><a class="cbs-Line1Link ms-displayBlock" href="{0}" title="{1}">{1}</a></li>', linkURL, line1);
+	}else if(FileType == "doc" || FileType == "docx"){
+		var content = String.format('<li class="word"><a class="cbs-Line1Link ms-displayBlock" href="{0}" title="{1}">{1}</a></li>', linkURL, line1);
+	}else if(FileType == "xls" || FileType == "xlsx"){
+		var content = String.format('<li class="xl"><a class="cbs-Line1Link ms-displayBlock" href="{0}" title="{1}">{1}</a></li>', linkURL, line1);
+	}else{
+		var content = String.format('<li class="pp"><a class="cbs-Line1Link ms-displayBlock" href="{0}" title="{1}">{1}</a></li>', linkURL, line1);
+	}
+	
+	search.Tabs.push(grouping, content, ctx.ClientControl.get_id());
+_#-->
+    </div>
+</body>
+</html>

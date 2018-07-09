@@ -1,0 +1,196 @@
+﻿<!--
+	Display Template Version 1.0
+	Date: 31/01/2017
+-->
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <title>Item List Display Leeds Services Contact Card</title>
+
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+
+    <mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;LeedsServiceAddress&#39;:&#39;LeedsServiceAddress&#39;,&#39;LeedsServiceBuildingName&#39;:&#39;LeedsServiceBuildingName&#39;,&#39;LeedsServiceDirectorate&#39;:&#39;LeedsServiceDirectorate&#39;,&#39;LeedsServiceEmail&#39;:&#39;LeedsServiceEmail&#39;,&#39;LeedsServiceExtPhone&#39;:&#39;LeedsServiceExtPhone&#39;,&#39;LeedsServiceFax&#39;:&#39;LeedsServiceFax&#39;,&#39;LeedsServiceIntPhone&#39;:&#39;LeedsServiceIntPhone&#39;,&#39;LeedsServiceLinks&#39;:&#39;LeedsServiceLinks&#39;,&#39;LeedsServicePostcode&#39;:&#39;LeedsServicePostcode&#39;</mso:ManagedPropertyMapping>
+	
+    <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+    <mso:ContentTypeId msdt:dt="string">0x010100C5033D6CFB8447359FB795C8A73A2B19001CAD5085AE310E46A379B1DFFAF7F590</mso:ContentTypeId>
+    <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Item_List_Display_Leeds_Services_Contact_Card.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+	
+</head>
+
+<body>
+    <script>
+		$includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+		$includeCSS(this.url, "~sitecollection/catalogs/masterpage/public/stylesheets/lcc-template.css");
+    </script>
+	
+
+        <div id="Bulding_Location_Item">
+
+            <!--#_
+            
+                var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_Accordion_");
+                var ID = $getItemValue(ctx, "ListItemID");
+                var Title = $getItemValue(ctx, "Title"); 
+                var LeedsServiceExtPhone = $getItemValue(ctx, "LeedsServiceExtPhone");
+				var LeedsServiceAddress = $getItemValue(ctx, "LeedsServiceAddress");
+				var LeedsServiceBuildingName = $getItemValue(ctx, "LeedsServiceBuildingName");
+				var LeedsServiceDirectorate = $getItemValue(ctx, "LeedsServiceDirectorate");
+				var LeedsServiceEmail = $getItemValue(ctx, "LeedsServiceEmail");
+				var LeedsServiceFax = $getItemValue(ctx, "LeedsServiceFax");
+				var LeedsServicePostcode = $getItemValue(ctx, "LeedsServicePostcode");
+				var LeedsServiceIntPhone = $getItemValue(ctx, "LeedsServiceIntPhone");
+				var LeedsServiceLinks = $getItemValue(ctx, "LeedsServiceLinks");
+				
+				
+            _#-->
+
+            <div id="Building_Summary" class="panel img panel-event col-sm-12">
+
+                  <span id="Building_Details" class="col-sm-12 content panel-event-content">
+
+                    <div id="Building_Heading">
+                        <h2 class="panel-event-title">_#= Title =#_</h2>
+                    </div>
+
+					<div id="Building_Info" class="panel-event-info col-sm-12">
+						<!--#_
+							if(!LeedsServiceBuildingName.isEmpty || !LeedsServiceAddress.isEmpty || !LeedsServicePostcode.isEmpty)  {   
+						_#-->					
+						<span class="panel-event-info-location col-sm-12">						
+							
+						<!--#_
+							} 
+						_#-->	
+						<!--#_
+							if(!LeedsServiceBuildingName.isEmpty)  {   
+						_#-->
+							<a href="https://www.google.com/maps/search/?api=1&query=_#= LeedsServiceBuildingName =#_" target="_blank"> _#= LeedsServiceBuildingName =#_  </a><br>	
+						<!--#_
+							} 
+						_#-->
+						<!--#_
+							if(!LeedsServiceAddress.isEmpty)  {   
+						_#-->
+							<a href="https://www.google.com/maps/search/?api=1&query=_#= LeedsServiceAddress =#_" target="_blank"> _#= LeedsServiceAddress =#_  </a><br>	
+						<!--#_
+							} 
+						_#-->
+						<!--#_
+							if(!LeedsServicePostcode.isEmpty)  {   
+						_#-->
+							<a href="https://www.google.com/maps/search/?api=1&query=_#= LeedsServicePostcode =#_" target="_blank"> _#= LeedsServicePostcode =#_  </a><br>	
+						<!--#_
+							} 
+						_#-->							
+							</span>
+						<br>	
+						
+						<!--#_
+							if(!LeedsServiceDirectorate.isEmpty)  {   
+						_#-->
+						<br>
+						<span class="panel-event-info-time directorate col-sm-12">
+							<span>Directorate: </span><br><span class="BuildingInfoDetail"> _#= LeedsServiceDirectorate =#_ </span>
+						</span>
+						<br>
+						<!--#_
+							} 
+						_#-->
+						
+						<!--#_
+							if(!LeedsServiceExtPhone.isEmpty)  {   
+						_#-->
+						
+						<span class="panel-event-info-time phone col-sm-6">
+							<span>External Phone: </span><br>
+							<span class="BuildingInfoDetail"> 
+							<a href="tel:_#= LeedsServiceExtPhone =#_"> _#= LeedsServiceExtPhone =#_ </a>
+							</span>
+						</span>
+						
+						<!--#_
+							} 
+						_#-->
+						
+						<!--#_
+							if(!LeedsServiceIntPhone.isEmpty)  {   
+						_#-->
+						
+						<span class="panel-event-info-time phone col-sm-6">
+							<span>Internal Phone: </span><br>
+							<span class="BuildingInfoDetail"> 
+							<a href="tel:_#= LeedsServiceIntPhone =#_"> _#= LeedsServiceIntPhone =#_ </a> 
+							</span>
+						</span>
+						
+						<!--#_
+							} 
+						_#-->
+												
+						<!--#_
+							if(!LeedsServiceFax.isEmpty)  {   
+						_#-->	
+						
+						<span class="panel-event-info-time fax col-sm-6">
+							<span>Fax: </span><br>
+							<span class="BuildingInfoDetail"> 
+							<a href="tel:_#= LeedsServiceFax =#_"> _#= LeedsServiceFax =#_ </a>
+							</span>
+						</span>
+						
+						<!--#_
+							} 
+						_#-->
+						
+						<!--#_
+							if(!LeedsServiceEmail.isEmpty)  {   
+						_#-->	
+						
+						<span class="panel-event-info-time emailadd col-sm-6">
+							<span>Email: </span><br>
+							<span class="BuildingInfoDetail">
+							<a href="mailto:_#= LeedsServiceEmail =#_" target="_top"> _#= LeedsServiceEmail =#_ </a>
+							</span>
+						</span>
+						<br>
+						<!--#_
+							} 
+						_#-->
+						
+						<!--#_
+							if(!LeedsServiceLinks.isEmpty)  {   
+						_#-->	
+						<br>
+						<span class="panel-event-info-time web col-sm-12">
+							<span>Link: </span><br>
+							<span class="BuildingInfoDetail">
+							<a href="_#= LeedsServiceLinks =#_" target="_blank"> _#= LeedsServiceLinks =#_ </a>
+							</span>
+						</span>
+						<br>
+						<!--#_
+							} 
+						_#-->
+						
+					</div>
+					<div class="clearfix"> 
+					</div>
+				</span>
+            </div>
+
+		</div>
+		
+</body>
+
+</html>

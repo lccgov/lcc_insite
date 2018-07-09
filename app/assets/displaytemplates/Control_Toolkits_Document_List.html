@@ -1,0 +1,163 @@
+﻿<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>Control Toolkits Documents</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">jQuery UI Tabs Control Template</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106601</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Control_Toolkits_Document_List.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:ContentType msdt:dt="string">Control Display Template</mso:ContentType>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+    <script>
+        
+        $includeLanguageScript(this.url, "~sitecollection/Style Library/txt_files_/jquery-ui.js");
+
+
+        $includeCSS(this.url, 'https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
+
+        Type.registerNamespace('search.Tabs');
+
+        search.Tabs = function() {
+            var currentCtx = {};
+            return {
+                init: function (currentContext, encodedId, ccId) {
+                    currentCtx[ccId] = {};
+                    // Creating a new grouping object
+                    currentCtx[ccId].Grouping = {};
+
+                    // Add an on post render callback, this will be excuted when all the results are rendered
+                    (function (currentContext, encodedId, ccId) {
+                        AddPostRenderCallback(currentContext, function() {
+                            var groupElm = document.getElementById(encodedId);
+
+                            if (typeof jQuery === "undefined") {
+                                EnsureScriptFunc('jquery-ui.min.js', 'jQuery.ui', function () {
+                                    search.Tabs.show(groupElm, ccId);
+                                });
+                            } else {
+                                search.Tabs.show(groupElm, ccId);
+                            }
+                        });
+                    })(currentContext, encodedId, ccId);
+                },
+                push: function (grouping, content, ccId) {
+                    // If grouping value is empty, group the items under a "Unkown" tab
+                    if (grouping.isEmpty) {
+                        grouping = "Unknown";
+                    }
+                    // Add the markup to the grouping array 
+                    if (typeof currentCtx[ccId].Grouping[grouping] !== "undefined") {
+                        currentCtx[ccId].Grouping[grouping] += content;
+                    } else {
+                        currentCtx[ccId].Grouping[grouping] = content;
+                    }
+                },
+                show: function (groupElm, ccId) {
+                    var groups = currentCtx[ccId].Grouping;
+
+                    var elm = $(groupElm);
+                    elm.append('<ul />');
+
+                    var listElm = elm.find('ul');
+
+                    // Add the content to the page
+                    for (var key in groups) {
+                        listElm.append(String.format('<li><a href="#{0}">{1}</a></li>', key.trim().replace(/ /g, '-'), key));
+                        elm.append(String.format('<div class="docList one"><div class="listWebpart" id="{0}"><ul class="ShowHide">{1}</ul></div></div>', key.trim().replace(/ /g, '-'), groups[key]));
+                    }
+
+                    // Start tabbing
+                    elm.tabs();
+                }
+            }
+        }();
+    </script>
+
+
+    <div id="Control_jQueryUI">
+
+<!--#_
+var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_Grouping");
+
+// Grouping init
+search.Tabs.init(ctx, encodedId, ctx.ClientControl.get_id());
+
+if (!$isNull(ctx.ClientControl) &&
+    !$isNull(ctx.ClientControl.shouldRenderControl) &&
+    !ctx.ClientControl.shouldRenderControl())
+{
+    return "";
+}
+ctx.ListDataJSONGroupsKey = "ResultTables";
+
+var $noResults = Srch.ContentBySearch.getControlTemplateEncodedNoResultsMessage(ctx.ClientControl);
+	
+	var noResultsClassName = "ms-srch-result-noResults";
+	
+	
+	var properties = "";
+		// Retrieve the properties from the display template data variable
+		var cc = ctx['ClientControl'];
+		if (!Srch.U.n(cc)) {
+		    if (!Srch.U.n(cc.get_propertyMappings)) {
+		        var mappings = cc.get_propertyMappings();
+		        if (!Srch.U.n(mappings) && !Srch.U.w(mappings)) {
+		            properties = Srch.Result.parsePropertyMappingsString(mappings);
+		        }
+		    }
+		}
+
+//
+		
+	$(document).ready(function () {
+	
+        $('ul.ShowHide').each(function () {
+			var moreResultsLinkAdded = $(this).find("li").hasClass('sub-ShowHide');
+            var max = 5;
+            if (($(this).find("li").length > max) && ($(this).find("li").length != max + 1 ) && (!moreResultsLinkAdded))
+            {
+				$(this).find('li:gt(' + max + ')')
+					  .hide()
+					  .end()
+					  .append(
+							 $('<li class="sub-ShowHide"><a class="show_more">See more...</a></li>').click( function(){
+									$(this).siblings(':gt('+max+')').toggle();
+									if ( $(this).children('a.show_more').length ) {
+										$(this).html('<a class="show_less">See less...</a>');
+									} else {
+										$(this).html('<a class="show_more">See more...</a>');
+									};
+								})
+							)
+            }
+        });   
+    });
+		
+		//
+		
+_#-->
+
+
+            <div id="_#= encodedId =#_" class="_#= properties['Custom Css Class'] =#_">
+     
+		
+            <h2 class=" _#= properties['Custom Css Class Toolkit'] =#_ ">Toolkit Guidance</h2>
+      
+            _#= ctx.RenderGroups(ctx) =#_
+        </div>
+		</div>
+	
+
+</body>
+</html>

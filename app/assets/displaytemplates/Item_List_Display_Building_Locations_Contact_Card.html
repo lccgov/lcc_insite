@@ -1,0 +1,185 @@
+﻿<!--
+	Display Template Version 1.0
+	Date: 31/01/2017
+-->
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <title>Item List Display Building Locations Contact Card</title>
+
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+
+    <mso:ManagedPropertyMapping msdt:dt="string">    &#39;Title&#39;:&#39;Title&#39;,
+    &#39;BuildingEasting&#39;:&#39;BuildingeastingOWSNMBR&#39;,
+    &#39;BuildingNorthing&#39;:&#39;BuildingnorthingOWSNMBR&#39;,
+    &#39;BuildingAddress&#39;:&#39;BuildingAddress&#39;,
+    &#39;ChangingtheWorkplaceBuilding&#39;:&#39;ChangingtheworkplaOWSTEXT&#39;,
+    &#39;CityCentreLocation&#39;:&#39;LocationOWSTEXT&#39;,
+    &#39;CycleFacilities&#39;:&#39;CycleFacilitiesOWSTEXT&#39;,
+    &#39;FireTestArrangements&#39;:&#39;FiretestarrangemenOWSTEXT&#39;,
+    &#39;LCCContact&#39;:&#39;LCCContactOWSUSER&#39;,
+    &#39;MeetingRooms&#39;:&#39;MeetingRoomsOWSMTXT&#39;,
+    &#39;OpeningHours&#39;:&#39;OpeningHoursOWSTEXT&#39;,
+    &#39;OtherFacilities&#39;:&#39;OtherfacilitiesOWSTEXT&#39;,
+    &#39;Parking&#39;:&#39;ParkingOWSMTXT&#39;,
+	&#39;PageCategory&#39;:&#39;owstaxIdPageCategory&#39;,
+    &#39;PCNetworkAccess&#39;:&#39;PCNetworkAccessOWSTEXT&#39;,
+    &#39;PostCode&#39;:&#39;PostCodeOWSTEXT&#39;,
+    &#39;PromoOrderBy&#39;:&#39;PromoOrderByOWSNMBR&#39;,
+    &#39;ReceptionOpeningTimes&#39;:&#39;ReceptionopeningtiOWSTEXT&#39;,
+    &#39;ReceptionTelephone&#39;:&#39;ReceptionTelephoneOWSTEXT&#39;,
+    &#39;RollupImage&#39;:&#39;PublishingImage&#39;,
+    &#39;ServicesAndLocations&#39;:&#39;ServicesAndLocationsOWSHTML&#39;,
+    &#39;UKGridRef&#39;:&#39;UKGridReferenceOWSTEXT&#39;,
+    &#39;WheelchairAccess&#39;:&#39;WheelchairAccessOWSTEXT&#39;,
+    &#39;WorkspaceTypes&#39;:&#39;WorkspacetypesOWSTEXT&#39;,
+    &#39;AdditionalInfo&#39;:&#39;AdditionalInformationOWSHTML&#39;,
+    &#39;XCoord&#39;:&#39;Longitude&#39;,
+    &#39;YCoord&#39;:&#39;Latitude&#39;
+    </mso:ManagedPropertyMapping>
+	
+
+    <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+    <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+    <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Item_List_Display_Building_Locations_Contact_Card.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+	
+</head>
+
+<body>
+    <script>
+		$includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+		$includeCSS(this.url, "~sitecollection/catalogs/masterpage/public/stylesheets/lcc-template.css");
+    </script>
+	
+
+        <div id="Bulding_Location_Item">
+
+            <!--#_
+            
+                var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_Accordion_");
+                var ID = $getItemValue(ctx, "ListItemID");
+                var Location = $getItemValue(ctx, "BuildingName");
+                var Title = $getItemValue(ctx, "Title"); 
+                var BuildingEasting= $getItemValue(ctx, "BuildingEasting"); 
+                var BuildingNorthing= $getItemValue(ctx, "BuildingNorthing"); 
+                var BuildingAddress= $getItemValue(ctx, "BuildingAddress");
+                var ChangingtheWorkplaceBuilding= $getItemValue(ctx, "ChangingtheWorkplaceBuilding"); 
+                var CityCentreLocation= $getItemValue(ctx, "CityCentreLocation"); 
+                var CycleFacilities= $getItemValue(ctx, "CycleFacilities");
+                var FireTestArrangements= $getItemValue(ctx, "FireTestArrangements"); 
+                var LCCContact= $getItemValue(ctx, "LCCContact"); 
+                var MeetingRooms= $getItemValue(ctx, "MeetingRooms");
+                var OpeningHours= $getItemValue(ctx, "OpeningHours"); 
+                var OtherFacilities= $getItemValue(ctx, "OtherFacilities"); 
+                var Parking= $getItemValue(ctx, "Parking"); 
+                var PCNetworkAccess= $getItemValue(ctx, "PCNetworkAccess");
+                var Postcode= $getItemValue(ctx, "PostCode"); 
+                var PageCategory= $getItemValue(ctx, "PageCategory"); 
+                var PromoOrderBy= $getItemValue(ctx, "PromoOrderBy"); 
+                var ReceptionHours= $getItemValue(ctx, "ReceptionOpeningTimes");
+                var ReceptionTelephone= $getItemValue(ctx, "ReceptionTelephone"); 
+                var RollupImage= $getItemValue(ctx, "RollupImage"); 
+				var Services= $getItemValue(ctx, "ServicesAndLocations");
+                var UKGridRef= $getItemValue(ctx, "UKGridRef"); 
+                var WheelchairAccess= $getItemValue(ctx, "WheelchairAccess"); 
+                var WorkspaceTypes= $getItemValue(ctx, "WorkspaceTypes");
+                var AdditionalInfo= $getItemValue(ctx, "AdditionalInfo");
+				
+                var XCoord= $getItemValue(ctx, "XCoord"); 
+                var YCoord= $getItemValue(ctx, "YCoord");
+				
+            _#-->
+
+            <div id="Building_Summary" class="panel img panel-event col-sm-12">
+
+                <span id="Building_Image" class="col-sm-4">
+                    <a href="https://www.google.com/maps/search/?api=1&query=_#= Postcode =#_" target="_blank"><img class="img-content" src="_#= RollupImage =#_" width="100%"></a>
+                </span>
+
+                <span id="Building_Details" class="col-sm-8 content panel-event-content">
+
+                    <div id="Building_Heading">
+                        <h2 class="panel-event-title">_#= Title =#_</h2>
+                        <p class="panel-event-description">_#= STSHtmlDecode(Services.value) =#_</p>
+                    </div>
+					<br>
+					<div id="Building_Info" class="panel-event-info col-sm-12">
+					
+						<p class="panel-event-info-location">
+							<span class="col-sm-12">
+								<a href="https://www.google.com/maps/search/?api=1&query=_#= Postcode =#_" target="_blank"> _#= BuildingAddress =#_ </a>
+							</span>
+						</p>
+						<br>
+						
+						<!--#_
+							if(!OpeningHours.isEmpty)  {   
+						_#-->
+						<br>
+						<p class="panel-event-info-time col-sm-12">
+							<span>Building opening hours: </span><br><span class="BuildingInfoDetail"> _#= OpeningHours =#_ </span>
+						</p>
+						<br>
+						<!--#_
+							} 
+						_#-->
+						
+						<!--#_
+							if(!ReceptionHours.isEmpty)  {   
+						_#-->
+						<br>
+						<p class="panel-event-info-time col-sm-12">
+							<span>Reception opening hours: </span><br><span class="BuildingInfoDetail"> _#= ReceptionHours =#_ </span>
+						</p>
+						<br>
+						<!--#_
+							} 
+						_#-->
+												
+						<!--#_
+							if(!ReceptionTelephone.isEmpty)  {   
+						_#-->	
+						<br>
+						<p class="panel-event-info-time phone col-sm-12">
+							<span>Reception telephone: </span><br><span class="BuildingInfoDetail"> _#= ReceptionTelephone =#_ </span>
+						</p>
+						<br>
+						<!--#_
+							} 
+						_#-->
+						
+						<!--#_
+							if(!LCCContact.isEmpty)  {   
+						_#-->	
+						<br>
+						<p class="panel-event-info-time contact col-sm-12">
+							<span>Building Contact: </span><br><span class="BuildingInfoDetail"> _#= LCCContact =#_ </span>
+						</p>
+						<br>
+						<!--#_
+							} 
+						_#-->
+						
+					</div>
+					<div class="clearfix"> 
+					</div>
+                </span>
+
+            </div>
+
+		</div>
+		
+</body>
+
+</html>

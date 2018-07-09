@@ -48,7 +48,7 @@ gulp.task('clean:dist', (done) => {
 
 //Sync assets to public folder excluding SASS files and JS
 gulp.task('sync:assets', ['clean:dist'], (done) => {
-    syncy(['app/assets/**/*', '!app/assets/sass/**',  '!app/assets/javascripts/**', '!app/assets/*_subsite/javascripts/**', '!app/assets/*_subsite/sass/**', '!app/assets/webparts/**'], './dist/_catalogs/masterpage/public', {
+    syncy(['app/assets/**/*', '!app/assets/sass/**',  '!app/assets/javascripts/**', '!app/assets/*_subsite/javascripts/**', '!app/assets/*_subsite/sass/**', '!app/assets/webparts/**', '!app/assets/displaytemplates/**'], './dist/_catalogs/masterpage/public', {
             ignoreInDest: '**/stylesheets/**',
             base: 'app/assets',
             updateAndDelete: false
@@ -88,7 +88,7 @@ gulp.task('sync:lcc_sharepoint_toolkit_webparts', ['sync:javascripts'], (done) =
 
 //Sync node_modules/lcc_sharepoint_toolkit/displaytemplates to dist/_catalogs/masterpage/Display Templates/Content Web Parts
 gulp.task('sync:lcc_sharepoint_toolkit_displaytemplates', ['sync:lcc_sharepoint_toolkit_webparts'], (done) => {
-    return gulp.src('node_modules/lcc_sharepoint_toolkit/displaytemplates/*.html')
+    return gulp.src(['node_modules/lcc_sharepoint_toolkit/displaytemplates/*.html','app/assets/displaytemplates/*.html'])
         .pipe(gulp.dest('dist/_catalogs/masterpage/Display Templates/Content Web Parts'))
 });
 
@@ -137,6 +137,8 @@ gulp.task('sync:lcc_templates_sharepoint_views', ['sync:lcc_templates_sharepoint
 var replacements = {};
 
 replacements.css =  util.format('/_catalogs/masterpage/public/stylesheets/%s.css?rev=%s', packageName.replace(/_/g, '-'), Uuid());
+replacements.searchBox = '<SearchWC:SearchBoxScriptWebPart UseSiteCollectionSettings="true" EmitStyleReference="false" ShowQuerySuggestions="true" ChromeType="None" UseSharedSettings="true" TryInplaceQuery="false" ServerInitialRender="true" runat="server">                          </SearchWC:SearchBoxScriptWebPart>';
+replacements.mainNav = '<SharePoint:AjaxDelta ID="DeltaTopNavigation" BlockElement="true" CssClass="ms-displayInline ms-core-navigation ms-dialogHidden" runat="server">                         <SharePoint:DelegateControl runat="server" ControlId="TopNavigationDataSource" Id="topNavigationDelegate">                           <Template_Controls>                             <asp:SiteMapDataSource ShowStartingNode="True" SiteMapProvider="SPNavigationProvider" ID="topSiteMap" runat="server" StartingNodeUrl="sid:1002">                             </asp:SiteMapDataSource></Template_Controls></SharePoint:DelegateControl>                         <a name="startNavigation">                         </a>                         <asp:ContentPlaceHolder ID="PlaceHolderTopNavBar" runat="server">                             <SharePoint:AspMenu ID="TopNavigationMenu" runat="server" EnableViewState="false" DataSourceID="topSiteMap" AccessKey="&lt;%$Resources:wss,navigation_accesskey%&gt;" UseSimpleRendering="true" UseSeparateCss="false" Orientation="Horizontal" StaticDisplayLevels="4"   AdjustForShowStartingNode="false" MaximumDynamicDisplayLevels="0" SkipLinkText="">                            </SharePoint:AspMenu>                         </asp:ContentPlaceHolder>                      </SharePoint:AjaxDelta>';
 
 //Update app css ref and rename master
 gulp.task('sync:lcc_templates_sharepoint_master', ['sync:lcc_templates_sharepoint_views'], (done) => {
@@ -265,7 +267,7 @@ gulp.task('prompt',['pre-flight'], function () {
 });
 
 gulp.task('sp-upload', ['prompt'], (done) => {
-    var glob = gutil.env.css ? 'dist/**/*.css' :'dist/**/*.*';
+    var glob = gutil.env.css ? 'dist/**/*.css' : gutil.env.html ? 'dist/**/*.html' : 'dist/**/*.*';
     return gulp.src(glob)
     .pipe(((settings.siteUrl.indexOf("dev")) == -1 && (!noninteractive)) ? prompt.confirm({
         message: 'You appear to be deploying to a non dev environment, is that ok?',
