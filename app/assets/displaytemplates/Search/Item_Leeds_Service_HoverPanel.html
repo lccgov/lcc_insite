@@ -1,0 +1,123 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>Leeds Services Hover Panel</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Displays the default hover panel template.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchHoverPanel;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;Path&#39;:&#39;Path&#39;,&#39;Description&#39;:&#39;Description&#39;,&#39;EditorOWSUSER&#39;:&#39;EditorOWSUSER&#39;,&#39;LastModifiedTime&#39;:&#39;LastModifiedTime&#39;,&#39;CollapsingStatus&#39;:&#39;CollapsingStatus&#39;,&#39;DocId&#39;:&#39;DocId&#39;,&#39;HitHighlightedSummary&#39;:&#39;HitHighlightedSummary&#39;,&#39;HitHighlightedProperties&#39;:&#39;HitHighlightedProperties&#39;,&#39;FileExtension&#39;:&#39;FileExtension&#39;,&#39;ViewsLifeTime&#39;:&#39;ViewsLifeTime&#39;,&#39;ParentLink&#39;:&#39;ParentLink&#39;,&#39;FileType&#39;:&#39;FileType&#39;,&#39;IsContainer&#39;:&#39;IsContainer&#39;,&#39;SecondaryFileExtension&#39;:&#39;SecondaryFileExtension&#39;,&#39;DisplayAuthor&#39;:&#39;DisplayAuthor&#39;</mso:ManagedPropertyMapping>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Search/Item_Leeds_Service_HoverPanel.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+
+    <div id="Item_Default_HoverPanel">
+<!--#_
+        var i = 0;
+        var id = ctx.CurrentItem.csr_id;
+		var Title = ctx.CurrentItem.Title;
+		var LeedsServiceExtPhone = ctx.CurrentItem.LeedsServiceExtPhone;
+		var LeedsServiceAddress = ctx.CurrentItem.LeedsServiceAddress;
+		var LeedsServiceBuildingName = ctx.CurrentItem.LeedsServiceBuildingName;
+		var LeedsServiceDirectorate = ctx.CurrentItem.LeedsServiceDirectorate;
+		var LeedsServiceEmail = ctx.CurrentItem.LeedsServiceEmail;
+		var LeedsServiceFax = ctx.CurrentItem.LeedsServiceFax;
+		var LeedsServiceIntPhone = ctx.CurrentItem.LeedsServiceIntPhone;
+        var LeedsServiceLinks = ctx.CurrentItem.LeedsServiceLinks;
+		var LeedsServicePostcode = ctx.CurrentItem.LeedsServicePostcode;
+        
+		ctx.CurrentItem.csr_ShowViewLibrary = !Srch.U.isWebPage(ctx.CurrentItem.FileExtension);
+        if(ctx.CurrentItem.IsContainer)
+        {
+            ctx.CurrentItem.csr_FileType = Srch.Res.ct_Folder
+        }
+
+        ctx.currentItem_ShowChangedBySnippet = true;
+
+_#-->
+        <div class="ms-srch-hover-innerContainer ms-srch-hover-standardSize" id="_#= $htmlEncode(id + HP.ids.inner) =#_" style="right: 390px !Important; bottom: 170px !Important; width: 350px !Important;">
+            <div id="_#= $htmlEncode(id + HP.ids.arrowBorder) =#_"></div>
+            <div id="_#= $htmlEncode(id + HP.ids.arrow) =#_"></div>
+            <div class="ms-srch-hover-content" id="_#= $htmlEncode(id + HP.ids.content) =#_" data-displaytemplate="DefaultHoverPanel" style="width: 100% !Important;">
+                <div id="_#= $htmlEncode(id + HP.ids.header) =#_" class="ms-srch-hover-header" style="width: 100% !Important;">
+                   <h3>_#= Title =#_ </h3>
+                </div>
+
+                <div id="_#= $htmlEncode(id + HP.ids.body) =#_" class="ms-srch-hover-body" style="width: 100% !Important;">
+					<!--#_
+						if(LeedsServiceDirectorate != null && LeedsServiceDirectorate !== undefined && !LeedsServiceDirectorate.isEmpty)  {   
+					_#-->					
+						_#= LeedsServiceDirectorate =#_ <br>
+					<!--#_
+						}  
+					_#-->
+					<!--#_
+						if(LeedsServiceBuildingName != null && LeedsServiceBuildingName !== undefined && !LeedsServiceBuildingName.isEmpty)  {   
+					_#-->				
+						_#= LeedsServiceBuildingName =#_ <br>
+					<!--#_
+						}  
+					_#-->
+					<!--#_
+						if(LeedsServiceAddress != null && LeedsServiceAddress !== undefined && !LeedsServiceAddress.isEmpty)  {   
+					_#--> 
+						_#= LeedsServiceAddress =#_ <br>
+					<!--#_
+						}  
+					_#-->
+					<!--#_
+						if(LeedsServicePostcode != null && LeedsServicePostcode !== undefined && !LeedsServicePostcode.isEmpty)  {   
+					_#-->				
+						_#= LeedsServicePostcode =#_ <br>
+					<!--#_
+						}  
+					_#-->
+					<!--#_
+						if(LeedsServiceIntPhone != null && LeedsServiceIntPhone !== undefined && !LeedsServiceIntPhone.isEmpty)  {   
+					_#-->				
+						Int Tel: <a href="tel:_#= LeedsServiceIntPhone =#_"> _#= LeedsServiceIntPhone =#_ </a> <br>
+					<!--#_
+					}  
+					_#-->
+					<!--#_
+						if(LeedsServiceExtPhone != null && LeedsServiceExtPhone !== undefined && !LeedsServiceExtPhone.isEmpty)  {   
+					_#-->				
+						Ext Tel: <a href="tel:_#= LeedsServiceExtPhone =#_"> _#= LeedsServiceExtPhone =#_ </a> <br>
+					<!--#_
+					}  
+					_#-->
+					<!--#_
+						if(LeedsServiceFax != null && LeedsServiceFax !== undefined && !LeedsServiceFax.isEmpty)  {   
+					_#-->					
+						Fax: <a href="tel:_#= LeedsServiceFax =#_"> _#= LeedsServiceFax =#_ </a> <br>
+					<!--#_
+						}  
+					_#-->
+					<!--#_
+						if(LeedsServiceEmail != null && LeedsServiceEmail !== undefined && !LeedsServiceEmail.isEmpty)  {   
+					_#-->					
+						Email: <a href="mailto:_#= LeedsServiceEmail =#_" target="_top"> _#= LeedsServiceEmail =#_ </a> <br>
+					<!--#_
+						}  
+					_#-->
+					<!--#_
+						if(LeedsServiceLinks != null && LeedsServiceLinks !== undefined && !LeedsServiceLinks.isEmpty)  {   
+					_#-->						
+						<a href="_#= LeedsServiceLinks =#_" target="_blank">Website </a> <br>
+					<!--#_
+						}  
+					_#-->				
+					</div>			
+            </div> 
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>InSite Jargon Buster Search Results</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Displays the default result item template.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;Path&#39;:&#39;Path&#39;,&#39;Description&#39;:&#39;Description&#39;,&#39;SeoMetaDescriptionOWSTEXT&#39;:&#39;SeoMetaDescriptionOWSTEXT&#39;,&#39;EditorOWSUSER&#39;:&#39;EditorOWSUSER&#39;,&#39;LastModifiedTime&#39;:&#39;LastModifiedTime&#39;,&#39;CollapsingStatus&#39;:&#39;CollapsingStatus&#39;,&#39;DocId&#39;:&#39;DocId&#39;,&#39;HitHighlightedSummary&#39;:&#39;HitHighlightedSummary&#39;,&#39;HitHighlightedProperties&#39;:&#39;HitHighlightedProperties&#39;,&#39;FileExtension&#39;:&#39;FileExtension&#39;,&#39;ViewsLifeTime&#39;:&#39;ViewsLifeTime&#39;,&#39;ParentLink&#39;:&#39;ParentLink&#39;,&#39;FileType&#39;:&#39;FileType&#39;,&#39;Size&#39;:&#39;Size&#39;,&#39;IsContainer&#39;:&#39;IsContainer&#39;,&#39;SecondaryFileExtension&#39;:&#39;SecondaryFileExtension&#39;,&#39;DisplayAuthor&#39;:&#39;DisplayAuthor&#39;,&#39;KpiDescriptionOWSMTXT&#39;:&#39;KpiDescriptionOWSMTXT&#39;</mso:ManagedPropertyMapping>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Search/Item_Insite_Jargon_Buster_Search_Results.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div id="Item_Default">
+<!--#_ 
+        if(!$isNull(ctx.CurrentItem) && !$isNull(ctx.ClientControl)){
+            var id = ctx.ClientControl.get_nextUniqueId();
+			var Title = ctx.CurrentItem.Title;
+			var KpiDescriptionOWSMTXT = ctx.CurrentItem.KpiDescriptionOWSMTXT;
+            var itemId = id + Srch.U.Ids.item;
+			var hoverId = id + Srch.U.Ids.hover;
+			var hoverUrl = "~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Default_HoverPanel.js";
+            $setResultItem(itemId, ctx.CurrentItem);
+			if(ctx.CurrentItem.IsContainer){
+				ctx.CurrentItem.csr_Icon = Srch.U.getFolderIconUrl();
+			}
+			ctx.currentItem_ShowHoverPanelCallback = Srch.U.getShowHoverPanelCallback(itemId, hoverId, hoverUrl);
+            ctx.currentItem_HideHoverPanelCallback = Srch.U.getHideHoverPanelCallback();
+_#-->
+            <div id="_#= itemId =#_" name="Item" data-displaytemplate="DefaultItem" class="panel panel-border">
+				<div>
+				<h4>_#= Title =#_</h4>
+				 </div>
+				 <div>
+				 _#= KpiDescriptionOWSMTXT =#_
+				 </div>
+            </div>
+<!--#_ 
+        } 
+_#-->
+    </div>
+</body>
+</html>
