@@ -238,6 +238,11 @@ $input-border-color:$grey;
 @import 'url-helper';
 @import 'webchat';
 
+// Fix for the sticky(ish) ribbon (positioning on designer ribbon)
+#ms-designer-ribbon {
+    position:relative;
+    top:1px; //This gets reset to Zero by JavaScript
+} 
 
 // Fix for the small font caused by the RSS feed
 .link-item, .link-item a, .link-item a:link {
