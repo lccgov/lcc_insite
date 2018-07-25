@@ -239,6 +239,14 @@ $input-border-color:$grey;
 @import 'webchat';
 
 
+// Fix for the small font caused by the RSS feed
+.link-item, .link-item a, .link-item a:link {
+    font-size: 19px;
+    color: #fff;
+    font-family: "Open Sans",sans-serif,sans-serif;
+    text-decoration: underline;
+}
+
 //CUSTOM STYLES FOR INSITE.GOV.UK
 
 // Top content sections at the foot of the page
