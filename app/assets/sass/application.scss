@@ -13,11 +13,19 @@
 
 //base.scss
 
+//cleanandcollegiate
+$powderblue:#4a8dac;
+//$powderblue:#264A5A; //meets AAA
+//$powderblue:#3b7088; //meets AA
+$blush:#eeB6B7;
+$cotton:#99ced4;
+$smoke:#6e7376;
+
 // InSite specifi newcolor scheme
-$paleGold: #C0B283;
+//$paleGold: #C0B283;
 $charcoal:#373737;
 $paper:#F4F4F4;
-$silk:#DCD0C0;
+//$silk:#DCD0C0;
 
 //base colours
 $blue:#007299;
@@ -41,14 +49,14 @@ $red:#c0392b;
 $base-font-size:16px;
 $base-font-color:$black;
 $header-font-color:$black;
-$base-link-color:$blue;
-$base-link-hover-color:$light-blue;
-$base-link-visited-color:#4C2C92;
+//$base-link-color:$powderblue;
+//$base-link-color:darken($powderblue,10);
+//$base-link-hover-color:$powderblue;
+//$base-link-visited-color:#4C2C92;
 $secondary-link-color:$dark-blue;
 $secondary-font-color:$dark-grey;
 $border-color:$light-grey;
-$brand-color:$paleGold; 
-$brand-color:$paleGold;
+$brand-color:$powderblue; 
 $button-color:$green;
 $button-hover-color:lighten($button-color,5%);
 $focus-color:$yellow;
@@ -143,7 +151,7 @@ $sectionFive-background-color:#fff;
 //news
 // IS overriden the news buttons and the hover states which are
 // darkened in the @imported stylesheets
-$news-button-background: $paleGold;
+$news-button-background: $powderblue;
 $news-pod-back:#ffffff ;
 $news-pod-border-color:#ddd;
 
@@ -174,15 +182,10 @@ $promo-secondary-color:$black;
 $promo-highlight-background-color:$dark-blue;
 $promo-highlight-color:$white;
 
-//add a new border to mega-promos
-.mega-promo__item a, .groupPromo ul li a, .carousel-display, .sideNav{
-    border:solid 2px $brand-color;
-}
-
 //button colours
-$primary-button-background-color:darken($paleGold,10%);
+$primary-button-background-color:darken($powderblue,10%);
 $primary-button-color:$white;
-$secondary-button-background-color:$paleGold;
+$secondary-button-background-color:$powderblue;
 $secondary-button-color:$white;
 $outline-button-border-color:$blue;
 $outline-button-color:$blue;
@@ -238,27 +241,93 @@ $input-border-color:$grey;
 
 //CUSTOM STYLES FOR INSITE.GOV.UK
 
+// Top content sections at the foot of the page
+#WebPartWPQ9 div.groupPromo a{
+    background-color:$blush !important;
+}
+
+#WebPartWPQ9 div.groupPromo a:hover{
+    background-color:darken($blush, 10) !important;
+}
+
+#WebPartWPQ8 div.groupPromo a{
+    background-color:$smoke !important;
+    border-color:$smoke;
+    color: #fff !important;
+}
+
+#WebPartWPQ8 div.groupPromo a:hover{
+    background-color:lighten($smoke, 10) !important;
+}
+
+#WebPartWPQ8 div.groupPromo a h3{
+    color: #fff !important;
+}
+
+// Customised the Promos etc.
+
+// Promos
+
+//add a new border to mega-promos
+/*
+.mega-promo__item a, .groupPromo ul li a, .carousel-display, .sideNav{
+    border:solid 2px $blush;
+}*/
+
+.mega-promo .mega-promo__item a{
+    background-color: lighten($blush, 10);
+}
+
+.mega-promo .mega-promo__item a:hover{
+    background-color: $blush  !important;
+}
+
+.mega-promo .mega-promo__item a .mega-promo__content .mega-promo__secondary{
+    color:darken($powderblue, 30);
+}
+
+// group-promos
+.groupPromo ul li a{
+
+    background-color: lighten($cotton, 10);
+}
+
+.groupPromo ul li a:visited{
+
+    border-color:$blush; //lighten($powderblue,20);
+}
+
+.groupPromo ul li a:hover{
+
+    background-color: $cotton  !important;
+}
+
 // IS News button colors
 .sectionSubsite.news a.button:hover {
-    background-color: $silk;
+    background-color: $blush;
     color: #373737 !important; 
 }
 
 .sectionSubsite.news a.button {
-    color: #373737 !important; 
+    color: #fff !important; 
+    background-color:#dc0000;
 }
 
 #paging .contentPod a:hover{
-    background-color: $silk;
+    background-color: $blush;
 }
 
 //IS - the darken function is built into brand-colors so we need an override
 .main-nav {
     a:hover,    a:focus{
-       background-color: $silk !important;
+       background-color: $cotton !important;
        color: $main-nav-link;
     }
    }
+
+   .main-nav ul li a {
+    color: #fff !important;
+}
    
    //site background
    html{
@@ -603,62 +672,70 @@ $input-border-color:$grey;
    }
    
    /* trainingNav */
-   
+   $blush:#eeb6b7;
+   $training:$blush;
+
    .sideNav.trainingNav::before{
        content: "\f02d";
-       color:#3f681c;
+       color:#FFF;
    }
    
    .sideNav.trainingNav > h3{
-       color:#0e1806;
+        color:#FFF;
    }
    
    .sideNav.trainingNav {
-       border:solid 2px #274011;
-       background-color:#70b832 !important
+       border:solid 2px darken($training, 40);
+       background-color:darken($training, 40) !important;
    }
    
    .sideNav.trainingNav > ul {
-       background-color:#d9f0c6;
+       background-color:lighten($training, 13);
    }
    
    /* ask */
-   
+   $cotton:#99ced4;
+   $ask:$cotton;
+   // $ask: #664b00
+
    .sideNav.askSideNav::before{
        content: "\f059";
-       color:#664b00;
+       color:#fff;
    }
    
    .sideNav.askSideNav > h3{
-       color:#664b00;
+       color:#fff;
    }
    
    .sideNav.askSideNav {
-       border:solid 2px #997000;
-       background-color:#cca333 !important
+       border:solid 2px darken($ask, 40);
+       background-color:darken($ask, 40) !important
    }
    
    .sideNav.askSideNav > ul {
-       background-color:#ffe499;
+       background-color:lighten($ask, 20);
    }
    
    /* Policies */
+
+   $policies:darken($smoke,10);
+   
    .sideNav.policiesNav::before{
        content: "\f129";
-       color:#873302;
+       color:#fff;
    }
    
    .sideNav.policiesNav > h3{
-       color:#274011;
+       color:#fff;
    }
    
    .sideNav.policiesNav {
-       border:solid 2px #3f681c;
-       background-color:#70b832 !important
+       border:solid 2px $policies;
+       background-color:$policies !important;
    }
    
    .sideNav.policiesNav > ul {
-       background-color:#d9f0c6;
+       background-color:lighten($policies,55) ;
    }
    
    /* Generic */
