@@ -1,0 +1,79 @@
+﻿<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>InSite Leeds Services Search Results2</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Displays the default result item template.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;Path&#39;:&#39;Path&#39;,&#39;Description&#39;:&#39;Description&#39;,&#39;SeoMetaDescriptionOWSTEXT&#39;:&#39;SeoMetaDescriptionOWSTEXT&#39;,&#39;EditorOWSUSER&#39;:&#39;EditorOWSUSER&#39;,&#39;LastModifiedTime&#39;:&#39;LastModifiedTime&#39;,&#39;CollapsingStatus&#39;:&#39;CollapsingStatus&#39;,&#39;DocId&#39;:&#39;DocId&#39;,&#39;HitHighlightedSummary&#39;:&#39;HitHighlightedSummary&#39;,&#39;HitHighlightedProperties&#39;:&#39;HitHighlightedProperties&#39;,&#39;FileExtension&#39;:&#39;FileExtension&#39;,&#39;ViewsLifeTime&#39;:&#39;ViewsLifeTime&#39;,&#39;ParentLink&#39;:&#39;ParentLink&#39;,&#39;FileType&#39;:&#39;FileType&#39;,&#39;Size&#39;:&#39;Size&#39;,&#39;IsContainer&#39;:&#39;IsContainer&#39;,&#39;SecondaryFileExtension&#39;:&#39;SecondaryFileExtension&#39;,&#39;DisplayAuthor&#39;:&#39;DisplayAuthor&#39;,&#39;LeedsServiceAddress&#39;:&#39;LeedsServiceAddress&#39;,&#39;LeedsServiceBuildingName&#39;:&#39;LeedsServiceBuildingName&#39;,&#39;LeedsServiceDirectorate&#39;:&#39;LeedsServiceDirectorate&#39;,&#39;LeedsServiceEmail&#39;:&#39;LeedsServiceEmail&#39;,&#39;LeedsServiceExtPhone&#39;:&#39;LeedsServiceExtPhone&#39;,&#39;LeedsServiceFax&#39;:&#39;LeedsServiceFax&#39;,&#39;LeedsServiceIntPhone&#39;:&#39;LeedsServiceIntPhone&#39;,&#39;LeedsServiceLinks&#39;:&#39;LeedsServiceLinks&#39;,&#39;LeedsServicePostcode&#39;:&#39;LeedsServicePostcode&#39;</mso:ManagedPropertyMapping>
+
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display Templates/Search/Item_InSite_Leeds_Services_Search_Results2.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div id="Item_Default">
+<!--#_ 
+        if(!$isNull(ctx.CurrentItem) && !$isNull(ctx.ClientControl)){
+            var id = ctx.ClientControl.get_nextUniqueId();
+            var sz = "KB";
+            var itemId = id + Srch.U.Ids.item;
+			var hoverId = id + Srch.U.Ids.hover;
+			var Title = ctx.CurrentItem.Title;
+			var Path = ctx.CurrentItem.Path;
+			var ItemID = Path.split("=").pop();
+			var SeoMetaDescriptionOWSTEXT = ctx.CurrentItem.SeoMetaDescriptionOWSTEXT;
+			var Path = ctx.CurrentItem.Path;
+			var Description = ctx.CurrentItem.Description;
+			var FileType = ctx.CurrentItem.FileType;
+			var FileSize = ctx.CurrentItem.Size;
+			var HitHighlightedSummary = ctx.CurrentItem.HitHighlightedSummary;
+			var html = "html";
+			
+			
+			FileSize = FileSize/1024;
+				if(FileSize > 1024){
+					FileSize = FileSize/1024;
+					var sz = "MB";
+				}  
+			
+			var FSTotal = FileSize.toFixed(1);
+			
+			var hoverUrl = "~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Leeds_Service_HoverPanel.js";
+            $setResultItem(itemId, ctx.CurrentItem);
+			if(ctx.CurrentItem.IsContainer){
+				ctx.CurrentItem.csr_Icon = Srch.U.getFolderIconUrl();
+			}
+			ctx.currentItem_ShowHoverPanelCallback = Srch.U.getShowHoverPanelCallback(itemId, hoverId, hoverUrl);
+            ctx.currentItem_HideHoverPanelCallback = Srch.U.getHideHoverPanelCallback();
+            
+            var isVBB = ctx.CurrentItem.IsVisualBestBet;
+                   
+_#-->
+	            
+	            
+
+	            
+	            
+	            <div id="_#= $htmlEncode(itemId) =#_" name="Item" data-displaytemplate="DefaultItem" class="ms-srch-item" onmouseover="_#= ctx.currentItem_ShowHoverPanelCallback =#_" onmouseout="_#= ctx.currentItem_HideHoverPanelCallback =#_">
+						<div class="ms-srch-item-body">
+							<div id="_#= $htmlEncode(id + Srch.U.Ids.title) =#_" class="ms-srch-item-title">									
+									<a rel="_#= FileType =#_" href="leeds-services/results?ListItemID=_#= ItemID =#_" class="ms-srch-item-link" title="_#= Title =#_">_#= Title =#_ </a>																												
+							</div>
+						</div>
+					<div id="_#= $htmlEncode(hoverId) =#_" class="ms-srch-hover-outerContainer"></div>
+            	</div>
+<!--#_ 
+        } 
+_#-->
+    </div>
+</body>
+</html>

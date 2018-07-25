@@ -87,9 +87,16 @@ gulp.task('sync:lcc_sharepoint_toolkit_webparts', ['sync:javascripts'], (done) =
 });
 
 //Sync node_modules/lcc_sharepoint_toolkit/displaytemplates to dist/_catalogs/masterpage/Display Templates/Content Web Parts
-gulp.task('sync:lcc_sharepoint_toolkit_displaytemplates', ['sync:lcc_sharepoint_toolkit_webparts'], (done) => {
-    return gulp.src(['node_modules/lcc_sharepoint_toolkit/displaytemplates/*.html','app/assets/displaytemplates/*.html'])
+gulp.task('sync:lcc_sharepoint_toolkit_displaytemplates_toolkit', ['sync:lcc_sharepoint_toolkit_webparts'], (done) => {
+    return gulp.src('node_modules/lcc_sharepoint_toolkit/displaytemplates/*.html')
         .pipe(gulp.dest('dist/_catalogs/masterpage/Display Templates/Content Web Parts'))
+});
+
+//Sync app/assets/displaytemplates to dist/_catalogs/masterpage/Display Templates
+gulp.task('sync:lcc_sharepoint_toolkit_displaytemplates', ['sync:lcc_sharepoint_toolkit_displaytemplates_toolkit'], (done) => {
+    return gulp.src('app/assets/displaytemplates/**/*.html', {
+        base: 'app/assets/displaytemplates'
+    }).pipe(gulp.dest('dist/_catalogs/masterpage/Display Templates'))
 });
 
 //Sync node_modules/lcc_sharepoint_toolkit/xslstylesheets to dist/Style Library/XSL Style Sheets

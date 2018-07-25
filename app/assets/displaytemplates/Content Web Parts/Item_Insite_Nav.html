@@ -5,18 +5,20 @@
 
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
 <head>
-<title>Item Ask Nav</title>
+<title>Item Insite Nav</title>
 
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
 <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
-<mso:ManagedPropertyMapping msdt:dt="string">&#39;Link URL&#39;{Link URL}:&#39;PromoLinkOWSURLH;Path&#39;,&#39;ListItemID&#39;{ListItemID}:&#39;ListItemID&#39;,&#39;Line 1&#39;{Line 1}:&#39;Title&#39;,&#39;Line 2&#39;{Line 2}:&#39;RefinableString99&#39;,&#39;ID&#39;:&#39;ID&#39;,&#39;Custom Title&#39;{Custom Title}:&#39;List Display Web Part&#39;,&#39;Custom Css Class&#39;{Custom CSS class}:&#39;&#39;,&#39;FileExtension&#39;,&#39;SecondaryFileExtension&#39;</mso:ManagedPropertyMapping>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Link URL&#39;{Link URL}:&#39;PromoLinkOWSURLH;Path&#39;,&#39;Line 1&#39;{Line 1}:&#39;Title&#39;,&#39;Line 2&#39;{Line 2}:&#39;&#39;,&#39;Line 3&#39;{Line 3}:&#39;&#39;,&#39;Custom Title&#39;{Custom Title}:&#39;List Display Web Part&#39;,&#39;Custom Css Class&#39;{Custom CSS class}:&#39;&#39;,&#39;FileExtension&#39;,&#39;SecondaryFileExtension&#39;</mso:ManagedPropertyMapping>
 <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a small thumbnail icon next to a hyperlink of the item title, with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
 <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
 <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
 <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
-<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Item_Ask_Nav.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display Templates/Content Web Parts/Item_Insite_Nav.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
 </mso:CustomDocumentProperties>
 </xml><![endif]-->
 </head>
@@ -31,20 +33,16 @@
 <!--#_
 	var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_2lines_");
 	
-	var id = ctx.ClientControl.get_nextUniqueId();
-	var itemId = id + Srch.U.Ids.item;
-	
-	var linkIDNumber = $getItemValue(ctx, "ListItemID");
-	
-	
 	var linkURL = $getItemValue(ctx, "Link URL");
 	linkURL.overrideValueRenderer($urlHtmlEncode);
 	var iconURL = Srch.ContentBySearch.getIconSourceFromItem(ctx.CurrentItem);
 	
 	var line1 = $getItemValue(ctx, "Line 1");
 	var line2 = $getItemValue(ctx, "Line 2");
+	var line3 = $getItemValue(ctx, "Line 3");
 	line1.overrideValueRenderer($contentLineText);
 	line2.overrideValueRenderer($contentLineText);
+	line3.overrideValueRenderer($contentLineText);
 	
 	var containerId = encodedId + "container";
 	var pictureLinkId = encodedId + "pictureLink";
@@ -53,10 +51,26 @@
 	var line1LinkId = encodedId + "line1Link";
 	var line1Id = encodedId + "line1";
 	var line2Id = encodedId + "line2";
+	var line3Id = encodedId + "line3";
 _#-->
         
-           <a class="item" href="/Ask-Results?ID=_#= linkIDNumber =#_&cat=_#= line2 =#_">_#= line1 =#_</a>
-         
+           <a class="item" href="_#= linkURL.value =#_" title="_#= $htmlEncode(line1.defaultValueRenderer(line1)) =#_" id="_#= line1LinkId =#_">_#= line1 =#_</a>
+		  	   		<!--#_
+			if(!line2.isEmpty)  {   
+			_#-->
+			<br/><span>_#= line2 =#_</span>
+		              	<!--#_
+	}
+	_#-->
+	 	   		<!--#_
+			if(!line3.isEmpty)  {   
+			_#-->
+		   <br/><span><small>_#= line3 =#_</small></span>
+		   	<!--#_
+	}
+	_#-->
+           
+           
  <!--#_          
         $(document).ready(function () {
 			$(function(){
