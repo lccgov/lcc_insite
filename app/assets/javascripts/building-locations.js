@@ -36,12 +36,14 @@
 				populateList("selectEnd");
 				
 				element.on('click', '.js-build-map-url', function () {
-					var startLocation = document.getElementById("selectStart").value;
-					var endLocation = document.getElementById("selectEnd").value;
+					var startLocation = $('input[name=radio-from-location-group]:checked').val() === 'LCC Building' ? document.getElementById("selectStart").value : document.getElementById("from-postcode-location").value;
+
+					var endLocation = $('input[name=radio-to-location-group]:checked').val()  === 'LCC Building' ? document.getElementById("selectEnd").value : document.getElementById("to-postcode-location").value;
+					
 					var mapURL = "https://www.google.com/maps/dir/"+ startLocation + "/" + endLocation;
 					
 					window.open(mapURL);
-					return false;					
+					return false;         
 				});
 				
 				element.on('click', '.js-toggle-active', function () {		
