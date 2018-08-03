@@ -299,46 +299,99 @@ display: none;
 
 //CUSTOM STYLES FOR INSITE.GOV.UK
 
-// Top content sections at the foot of the page
-#WebPartWPQ9 div.groupPromo a{
-    background-color:$blush !important;
-}
-
-#WebPartWPQ9 div.groupPromo a:hover{
-    background-color:darken($blush, 10) !important;
-}
-
-#WebPartWPQ8 div.groupPromo a{
-    background-color:$smoke !important;
-    border-color:$smoke;
-    color: #fff !important;
-}
-
-#WebPartWPQ8 div.groupPromo a:hover{
-    background-color:lighten($smoke, 10) !important;
-}
-
-#WebPartWPQ8 div.groupPromo a h3{
-    color: #fff !important;
-}
-
-// Customised the Promos etc.
-
-// Promos
-
-//add a new border to mega-promos
-/*
-.mega-promo__item a, .groupPromo ul li a, .carousel-display, .sideNav{
-    border:solid 2px $blush;
-}*/
-
-// .mega-promo .mega-promo__item a{
-//     background-color: lighten($blush, 10);
+// Home page (top content and self service links)
+// .groupPromo.homeSelfService
+// {
+//     background-color: #d34b4b;
+//     padding: 5px;
+//     padding-left: 0px;
 // }
 
-// .mega-promo .mega-promo__item a:hover{
-//     background-color: $blush  !important;
+// .groupPromo.homeSelfService a
+// {
+//     background-color:#ff7f7f;
+//     border:0px;
 // }
+
+.groupPromo.homePageGroup
+{
+    padding: 5px;
+    padding-left: 0px;
+}
+
+.groupPromo.homePageGroup a
+{
+    border:0px;
+}
+
+.groupPromo.homePageGroupOne a
+{
+    background-color:$blush;
+}
+
+.groupPromo.homePageGroupOne a:hover
+{
+    background-color:darken($blush,15) !important;
+}
+
+.groupPromo.homePageGroupTwo a
+{
+    background-color:$smoke;
+}
+
+.groupPromo.homePageGroupTwo a:hover
+{
+    background-color:darken($smoke, 15) !important;
+}
+
+.groupPromo.homePageGroupThree a
+{
+    background-color:$cotton;
+}
+
+.groupPromo.homePageGroupThree a:hover
+{
+    background-color:darken($cotton, 15) !important;
+}
+
+.groupPromo.homePageGroupFour a
+{
+    background-color:#4cdef5;
+}
+
+.groupPromo.homePageGroupFour a:hover
+{
+    background-color:darken(#4cdef5,15) !important;
+}
+
+.groupPromo.homePageGroupFive a
+{
+    background-color:#a4d555;
+}
+
+.groupPromo.homePageGroupFive a:hover
+{
+    background-color:darken(#a4d555, 15) !important;
+}
+
+.groupPromo.homePageGroupSix a
+{
+    background-color:#ff5992;
+}
+
+.groupPromo.homePageGroupSix a:hover
+{
+    background-color:darken(#ff5992,15) !important;
+
+}
+
+.groupPromo.homeSelfService h3
+{
+    min-height:30px
+}
+
+
+// end of top content
 
 .mega-promo .mega-promo__item a .mega-promo__content .mega-promo__header {
     color: #537072;

@@ -293,46 +293,7 @@ $input-border-color:$grey;
 
 //CUSTOM STYLES FOR INSITE.GOV.UK
 
-// Top content sections at the foot of the page
-#WebPartWPQ9 div.groupPromo a{
-    background-color:$blush !important;
-}
 
-#WebPartWPQ9 div.groupPromo a:hover{
-    background-color:darken($blush, 10) !important;
-}
-
-#WebPartWPQ8 div.groupPromo a{
-    background-color:$smoke !important;
-    border-color:$smoke;
-    color: #fff !important;
-}
-
-#WebPartWPQ8 div.groupPromo a:hover{
-    background-color:lighten($smoke, 10) !important;
-}
-
-#WebPartWPQ8 div.groupPromo a h3{
-    color: #fff !important;
-}
-
-// Customised the Promos etc.
-
-// Promos
-
-//add a new border to mega-promos
-/*
-.mega-promo__item a, .groupPromo ul li a, .carousel-display, .sideNav{
-    border:solid 2px $blush;
-}*/
-
-// .mega-promo .mega-promo__item a{
-//     background-color: lighten($blush, 10);
-// }
-
-// .mega-promo .mega-promo__item a:hover{
-//     background-color: $blush  !important;
-// }
 
 .mega-promo .mega-promo__item a .mega-promo__content .mega-promo__header {
     color: #537072;
