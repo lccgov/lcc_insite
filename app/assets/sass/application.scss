@@ -292,6 +292,11 @@ $input-border-color:$grey;
     text-decoration: underline;
 }
 
+// Remove links in the suite bar (newsfeed, onedrive etc)
+.ms-core-suiteLinkList {
+display: none;
+}
+
 //CUSTOM STYLES FOR INSITE.GOV.UK
 
 // Top content sections at the foot of the page
