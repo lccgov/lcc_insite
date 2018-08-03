@@ -13,6 +13,12 @@
 
 //base.scss
 
+// New swatch 26/07/2018
+//$SPGreen:#00ABA9;
+$staffroomHeader:#841981;
+$insite-text-color:#202020;
+$insite-font-color:#202020;
+
 //cleanandcollegiate
 $powderblue:#4a8dac;
 //$powderblue:#264A5A; //meets AAA
@@ -22,10 +28,10 @@ $cotton:#99ced4;
 $smoke:#6e7376;
 
 // InSite specifi newcolor scheme
-$paleGold: #C0B283;
-$charcoal:#373737;
+//$paleGold: #C0B283;
+// $charcoal:#373737;
 $paper:#F4F4F4;
-$silk:#DCD0C0;
+//$silk:#DCD0C0;
 
 //base colours
 $blue:#007299;
@@ -56,7 +62,7 @@ $header-font-color:$black;
 $secondary-link-color:$dark-blue;
 $secondary-font-color:$dark-grey;
 $border-color:$light-grey;
-$brand-color:$paleGold; 
+$brand-color:$staffroomHeader; 
 $button-color:$green;
 $button-hover-color:lighten($button-color,5%);
 $focus-color:$yellow;
@@ -68,7 +74,7 @@ $font-secondary:'Montserrat', sans-serif; // secondary font used for headings
 $alert-color:$red;
 
 // IS added base-font-color
-$base-font-color:$charcoal;
+$base-font-color:$insite-font-color;
 
 //panel colours
 $panel-color:$paper;
@@ -87,7 +93,7 @@ $panel-color-secondary:#DCDEE1;
 // IS - darkened the standard 3% main nav background
 $main-nav-background:$brand-color;
 // Altered the main nav link
-$main-nav-link:$charcoal ;//
+$main-nav-link:$insite-font-color ;//
 
 //footer.scss
 //$footer-font-color:#fff ;
@@ -177,7 +183,7 @@ $promo-background-color:$paper;
 $promo-arrow-color:#9DA5B2;
 // IS try promo header color in charcoal
 // $promo-header-color:$blue;
-$promo-header-color:$charcoal;
+$promo-header-color:$insite-font-color;
 $promo-secondary-color:$black;
 $promo-highlight-background-color:$dark-blue;
 $promo-highlight-color:$white;
@@ -194,7 +200,7 @@ $outline-button-color:$blue;
 // IS altered the group promo color
 //$group-promo-background-color: $lighter-grey;
 $group-promo-background-color:$promo-background-color;
-$group-promo-header-color: $charcoal;
+$group-promo-header-color: $insite-font-color;
 // $group-promo-header-color: $blue;
 $group-promo-description-color: $black;
 $group-promo-arrow-color: $grey;
@@ -238,6 +244,52 @@ $input-border-color:$grey;
 @import 'url-helper';
 @import 'webchat';
 
+// Changed the masthead
+.masterhead a.navbar-brand {
+    background-image: url("../images/insiteLogo.svg");
+}
+
+// Customise the alerts
+.alert {
+
+    &.alert-info{
+        background:#9daaa6;
+    }
+
+    &.alert-danger{
+        background-color: #FF2B3C;
+    }
+
+    &.alert-warning{
+        background-color: #ffdd47;
+    }
+
+    &.alert-success{
+        background-color: #6bff6b;
+    }
+
+}
+
+
+// Customised the header
+.sectionHeader {
+    background: #00dedb;
+    display: none;
+}
+
+// Fix for the sticky(ish) ribbon (positioning on designer ribbon)
+#ms-designer-ribbon {
+    position:relative;
+    top:1px; //This gets reset to Zero by JavaScript
+} 
+
+// Fix for the small font caused by the RSS feed
+.link-item, .link-item a, .link-item a:link {
+    font-size: 19px;
+    color: #fff;
+    font-family: "Open Sans",sans-serif,sans-serif;
+    text-decoration: underline;
+}
 
 //CUSTOM STYLES FOR INSITE.GOV.UK
 
@@ -274,16 +326,20 @@ $input-border-color:$grey;
     border:solid 2px $blush;
 }*/
 
-.mega-promo .mega-promo__item a{
-    background-color: lighten($blush, 10);
-}
+// .mega-promo .mega-promo__item a{
+//     background-color: lighten($blush, 10);
+// }
 
-.mega-promo .mega-promo__item a:hover{
-    background-color: $blush  !important;
+// .mega-promo .mega-promo__item a:hover{
+//     background-color: $blush  !important;
+// }
+
+.mega-promo .mega-promo__item a .mega-promo__content .mega-promo__header {
+    color: #537072;
 }
 
 .mega-promo .mega-promo__item a .mega-promo__content .mega-promo__secondary{
-    color:darken($powderblue, 30);
+    color:#537072;
 }
 
 // group-promos
@@ -317,17 +373,17 @@ $input-border-color:$grey;
     background-color: $blush;
 }
 
-//IS - the darken function is built into brand-colors so we need an override
+/*
 .main-nav {
     a:hover,    a:focus{
        background-color: $cotton !important;
        color: $main-nav-link;
     }
    }
-
+}*/
    .main-nav ul li a {
     color: #fff !important;
-}
+    }
    
    //site background
    html{
@@ -336,6 +392,14 @@ $input-border-color:$grey;
    
    
    //header
+
+   .masterhead a.navbar-brand {
+        background-image: url(../../images/staffroom-logo.png);
+        /* border: solid; */
+        width: 280px;
+        background-position: left;
+    }
+
    .logo {
        background: url(../images/insiteLogo.svg) center center no-repeat;
        background-size:100%;
@@ -574,169 +638,207 @@ $input-border-color:$grey;
    All style should be corrected via the SASS file for the site and a gulp upload task should then be run. */
    
    /* styles for sideNavs */
-   
-   /* relDocsNav */
-   
+   /* styles for sideNavs */
+
    .sideNav.relDocsNav::before{
        content: "\f15c";
-       color:#6b91c9;
    }
-   
-   .sideNav.relDocsNav > h3{
-       color:#FFF;
-   }
-   
-   .sideNav.relDocsNav {
-       border:solid 2px #294772;
-       background-color:#375e97 !important
-   }
-   
-   .sideNav.relDocsNav > ul {
-       background-color:#dbe4f2;
-   }
-   
-   /* extLinksNav */
+ 
    
    .sideNav.extLinksNav::before{
        content: "\f0c1";
-       color:#6b91c9;
    }
-   
-   .sideNav.extLinksNav {
-       border:solid 2px #294772;
-       background-color:#375e97  !important
-   }
-   
-   .sideNav.extLinksNav > h3 {
-       color:#FFF;
-   }
-   
-   .sideNav.extLinksNav > ul {
-       background-color:#dbe4f2;
-   }
-   
-   /* intLinksNav */
-   
+  
    .sideNav.intLinksNav::before{
        content: "\f0c1";
-       color:#6b91c9;
    }
-   
-   .sideNav.intLinksNav {
-       border:solid 2px #294772;
-       background-color:#375e97 !important
-   }
-   
-   .sideNav.intLinksNav > h3{
-       color:#FFF;
-   }
-   
-   .sideNav.intLinksNav > ul {
-       background-color:#dbe4f2;
-   }
-   
-   /* doItOnlineNav */
+  
    
    .sideNav.doItOnlineNav::before{
        content: "\f059";
-       color:#037A57;
    }
-   
-   .sideNav.doItOnlineNav {
-       border:solid 2px #011F16;
-       background-color:#1AAF83 !important
-   }
-   
-   .sideNav.doItOnlineNav > ul {
-       background-color:#D1EFE6;
-   }
-   
-   /* contactsNav */
    
    .sideNav.contactsNav::before{
        content: "\f098";
-       color:#6b91c9;
    }
    
-   .sideNav.contactsNav > h3{
-       color:#FFF;
-   }
-   
-   .sideNav.contactsNav {
-       border:solid 2px #294772;
-       background-color:#375e97 !important
-   }
-   
-   .sideNav.contactsNav > ul {
-       background-color:#dbe4f2;
-   }
-   
-   /* trainingNav */
-   $blush:#eeb6b7;
-   $training:$blush;
-
    .sideNav.trainingNav::before{
        content: "\f02d";
-       color:#FFF;
-   }
-   
-   .sideNav.trainingNav > h3{
-        color:#FFF;
-   }
-   
-   .sideNav.trainingNav {
-       border:solid 2px darken($training, 40);
-       background-color:darken($training, 40) !important;
-   }
-   
-   .sideNav.trainingNav > ul {
-       background-color:lighten($training, 13);
-   }
-   
-   /* ask */
-   $cotton:#99ced4;
-   $ask:$cotton;
-   // $ask: #664b00
 
+   }
+   
    .sideNav.askSideNav::before{
        content: "\f059";
-       color:#fff;
    }
    
-   .sideNav.askSideNav > h3{
-       color:#fff;
-   }
-   
-   .sideNav.askSideNav {
-       border:solid 2px darken($ask, 40);
-       background-color:darken($ask, 40) !important
-   }
-   
-   .sideNav.askSideNav > ul {
-       background-color:lighten($ask, 20);
-   }
-   
-   /* Policies */
-
-   $policies:darken($smoke,10);
    
    .sideNav.policiesNav::before{
        content: "\f129";
-       color:#fff;
    }
    
-   .sideNav.policiesNav > h3{
-       color:#fff;
-   }
+//    /* relDocsNav */
    
-   .sideNav.policiesNav {
-       border:solid 2px $policies;
-       background-color:$policies !important;
-   }
+//    .sideNav.relDocsNav::before{
+//        content: "\f15c";
+ 
+//    }
    
-   .sideNav.policiesNav > ul {
-       background-color:lighten($policies,55) ;
-   }
+// //    .sideNav.relDocsNav > h3{
+// //        color:#FFF;
+// //    }
+   
+// /*
+//    .sideNav.relDocsNav {
+//        border:solid 2px #294772;
+//        background-color:#6AA4BF !important
+//    }
+   
+//    .sideNav.relDocsNav > ul {
+//        background-color:#dbe4f2;
+//    }
+//    */
+//    /* extLinksNav */
+//    /*
+//    .sideNav.extLinksNav::before{
+//        content: "\f0c1";
+//        color:#6b91c9;
+//    }
+   
+//    .sideNav.extLinksNav {
+//        border:solid 2px #294772;
+//        background-color:#375e97  !important
+//    }
+   
+//    .sideNav.extLinksNav > h3 {
+//        color:#FFF;
+//    }
+   
+//    .sideNav.extLinksNav > ul {
+//        background-color:#dbe4f2;
+//    }
+//    */
+//    /* intLinksNav */
+   
+//    .sideNav.intLinksNav::before{
+//        content: "\f0c1";
+//        color:#6b91c9;
+//    }
+   
+//    .sideNav.intLinksNav {
+//        border:solid 2px #294772;
+//        background-color:#375e97 !important
+//    }
+   
+//    .sideNav.intLinksNav > h3{
+//        color:#FFF;
+//    }
+   
+//    .sideNav.intLinksNav > ul {
+//        background-color:#dbe4f2;
+//    }
+   
+//    /* doItOnlineNav */
+   
+//    .sideNav.doItOnlineNav::before{
+//        content: "\f059";
+//        color:#037A57;
+//    }
+   
+//    .sideNav.doItOnlineNav {
+//        border:solid 2px #011F16;
+//        background-color:#1AAF83 !important
+//    }
+   
+//    .sideNav.doItOnlineNav > ul {
+//        background-color:#D1EFE6;
+//    }
+   
+//    /* contactsNav */
+   
+//    .sideNav.contactsNav::before{
+//        content: "\f098";
+//        color:#6b91c9;
+//    }
+   
+//    .sideNav.contactsNav > h3{
+//        color:#FFF;
+//    }
+   
+//    .sideNav.contactsNav {
+//        border:solid 2px #294772;
+//        background-color:#375e97 !important
+//    }
+   
+//    .sideNav.contactsNav > ul {
+//        background-color:#dbe4f2;
+//    }
+   
+//    /* trainingNav */
+//    $blush:#eeb6b7;
+//    $training:$blush;
+
+//    .sideNav.trainingNav::before{
+//        content: "\f02d";
+//        color:#FFF;
+//    }
+   
+//    .sideNav.trainingNav > h3{
+//         color:#FFF;
+//    }
+   
+//    .sideNav.trainingNav {
+//        border:solid 2px darken($training, 40);
+//        background-color:darken($training, 40) !important;
+//    }
+   
+//    .sideNav.trainingNav > ul {
+//        background-color:lighten($training, 13);
+//    }
+   
+//    /* ask */
+//    $cotton:#99ced4;
+//    $ask:$cotton;
+//    // $ask: #664b00
+
+//    .sideNav.askSideNav::before{
+//        content: "\f059";
+//        color:#fff;
+//    }
+   
+//    .sideNav.askSideNav > h3{
+//        color:#fff;
+//    }
+   
+//    .sideNav.askSideNav {
+//        border:solid 2px darken($ask, 40);
+//        background-color:darken($ask, 40) !important
+//    }
+   
+//    .sideNav.askSideNav > ul {
+//        background-color:lighten($ask, 20);
+//    }
+   
+//    /* Policies */
+
+//    $policies:darken($smoke,10);
+   
+//    .sideNav.policiesNav::before{
+//        content: "\f129";
+//        color:#fff;
+//    }
+   
+//    .sideNav.policiesNav > h3{
+//        color:#fff;
+//    }
+   
+//    .sideNav.policiesNav {
+//        border:solid 2px $policies;
+//        background-color:$policies !important;
+//    }
+   
+//    .sideNav.policiesNav > ul {
+//        background-color:lighten($policies,55) ;
+//    }
    
    /* Generic */
    
@@ -745,6 +847,7 @@ $input-border-color:$grey;
        font-size:larger;
        position:absolute;
        margin:8px;
+       color:#FFF;
    }
    
    .sideNav.coloredNav > h3{
@@ -753,15 +856,19 @@ $input-border-color:$grey;
        margin-bottom:0px;
        /*padding:0px;*/
        border-bottom:none !important;
+       color:#FFF;
    }
    
    .sideNav.coloredNav {
        padding:0px !important;
+       border:solid 2px #294772;
+       background-color:#7FA5FF !important
    }
    
    .sideNav.coloredNav > ul {
        margin:0px !important;
        padding:16px;
+       background-color:#dbe4f2;
    }
    
    /* end of sideNavs */
@@ -905,8 +1012,9 @@ $input-border-color:$grey;
        font-size: 17px !important;
    }
    .ui-tabs .ui-tabs-nav {
-       margin: 0 !important;
-       padding: 0 !important;
+       margin-top: 30px !important;
+       //margin: 0 !important;
+       //padding: 0 !important;
    }
    .ui-widget-header {
        border: 0px solid #aaaaaa !important;
@@ -1291,22 +1399,26 @@ $input-border-color:$grey;
    /* START - Toolkit guidance border styling */
    .ui-widget-content-nav {
    
-       border:solid 2px #873302 !important;
-       background-color:#FEF0E8 !important;
+       border:solid 2px #294772 !important;
+       background-color:#dbe4f2 !important;
        margin: 0 0 30px !important;
        padding: 15px !important;
    }
    
    .tookit-nav {
    
-       border-bottom: 5px solid #873302;
-       margin-top: 0;
-       margin-bottom: 15px;
-       margin: 0 0 15px;
-       padding: 0 0 10px;
+       //border-bottom: 5px solid #873302;
+       //margin-top: 0;
+       //margin-bottom: 15px;
+       //margin: 0 0 15px;
+       margin:-15px;
+       //padding: 0 0 10px;
+       padding:9px;
        font-size: 24px;
        font-weight: 600;
        font-family: Montserrat,sans-serif,sans-serif !important;
+       background-color: #7FA5FF;
+       color: #FFF;
    }
    
    
