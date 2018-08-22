@@ -245,6 +245,11 @@ $input-border-color:$grey;
 @import 'webchat';
 
 // Changed the masthead
+.masterhead {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .masterhead a.navbar-brand {
     background-image: url("../images/insiteLogo.svg");
 }
@@ -348,7 +353,7 @@ $input-border-color:$grey;
    
    //site background
    html{
-       background-color:$green;
+       background-color:$white;
    }
    
    
@@ -357,7 +362,7 @@ $input-border-color:$grey;
    .masterhead a.navbar-brand {
         background-image: url(../../images/staffroom-logo.png);
         /* border: solid; */
-        width: 280px;
+        width: 264px;
         background-position: left;
     }
 
@@ -837,6 +842,10 @@ $input-border-color:$grey;
    
    /* START Update site colours and a few correctional styles */
    
+   footer.main .container-fluid {
+        padding: 0;
+    }
+    
    #suiteBarLeft,
    html,
    .sectionHeader,

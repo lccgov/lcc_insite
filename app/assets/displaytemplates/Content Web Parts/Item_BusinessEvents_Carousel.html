@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 	Display Template Version 2.0
 	Date: 12/09/2017
 -->
@@ -10,13 +10,13 @@
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
 <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
-<mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;CarouselImageSlideOWSIMGE;PublishingImage;PictureURL;PictureThumbnailURL&#39;,&#39;ListItemID&#39;:&#39;ListItemID&#39;,&#39;PromoDescription&#39;:&#39;EventDateOWSDATE&#39;,&#39;EventImage&#39;:&#39;EventImageOWSIMGE&#39;,&#39;Title&#39;:&#39;Title&#39;,&#39;StartTime&#39;:&#39;JobClosingDateOWSDATE&#39;,&#39;EndTime&#39;:&#39;EndDateOWSDATE&#39;,&#39;Venue&#39;:&#39;RefinableString00&#39;,&#39;SecondaryFileExtension&#39;,&#39;ContentTypeId&#39;,&#39;WebpartTitle&#39;:&#39;&#39;,&#39;NavigationURL&#39;:&#39;&#39;</mso:ManagedPropertyMapping>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;CarouselImageSlideOWSIMGE;PublishingImage;PictureURL;PictureThumbnailURL&#39;,&#39;ListItemID&#39;:&#39;ListItemID&#39;,&#39;PromoDescription&#39;:&#39;EventDateOWSDATE&#39;,&#39;EventImage&#39;:&#39;EventImageOWSIMGE&#39;,&#39;Title&#39;:&#39;Title&#39;,&#39;StartTime&#39;:&#39;EventDateOWSDATE&#39;,&#39;EndTime&#39;:&#39;EndDateOWSDATE&#39;,&#39;Venue&#39;:&#39;RefinableString00&#39;,&#39;SecondaryFileExtension&#39;,&#39;ContentTypeId&#39;,&#39;WebpartTitle&#39;:&#39;&#39;,&#39;NavigationURL&#39;:&#39;&#39;</mso:ManagedPropertyMapping>
 <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
 <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
 <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
 <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
-<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Item_BusinessEvents_Carousel.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display Templates/Content Web Parts/Item_BusinessEvents_Carousel.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 <mso:ContentType msdt:dt="string">Item Display Template</mso:ContentType>
 <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
 <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
@@ -30,11 +30,11 @@
 <!--#_
 var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_carousel_");
 var ID = $getItemValue(ctx, "ListItemID");
-
+var ContentTypeId = $getItemValue(ctx, "ContentTypeId");
 var title = $getItemValue(ctx, "Title");
 var pictureURL = $getItemValue(ctx, "Picture URL");
-var startdate = new Date($getItemValue(ctx, "JobClosingDateOWSDATE").value);
-var enddate = new Date($getItemValue(ctx, "EndDateOWSDATE").value);
+var startdate = $getItemValue(ctx, "EventDateOWSDATE").inputValue;
+var enddate = $getItemValue(ctx, "EndDateOWSDATE").inputValue;
 var venue = $getItemValue(ctx, "RefinableString00");
 var eventImage = $getItemValue(ctx, "EventImageOWSIMGE");
 var promodesc1 = $getItemValue(ctx, "EventDateOWSDATE");
@@ -43,36 +43,14 @@ var NoText = $getItemValue(ctx, "NoTextDisplay");
 var WebpartTitle = $getItemValue(ctx, "WebpartTitle");
 var NavigationURL= $getItemValue(ctx, "NavigationURL");
 
-function getMonthNameByMonthNumber(mm) { 
-   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+var parsedStartDate = new Date(startdate);
+var parsedEndDate = new Date(enddate);
 
-   return months[mm]; 
-}
-
-
-function processDate(date)
-{
-var datenumber= date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-var datemonth= getMonthNameByMonthNumber(date.getMonth());
-var dateyear= date.getFullYear();
-var datehour = date.getHours() != 0 ? date.getHours() : "00";
-var dateminute = date.getMinutes() != 0 ? date.getMinutes() : "00";
-
-var finaldate= datenumber +" " + datemonth +" " + dateyear +" " + datehour +":"+dateminute;
-return finaldate;
-}
-
-var daterange;
-
-if(!startdate.isEmpty && !enddate.isEmpty)
-{
-daterange= processDate(startdate) + ' - ' + processDate(enddate);
-}
-
+var daterange = parsedStartDate.format('dd MMM yyyy HH:mm') + ' - ' + parsedEndDate.format('dd MMM yyyy HH:mm');
 
 _#-->
 	
-<a href="/staff-room/calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
+<a href="/staffroom/calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
 <div class="carousel-caption white-background">		
 		<img class="image-left" src="_#= eventImage =#_">
 		<div class="div-right">

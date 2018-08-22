@@ -40,10 +40,11 @@
 	
 	var line1 = $getItemValue(ctx, "Line 1");
 	var line2 = $getItemValue(ctx, "Line 2");
-	var line3 = $getItemValue(ctx, "Line 3");
+	var line3 = $getItemValue(ctx, "Line 3").inputValue;
 	line1.overrideValueRenderer($contentLineText);
 	line2.overrideValueRenderer($contentLineText);
-	line3.overrideValueRenderer($contentLineText);
+
+	var parsedArticleDate = new Date(line3);
 	
 	var line2Trimmed = String(line2).substr(0,100);
 	
@@ -93,7 +94,7 @@ _#-->
 	 	   		<!--#_
 			if(!line3.isEmpty)  {   
 			_#-->
-		   <small>_#= line3 =#_</small>
+		   <small>_#= parsedArticleDate.format('dd MMMM yyyy') =#_</small>
 		   	<!--#_
 	}
 	_#-->

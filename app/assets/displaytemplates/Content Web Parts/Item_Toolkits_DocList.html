@@ -28,13 +28,13 @@
 	var FileType = $getItemValue(ctx, "FileType");
 				
 	if(FileType == "pdf")  {   
-		var content = String.format('<li class="pdf"><a class="cbs-Line1Link ms-displayBlock" href="{0}" title="{1}">{1}</a></li>', linkURL, line1);
+		var content = String.format('<li class="pdf"><a class="cbs-Line1Link ms-displayBlock" href="{0}">{1}</a></li>', linkURL, line1);
 	}else if(FileType == "doc" || FileType == "docx"){
-		var content = String.format('<li class="word"><a class="cbs-Line1Link ms-displayBlock" href="{0}" title="{1}">{1}</a></li>', linkURL, line1);
+		var content = String.format('<li class="word"><a class="cbs-Line1Link ms-displayBlock" href="{0}">{1}</a></li>', linkURL, line1);
 	}else if(FileType == "xls" || FileType == "xlsx"){
-		var content = String.format('<li class="xl"><a class="cbs-Line1Link ms-displayBlock" href="{0}" title="{1}">{1}</a></li>', linkURL, line1);
+		var content = String.format('<li class="xl"><a class="cbs-Line1Link ms-displayBlock" href="{0}">{1}</a></li>', linkURL, line1);
 	}else{
-		var content = String.format('<li class="pp"><a class="cbs-Line1Link ms-displayBlock" href="{0}" title="{1}">{1}</a></li>', linkURL, line1);
+		var content = String.format('<li class="pp"><a class="cbs-Line1Link ms-displayBlock" href="{0}">{1}</a></li>', linkURL, line1);
 	}
 	
 	search.Tabs.push(grouping, content, ctx.ClientControl.get_id());

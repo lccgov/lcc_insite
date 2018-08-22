@@ -95,7 +95,7 @@ $main-nav-background:$brand-color;
 $main-nav-link:$insite-font-color ;//
 
 //footer.scss
-//$footer-font-color:#fff ;
+$footer-font-color:#202020 ;
 //$footer-nav-selected-link:#133E8D ;
 
 //sectionSubsite.scss - socialamedia.scss
@@ -244,10 +244,15 @@ $input-border-color:$grey;
 @import 'webchat';
 
 // Changed the masthead
+.masterhead {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .masterhead a.navbar-brand {
     background-image: url(../images/insite-logo.png);
     background-position: left;
-    width: 250px;
+    width: 173px;
 }
 
 // Customise the alerts
@@ -287,7 +292,7 @@ $input-border-color:$grey;
 // Fix for the small font caused by the RSS feed
 .link-item, .link-item a, .link-item a:link {
     font-size: 19px;
-    color: #fff;
+    color: #202020;
     font-family: "Open Sans",sans-serif,sans-serif;
     text-decoration: underline;
 }
@@ -446,7 +451,7 @@ display: none;
    
    //site background
    html{
-       background-color:$green;
+       background-color:$white;
    }
    
    
@@ -469,7 +474,15 @@ display: none;
        margin-bottom:30px;
        display:inline-block;
    }
+
+   .col-lg-12 .groupPromo ul li {
+       width: calc(100% * (1/5) - 6px) !important;
    
+       @media (max-width:768px){
+           width: calc(100%) !important;
+       }
+   }
+
    .col-md-8 .groupPromo ul li {
        width: calc(100% * (1/4) - 6px) !important;
    
@@ -692,7 +705,7 @@ display: none;
    /* styles for sideNavs */
 
    .sideNav.relDocsNav::before{
-       content: "\f15c";
+       content: "\f0c5";
    }
  
    
@@ -706,7 +719,7 @@ display: none;
   
    
    .sideNav.doItOnlineNav::before{
-       content: "\f059";
+       content: "\f245";
    }
    
    .sideNav.contactsNav::before{
@@ -725,6 +738,10 @@ display: none;
    
    .sideNav.policiesNav::before{
        content: "\f129";
+   }
+
+   .sideNav.videoNav::before{
+       content: "\f03d";
    }
    
 //    /* relDocsNav */
@@ -903,23 +920,28 @@ display: none;
    
    .sideNav.coloredNav > h3{
        margin-top:8px;
-       margin-left:32px;
+       margin-left:38px;
        margin-bottom:0px;
        /*padding:0px;*/
        border-bottom:none !important;
-       color:#FFF;
+       color:#202020;
    }
    
    .sideNav.coloredNav {
        padding:0px !important;
-       border:solid 2px #294772;
+       border:solid 2px #7FA5FF;
        background-color:#7FA5FF !important
    }
    
    .sideNav.coloredNav > ul {
        margin:0px !important;
        padding:16px;
-       background-color:#dbe4f2;
+       background-color:#f4f4f4;
+   }
+
+   .sideNav.coloredNav a {
+       text-decoration: none;
+       color: #537072;
    }
    
    /* end of sideNavs */
@@ -927,6 +949,10 @@ display: none;
    
    /* START Update site colours and a few correctional styles */
    
+   footer.main .container-fluid {
+        padding: 0;
+    }
+    
    #suiteBarLeft,
    html,
    .sectionHeader,
@@ -1050,8 +1076,11 @@ display: none;
        padding: 3px !important;
    }
    .ui-tabs .docList.one li a {
-       padding: 13px 4px 7px 35px !important;
-   
+       padding: 13px 4px 7px 16px !important;
+       border-bottom: none;
+   }
+   .ui-tabs .docList.one .listWebpart ul li a {
+       border-top: none;
    }
    .ui-tabs .docList.one .listWebpart ul li a:before {
        top: 15px;
@@ -1084,6 +1113,16 @@ display: none;
        font-weight: normal !important;
        color: #555555 !important;
    }
+
+   /*Not working yet*/
+   /*.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+       color: #202020 !important;
+   }
+
+   .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+       color: #537072 !important;
+   }*/
+
    .ui-widget {
        font-family: "Open Sans",sans-serif,sans-serif !important;
        font-size: .8em !important;
@@ -1447,13 +1486,18 @@ display: none;
    }
    
    }
-   /* START - Toolkit guidance border styling */
+   /* START - Toolkit guidance styling */
    .ui-widget-content-nav {
    
-       border:solid 2px #294772 !important;
-       background-color:#dbe4f2 !important;
+       border:solid 2px #7FA5FF !important;
+       background-color:#F4F4F4 !important;
        margin: 0 0 30px !important;
-       padding: 15px !important;
+       padding: 0 !important;
+   }
+
+.ui-widget-content-nav a{
+   
+       color:#537072;
    }
    
    .tookit-nav {
@@ -1462,18 +1506,35 @@ display: none;
        //margin-top: 0;
        //margin-bottom: 15px;
        //margin: 0 0 15px;
-       margin:-15px;
+       margin:8px;
+       margin-left: 38px;
        //padding: 0 0 10px;
-       padding:9px;
+       //padding:9px;
        font-size: 24px;
        font-weight: 600;
        font-family: Montserrat,sans-serif,sans-serif !important;
-       background-color: #7FA5FF;
-       color: #FFF;
+       color: #202020;
+   }
+
+.toolkit-header::before {
+    content: "\f15c";
+    color: #fff;
+    font-family: FontAwesome;
+    font-size: x-large;
+    position: absolute;
+    margin: 8px;
+}
+
+.toolkit-header {
+    background-color: #7FA5FF;
+    padding: 1px;
+}
+
+   .ui-widget-content-nav .docList a::before{
+       content: none;
    }
    
-   
-   /* END - Toolkit guidance border styling */
+   /* END - Toolkit guidance styling */
    
    /* START - styling for add new staff deal link */
    .divAddNew
