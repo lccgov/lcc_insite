@@ -1731,8 +1731,19 @@ display: none;
        word-break: break-all;
    }
    /* END - Contacts */
+
+   /* Fix issue with sprite appearing in OOB list views due to _news.scss .ms-promlink-button-image overflow visible */
+    .ms-promlink-button-image img {
+        display: none;
+    }
+
+    .sectionOne td[id$='prev'] .ms-promlink-button-image::before, 
+    .sectionTwo td[id$='prev'] .ms-promlink-button-image::before {
+        content: "\f104";
+    }
+    /* End of fix */
    
-   // En of additional stylesheet
+   // End of additional stylesheet
    /*# sourceMappingURL=application.css.map */
    
    
