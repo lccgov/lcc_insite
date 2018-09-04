@@ -3,3 +3,4 @@ dist/
 lcc_modules/
 settings.json
 settings.default.json
+package-lock.json
