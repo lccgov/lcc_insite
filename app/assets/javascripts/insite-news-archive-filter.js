@@ -21,7 +21,7 @@
 	                var start = year + "/" + month + "/1";
 	                var end = year + "/" + month + "/" + d.getDate();
 
-	                var queryString = "?startdate=" + start + "&enddate=" + end;
+	                var queryString = "?k=*&startdate=" + start + "&enddate=" + end;
 	                var newsUrl = ( LCC.Settings.NewsUrl !== undefined ) ? LCC.Settings.NewsUrl : ((_spPageContextInfo.webServerRelativeUrl.length === 1) ? _spPageContextInfo.webServerRelativeUrl.substr(1) : _spPageContextInfo.webServerRelativeUrl) + "/news";                   
                 	window.location = newsUrl + queryString;
 
