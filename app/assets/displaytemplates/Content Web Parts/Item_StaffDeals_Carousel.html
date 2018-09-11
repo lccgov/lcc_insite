@@ -16,7 +16,7 @@
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
 <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
 <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
-<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Item_StaffDeals_Carousel.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display Templates/Content Web Parts/Item_StaffDeals_Carousel.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 <mso:ContentType msdt:dt="string">Item Display Template</mso:ContentType>
 <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
 <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
@@ -52,14 +52,37 @@ var NavigationURL= $getItemValue(ctx, "NavigationURL");
 
 	
 	_#-->     
-	<a href="/staff-room/buying-and-selling/staff-deals/staff-deals-results?ID=_#= ID =#_">
-			<div class="carousel-caption white-background text-padding-top">
-			
-				<p class="font-bold text-padding-left">_#= title =#_</p> 				
-				<p class="fontsize text-padding-left">Category : _#= category =#_</p>
-				<p class="fontsize text-padding-left">Expiry date : _#= datenumber =#_ _#= datemonth =#_ _#= dateyear =#_</p>
-				
-				
+	<a href="/staffroom/buying-and-selling/staff-deals/staff-deals-results?ID=_#= ID =#_">
+			<div class="carousel-caption white-background">
+	
+					<div class="row">
+							<!--#_ 
+								if(!$isNull(ctx.CurrentItem.pictureURL)){
+							_#-->
+							<div class="col-sm-5">
+									<img style="width: 100%; padding-left: 1em" src="_#= pictureURL =#_">
+								</div>
+								
+								<div class="col-sm-7">
+									<p class="font-bold text-padding-left">_#= title =#_</p> 				
+									<p class="fontsize text-padding-left">Category : _#= category =#_</p>
+									<p class="fontsize text-padding-left">Expiry date : _#= datenumber =#_ _#= datemonth =#_ _#= dateyear =#_</p>
+								</div>
+							<!--#_
+							} else {
+							_#-->
+							
+							<div class="col-sm-12">
+									<p class="font-bold text-padding-left" style="padding-left: 1em">_#= title =#_</p> 				
+									<p class="fontsize text-padding-left" style="padding-left: 1em">Category : _#= category =#_</p>
+									<p class="fontsize text-padding-left" style="padding-left: 1em">Expiry date : _#= datenumber =#_ _#= datemonth =#_ _#= dateyear =#_</p>
+								</div>
+							
+							<!--#_
+							} 
+							_#-->
+							
+								</div>
 				
 		</div>
 	</a>

@@ -267,7 +267,7 @@ _#-->
 <!--#_
             function outputFilter(refinementName, refinementCount, refiners, method, aClass, showCounts) {
                 var aOnClick = "$getClientControl(this)." + method + "('" + $scriptEncode(Sys.Serialization.JavaScriptSerializer.serialize(refiners)) + "');";
-                var nameClass = "ms-ref-name " + (showCounts ? "ms-displayInline" : "ms-displayInlineBlock ms-ref-ellipsis");
+                var nameClass = "ms-ref-name " + (showCounts ? "ms-displayInline" : "ms-displayInlineBlock");
 _#-->          
             <div id='Value' name='Item'>
                 <a id='FilterLink' class='_#= $htmlEncode(aClass) =#_' onclick="_#= aOnClick =#_" href='javascript:{}' title='_#= $htmlEncode(String.format(Srch.U.loadResource("rf_RefineBy"), refinementName)) =#_'>

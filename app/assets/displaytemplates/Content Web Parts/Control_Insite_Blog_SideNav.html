@@ -5,7 +5,7 @@
 
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
 <head>
-<title>Control SideNav News</title>
+<title>Control Insite Blog SideNav</title>
 
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
@@ -14,7 +14,7 @@
 <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106601002BE308FDB2F0D748A2F7640AD38A72D5</mso:ContentTypeId>
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
 <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
-<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display Templates/Content Web Parts/Control_SideNav_News.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display Templates/Content Web Parts/Control_Insite_Blog_SideNav.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
 <mso:FSObjType msdt:dt="string">0</mso:FSObjType>
 <mso:FileDirRef msdt:dt="string">sites/uisite/_catalogs/masterpage/Display Templates/Content Web Parts</mso:FileDirRef>
@@ -31,7 +31,7 @@
         $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
     </script>
 
-    <div id="Control_newsSideNav">
+    <div id="Control_breezeSideNav">
 
 <!--#_ 
 	if (!$isNull(ctx.ClientControl) &&
@@ -121,17 +121,11 @@ _#-->
         _#-->
 	    	<ul class="nav ShowHide">
 	        	_#= ctx.RenderGroups(ctx) =#_
-	        </ul>
-<<<<<<< HEAD
-			<div style="padding:2px; margin:2px; text-align:right"><a href="/news/pages/news.aspx" class="text-color">
-=======
-			<div style="padding:2px; margin:2px; text-align:right"><a href="/our-council/news" class="text-color">
->>>>>>> 607dfdd905bda257ab27256830e170f4316e84ff
-				more news...
-			</a></div>
-			
+            </ul>
+            
+            <br>
+            <a href="/InSite-blogs">...more</a>
 	    </div>
-		
 
 	
 <!--#_

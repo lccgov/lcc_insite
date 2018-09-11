@@ -57,7 +57,7 @@ var ContentTypeId = $getItemValue(ctx, "ContentTypeId");
 			if(PromoIcon == "Business events"){
 			_#-->
 
-            <li class="_#= PromoCSS =#_">
+            <li class="_#= PromoCSS =#_" style="margin-bottom: 0.5em">
                 <a href="calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
                 <!--#_
                 if(!pictureURL.isEmpty)  {   
@@ -100,7 +100,7 @@ var ContentTypeId = $getItemValue(ctx, "ContentTypeId");
 			}else{
 			_#-->
 				
-				<li class="_#= PromoCSS =#_">
+				<li class="_#= PromoCSS =#_" style="margin-bottom: 0.5em">
 			        <a href="calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
 					<!--#_
                     if(!pictureURL.isEmpty)  {   
@@ -141,7 +141,8 @@ var ContentTypeId = $getItemValue(ctx, "ContentTypeId");
 				
 			<!--#_	
 			}	
-			_#-->
+            _#-->
+
  	</div>       
 </body>
 </html>

@@ -43,6 +43,7 @@ var NoText = $getItemValue(ctx, "NoTextDisplay");
 var WebpartTitle = $getItemValue(ctx, "WebpartTitle");
 var NavigationURL= $getItemValue(ctx, "NavigationURL");
 
+
 var parsedStartDate = new Date(startdate);
 var parsedEndDate = new Date(enddate);
 
@@ -51,12 +52,33 @@ var daterange = parsedStartDate.format('dd MMM yyyy HH:mm') + ' - ' + parsedEndD
 _#-->
 	
 <a href="/staffroom/calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
-<div class="carousel-caption white-background">		
-		<img class="image-left" src="_#= eventImage =#_">
-		<div class="div-right">
-		<p class="font-bold">_#= title =#_ </p>
-		<p class="fontsize">_#= daterange =#_</p>
-		</div>       						
+<div class="carousel-caption white-background">
+	<div class="row">
+<!--#_ 
+	if(!$isNull(ctx.CurrentItem.EventImageOWSIMGE)){
+_#-->
+		<div class="col-sm-5">
+			<img style="width: 100%; padding-left: 1em" src="_#= eventImage =#_">
+		</div>
+		
+		<div class="col-sm-7">
+			<p class="font-bold">_#= title =#_ </p>
+			<p class="fontsize">_#= daterange =#_</p>
+		</div>
+<!--#_
+} else {
+_#-->
+
+	<div class="col-sm-12">
+		<p class="font-bold" style="padding-left: 1em">_#= title =#_ </p>
+		<p class="fontsize" style="padding-left: 1em">_#= daterange =#_</p>
+	</div>
+
+<!--#_
+} 
+_#-->
+
+	</div>      						
 </div>			
 </a>	
    <div class="clearfix"> 

@@ -1589,6 +1589,22 @@ $input-border-color:$grey;
        word-break: break-all;
    }
    /* END - Contacts */
+
+       /*Fix issue with auto complete dropdown overlapping search box */
+       .col-md-8 #SearchBox {
+        padding: 10px 10px 10px 10px;
+    }
+
+    .ms-srch-sbLarge > input {
+        float: none;
+    }
+
+    .col-md-8 #SearchBox .ms-srch-sbLarge > .ms-srch-sb-searchLink {
+        float: none;
+        right: 30px;
+        position: absolute;
+    }
+    /* End of fix */
    
    // En of additional stylesheet
    /*# sourceMappingURL=application.css.map */
