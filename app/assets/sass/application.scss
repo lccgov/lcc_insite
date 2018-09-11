@@ -939,6 +939,10 @@ display: none;
        background-color:#f4f4f4;
    }
 
+   .sideNav.coloredNav a:hover {
+        background-color: #c1c1c1;
+        color: #202020; }
+
    .sideNav.coloredNav a {
        text-decoration: none;
        color: #537072;
@@ -1114,6 +1118,15 @@ display: none;
        color: #555555 !important;
    }
 
+    .ui-tabs .docList.one .listWebpart ul li a:hover {
+        background-color: #c1c1c1;
+        color: #202020; }
+
+    .ui-tabs .ui-tabs-nav .ui-tabs-active .ui-tabs-anchor {
+        color: #202020; }
+
+    .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+        color: #537072; }
    /*Not working yet*/
    /*.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
        color: #202020 !important;
@@ -1399,7 +1412,33 @@ display: none;
    }
    
    /* END Search result paging styles */
-   
+   /* START Search people result styling */
+    .insiteUserPersona {
+    width: 96px !important;
+    height: 96px !important; }
+
+    .insiteUserPersona .ms-srch-people-item #UserPersonaContainer {
+    width: 96px !important; }
+
+    .insiteUserPersona .ms-peopleux-userImg {
+    width: 96px !important;
+    height: 96px !important;
+    min-width: 96px !important;
+    min-height: 96px !important;
+    clip: rect(0px, 96px, 96px, 0px) !important;
+    max-width: 96px !important; }
+
+    .insiteUserPersona .ms-spimn-presenceLink {
+    height: 96px !important; }
+
+    .insiteUserPersona .ms-peopleux-userImgWrapper {
+    width: 96px !important;
+    height: 96px !important; }
+
+    .insiteUserPersona a.ms-imnlink {
+    display: none !important; }
+
+    /* END Search people result styling */
    
    /* START - Blog Styles */
    
@@ -1716,6 +1755,11 @@ display: none;
        padding-left:60px;
        padding-top:10px;
    }
+
+   .insiteCarousel .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+        background-color: #4c9bc7;
+        color: #fff;
+        z-index: 99; }
    /* END - Carousel */
    
    /* START - News webpat(Home page) */
@@ -1758,7 +1802,45 @@ display: none;
         position: absolute;
     }
     /* End of fix */
-   
+
+   /*Fix issue with auto complete dropdown overlapping search box */
+    .col-md-8 #SearchBox {
+        padding: 10px 10px 10px 10px; }
+
+    .ms-srch-sbLarge > input {
+        float: none; }
+
+    .col-md-8 #SearchBox .ms-srch-sbLarge > .ms-srch-sb-searchLink {
+        float: none;
+        right: 30px;
+        position: absolute; }
+
+    /* End of fix */
+
+    /* START Styling for layout_multi_sections_fullwidth.aspx */
+    .sectionOneRightHandColumn {
+        margin-top: 50px; }
+    /* END Styling for layout_multi_sections_fullwidth.aspx */
+
+    a:focus,
+    input[type=submit]:focus,
+    .btn:focus,
+    .button:focus,
+    .ms-srch-sb > .ms-srch-sb-searchLink:focus,
+    .main-nav ul li a.selected:focus,
+    .promoListWebpart ul li a:focus .info,
+    .promoListWebpart ul li a:focus .info .arrow,
+    .promoListWebpart ul li a:focus .secondaryInfo,
+    .promoListWebpart a:focus .info .arrow:after,
+    a:focus .eventsContentPod, a:focus .venuesContentPod,
+    a:focus .eventsContentPod h3, a:focus .venuesContentPod h3,
+    a:focus .eventsContentPod:after, a:focus .venuesContentPod:after,
+    a:focus .eventsContentPod .additionaldates,
+    .promo a:focus span,
+    .sideNav ul li:first-of-type a:focus, .sideNav ul li:first-of-type a.active:focus,
+    .iconLinks li a:focus:after {
+    background-color: #ffe2ad !important; }
+    
    // End of additional stylesheet
    /*# sourceMappingURL=application.css.map */
    
