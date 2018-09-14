@@ -1248,7 +1248,7 @@ display: none;
    
    .ms-srch-result a[rel]:before {
        font-family: FontAwesome;
-       padding: 0 10px 0 0
+       padding: 0 10px 0 0;       
    }
    
    .ms-srch-result a[rel] span {
@@ -1280,6 +1280,21 @@ display: none;
    
    .ms-srch-result a[rel=external]:before {
        content: "\f08e"
+   }
+
+   .ms-srch-result .ask.ms-srch-item-link::before {
+       content: "\f059";
+       color: #007299;
+   }
+
+   .ms-srch-result .toolkits.ms-srch-item-link::before {
+       content: "\f0ad";
+       color: #007299;
+   }
+
+   .ms-srch-result .doitonline.ms-srch-item-link::before {
+       content: "\f245";
+       color: #007299;
    }
    
    .search-results-title {
@@ -1464,9 +1479,9 @@ display: none;
    }
    
    /* END - Blog Styles */
-   
-   
-   .ms-srch-item-link {
+
+
+      .ms-srch-item-link {
        font-weight: bold;
        display: inline-block;
        text-decoration: none;

@@ -9,7 +9,7 @@
 <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
 <mso:TargetControlType msdt:dt="string">;#SearchResults;#</mso:TargetControlType>
 <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
-<mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;Path&#39;:&#39;Path&#39;,&#39;Description&#39;:&#39;Description&#39;,&#39;SeoMetaDescriptionOWSTEXT&#39;:&#39;SeoMetaDescriptionOWSTEXT&#39;,&#39;EditorOWSUSER&#39;:&#39;EditorOWSUSER&#39;,&#39;LastModifiedTime&#39;:&#39;LastModifiedTime&#39;,&#39;CollapsingStatus&#39;:&#39;CollapsingStatus&#39;,&#39;DocId&#39;:&#39;DocId&#39;,&#39;HitHighlightedSummary&#39;:&#39;HitHighlightedSummary&#39;,&#39;HitHighlightedProperties&#39;:&#39;HitHighlightedProperties&#39;,&#39;FileExtension&#39;:&#39;FileExtension&#39;,&#39;ViewsLifeTime&#39;:&#39;ViewsLifeTime&#39;,&#39;ParentLink&#39;:&#39;ParentLink&#39;,&#39;FileType&#39;:&#39;FileType&#39;,&#39;Size&#39;:&#39;Size&#39;,&#39;IsContainer&#39;:&#39;IsContainer&#39;,&#39;SecondaryFileExtension&#39;:&#39;SecondaryFileExtension&#39;,&#39;DisplayAuthor&#39;:&#39;DisplayAuthor&#39;</mso:ManagedPropertyMapping>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;Path&#39;:&#39;Path&#39;,&#39;Description&#39;:&#39;Description&#39;,&#39;SeoMetaDescriptionOWSTEXT&#39;:&#39;SeoMetaDescriptionOWSTEXT&#39;,&#39;EditorOWSUSER&#39;:&#39;EditorOWSUSER&#39;,&#39;LastModifiedTime&#39;:&#39;LastModifiedTime&#39;,&#39;CollapsingStatus&#39;:&#39;CollapsingStatus&#39;,&#39;DocId&#39;:&#39;DocId&#39;,&#39;HitHighlightedSummary&#39;:&#39;HitHighlightedSummary&#39;,&#39;HitHighlightedProperties&#39;:&#39;HitHighlightedProperties&#39;,&#39;FileExtension&#39;:&#39;FileExtension&#39;,&#39;ViewsLifeTime&#39;:&#39;ViewsLifeTime&#39;,&#39;ParentLink&#39;:&#39;ParentLink&#39;,&#39;FileType&#39;:&#39;FileType&#39;,&#39;Size&#39;:&#39;Size&#39;,&#39;IsContainer&#39;:&#39;IsContainer&#39;,&#39;SecondaryFileExtension&#39;:&#39;SecondaryFileExtension&#39;,&#39;DisplayAuthor&#39;:&#39;DisplayAuthor&#39;,&#39;RefinableString10&#39;:&#39;RefinableString10&#39;</mso:ManagedPropertyMapping>
 
 <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display Templates/Search/Item_InSite_Search_Default.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 
@@ -32,6 +32,7 @@
 			var Description = ctx.CurrentItem.Description;
 			var FileType = ctx.CurrentItem.FileType;
 			var FileSize = ctx.CurrentItem.Size;
+			var SearchCategory = ctx.CurrentItem.RefinableString10.replace(/[,\s!'?.@&*()#/]/g,"").toLowerCase().split(";").join(" ");
 			var HitHighlightedSummary = ctx.CurrentItem.HitHighlightedSummary;
 			var html = "html";
 			
@@ -66,11 +67,11 @@ _#-->
 									<!--#_
 									 if(FileType === html){
 									_#-->
-										<a rel="_#= FileType =#_" href="_#= Path =#_" class="ms-srch-item-link" title="_#= Title =#_">_#= Title =#_ </a>
+										<a rel="_#= FileType =#_" href="_#= Path =#_" class="ms-srch-item-link _#= SearchCategory =#_" title="_#= Title =#_">_#= Title =#_ </a>
 									<!--#_
 									}else{
 									_#-->
-										<a rel="_#= FileType =#_" href="_#= Path =#_" class="ms-srch-item-link" title="_#= Title =#_">_#= Title =#_ <span>(_#= FileType =#_, _#= FSTotal =#__#= sz =#_)</span><span class="sr-only">Opens in new window</span></a>
+										<a rel="_#= FileType =#_" href="_#= Path =#_" class="ms-srch-item-link _#= SearchCategory =#_" title="_#= Title =#_">_#= Title =#_ <span>(_#= FileType =#_, _#= FSTotal =#__#= sz =#_)</span><span class="sr-only">Opens in new window</span></a>
 									<!--#_
 									}
 									_#-->
