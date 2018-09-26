@@ -324,7 +324,21 @@ $input-border-color:$grey;
     background-color: $cotton  !important;
 }
 
-// IS News button colors
+// News styling
+
+.news.sectionSubsite {
+    background-color: #e5f1f5;
+}
+
+.news.sectionSubsite h3 {
+    color: #222;
+}
+
+.news.sectionSubsite .datePickerContainer input {
+    background-color: #fff;
+    color: #222;
+}
+
 .sectionSubsite.news a.button:hover {
     background-color: $blush;
     color: #373737 !important; 
@@ -332,8 +346,10 @@ $input-border-color:$grey;
 
 .sectionSubsite.news a.button {
     color: #fff !important; 
-    background-color:#dc0000;
+    background-color:#3b7088;
 }
+
+// End news styling
 
 #paging .contentPod a:hover{
     background-color: $blush;

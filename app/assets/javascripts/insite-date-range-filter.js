@@ -20,7 +20,7 @@
                 var start = LCC.Modules.FormatSearchDate(startdate) || "1900/1/1";
                 var end = LCC.Modules.FormatSearchDate(enddate) || today;
 
-                var queryString = "?k=*&startdate=" + start + "&enddate=" + end;
+                var queryString = "?keyword=*&startdate=" + start + "&enddate=" + end;
 				
 				var urlAttribute = document.getElementById('dateRangeFilter').getAttribute('data-results-url');
 				var searchUrl = urlAttribute === null ? ( LCC.Settings.NewsUrl !== undefined ) ? LCC.Settings.NewsUrl : ((_spPageContextInfo.webServerRelativeUrl.length === 1) ? _spPageContextInfo.webServerRelativeUrl.substr(1) : _spPageContextInfo.webServerRelativeUrl) + "/news" : urlAttribute;
