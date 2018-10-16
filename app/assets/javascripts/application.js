@@ -1,6 +1,7 @@
 //Application specific javascript to go here
 //= require jquery.cycle.all
 //= require handlebars
+//= require google-analytics
 //= require insite-settings
 //= require insite-date-range-filter
 //= require insite-keyword-filter
