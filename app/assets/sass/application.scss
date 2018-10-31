@@ -956,13 +956,19 @@ display: none;
    }
 
    .sideNav.coloredNav li:hover {
-        background-color: #c1c1c1;
-        color: #202020; }
+        background-color: #7FA5FF;
+        color: #FFF; }
 
    .sideNav.coloredNav a {
        text-decoration: none;
        color: #537072;
    }
+
+   .relatedPages ul li a:hover, .sideNav ul li a:hover
+    {
+        background-color: #7FA5FF;
+        color: white;
+    }
    
    /* end of sideNavs */
    
@@ -1101,6 +1107,7 @@ display: none;
    }
    .ui-tabs .docList.one .listWebpart ul li a {
        border-top: none;
+       font-size: 16px;
    }
    .ui-tabs .docList.one .listWebpart ul li a:before {
        top: 15px;
@@ -1135,8 +1142,8 @@ display: none;
    }
 
     .ui-tabs .docList.one .listWebpart ul li a:hover {
-        background-color: #c1c1c1;
-        color: #202020; }
+        background-color: #7FA5FF;
+        color: #FFF; }
 
     .ui-tabs .ui-tabs-nav .ui-tabs-active .ui-tabs-anchor {
         background-color: #7FA5FF !important;      
