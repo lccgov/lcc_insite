@@ -1,0 +1,202 @@
+<%@Master language="C#"%>                           <%@Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>                           <%@Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>                           <%@Register TagPrefix="wssucw" TagName="Welcome" Src="~/_controltemplates/15/Welcome.ascx"%>                           <%@Register TagPrefix="wssucmui" TagName="MUISelector" Src="~/_controltemplates/15/MUISelector.ascx"%>                           <%@Register TagPrefix="PublishingRibbon" TagName="PublishingRibbon" Src="~/_controltemplates/15/Ribbon.ascx"%>                           <%@Register TagPrefix="SearchWC" Namespace="Microsoft.Office.Server.Search.WebControls" Assembly="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>                           <%@Register Tagprefix="spsswc"  Namespace="Microsoft.Office.Server.Search.WebControls" Assembly="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>                          <%@Register Tagprefix="CQWPFooter"  Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>                         <%@Register Tagprefix="a2e8ead9d"  Namespace="Microsoft.Office.Server.Search.WebControls" Assembly="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %><%@Register Tagprefix="InsiteAlerts"  Namespace="LCC.SharePoint.Webparts.CustomCaching.CCWP" Assembly="LCC.SharePoint.Webparts.CustomCaching, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0385ff101e2e17d6" %>
+<!DOCTYPE html >
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<SharePoint:SPHtmlTag lang="en" runat="server" id="SPHtmlTag" dir="&lt;%$Resources:wss,multipages_direction_dir_value%&gt;"><!--<![endif]-->
+    <head runat="server">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="" />  
+        <link rel="apple-touch-icon" sizes="180x180" href="/_catalogs/masterpage/public/images/apple-touch-icon.png?1.1.108">
+        <link rel="icon" type="image/png" href="/_catalogs/masterpage/public/images/favicon-32x32.png?1.1.108" sizes="32x32">
+        <link rel="icon" type="image/png" href="/_catalogs/masterpage/public/images/favicon-16x16.png?1.1.108" sizes="16x16">
+        <link rel="shortcut icon" href="/_catalogs/masterpage/public/images/favicon.ico?1.1.108">
+        <link rel="manifest" href="/_catalogs/masterpage/public/images/manifest.json?1.1.108">
+        <link rel="mask-icon" href="/_catalogs/masterpage/public/images/safari-pinned-tab.svg?1.1.108" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" ms-design-css-conversion="no" /><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" ms-design-css-conversion="no" /><script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script><script sr="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script> 
+        <meta name="GENERATOR" content="Microsoft SharePoint" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Expires" content="0" />
+        <SharePoint:RobotsMetaTag runat="server">                         </SharePoint:RobotsMetaTag>                         <SharePoint:CssRegistration Name="Themable/corev15.css" runat="server">                         </SharePoint:CssRegistration>                         <SharePoint:CssLink runat="server" Version="15">                         </SharePoint:CssLink>                         <SharePoint:PageTitle runat="server">                             <asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server">                                 <SharePoint:ProjectProperty Property="Title" runat="server">                             </SharePoint:ProjectProperty>                         </asp:ContentPlaceHolder>                         </SharePoint:PageTitle>                         <SharePoint:StartScript runat="server">                         </SharePoint:StartScript>                         <SharePoint:CacheManifestLink runat="server">                         </SharePoint:CacheManifestLink>                         <SharePoint:PageRenderMode runat="server" RenderModeType="Standard">                         </SharePoint:PageRenderMode>                         <SharePoint:ScriptLink language="javascript" name="core.js" OnDemand="true" runat="server" Localizable="false">                         </SharePoint:ScriptLink>                         <SharePoint:ScriptLink language="javascript" name="menu.js" OnDemand="true" runat="server" Localizable="false">                         </SharePoint:ScriptLink>                         <SharePoint:ScriptLink language="javascript" name="callout.js" OnDemand="true" runat="server" Localizable="false">                         </SharePoint:ScriptLink>                         <SharePoint:ScriptLink language="javascript" name="sharing.js" OnDemand="true" runat="server" Localizable="false">                         </SharePoint:ScriptLink>                         <SharePoint:ScriptLink language="javascript" name="suitelinks.js" OnDemand="true" runat="server" Localizable="false">                         </SharePoint:ScriptLink>                         <SharePoint:CustomJSUrl runat="server">                         </SharePoint:CustomJSUrl>                         <SharePoint:SoapDiscoveryLink runat="server">                         </SharePoint:SoapDiscoveryLink>                         <SharePoint:AjaxDelta id="DeltaPlaceHolderAdditionalPageHead" Container="false" runat="server">                         <asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server">                         </asp:ContentPlaceHolder>                         <SharePoint:DelegateControl runat="server" ControlId="AdditionalPageHead" AllowMultipleControls="true">                         </SharePoint:DelegateControl>                         <asp:ContentPlaceHolder id="PlaceHolderBodyAreaClass" runat="server">                         </asp:ContentPlaceHolder>                         </SharePoint:AjaxDelta>                         <SharePoint:AjaxDelta id="DeltaSPWebPartManager" runat="server">                             <WebPartPages:SPWebPartManager runat="server">                             </WebPartPages:SPWebPartManager>                         </SharePoint:AjaxDelta>
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="/_catalogs/masterpage/public/stylesheets/lcc-template.css?1.1.108" />
+        <!-- Application CSS -->
+        <link rel="stylesheet" href="/_catalogs/masterpage/public/stylesheets/insite.css?rev=80a5c525-acf1-4e8a-999c-5114d94dc49b">
+        </head>
+    <body onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();">
+    <SharePoint:SPClientIDGenerator runat="server" ServerControlID="DeltaPlaceHolderMain;DeltaPlaceHolderPageTitleInTitleArea;DeltaPlaceHolderUtilityContent" /><SharePoint:ImageLink runat="server" />                             <SharePoint:SharePointForm onsubmit="if (typeof (_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}" runat="server"><asp:ScriptManager id="ScriptManager" runat="server" EnablePageMethods="false"  EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" />                             <SharePoint:SPSecurityTrimmedControl runat="server" HideFromSearchCrawler="true" EmitDiv="true">                                 <div id="TurnOnAccessibility" style="display:none" class="s4-notdlg noindex">                                     <a id="linkTurnOnAcc" href="#" class="ms-accessible ms-acc-button" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">                                         <SharePoint:EncodedLiteral runat="server" text="&lt;%$Resources:wss,master_turnonaccessibility%&gt;" EncodeMethod="HtmlEncode">                                         </SharePoint:EncodedLiteral>                                     </a>                                 </div>                         <div id="TurnOffAccessibility" style="display:none" class="s4-notdlg noindex">                             <a id="linkTurnOffAcc" href="#" class="ms-accessible ms-acc-button" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">                                 <SharePoint:EncodedLiteral runat="server" text="&lt;%$Resources:wss,master_turnoffaccessibility%&gt;" EncodeMethod="HtmlEncode">                                 </SharePoint:EncodedLiteral>                             </a>                         </div>                         </SharePoint:SPSecurityTrimmedControl>                         <div id="ms-designer-ribbon">                             <PublishingRibbon:PublishingRibbon runat="server" />                          </div>
+        <div id="skiplink-container">
+            <div>
+                <a href="#main" class="skip">Skip to main content</a>
+            </div>
+        </div>
+        <div id="s4-workspace-disabled" class="mainWorkspace">
+            <div id="s4-bodyContainer">
+                <!--masterhead section -->
+                <section class="masterhead">
+                    <div class="container-fluid">
+                        <div class="">
+                            <a class="navbar-brand" href="/">
+                                <span class="sr-only">Go back to home page</span>
+                            </a>
+                            <div class="pull-right">
+                                <ul class="menu">
+                                    <li>
+                                      <form role="search">
+                                        <div class="nav-search" id="nav-search" role="search">
+                                                <div class="input-group">
+                                                    <!--sharepoint search-->
+                                                    <div data-name="search_box">
+                                                        <SearchWC:SearchBoxScriptWebPart UseSiteCollectionSettings="true" EmitStyleReference="false" ShowQuerySuggestions="true" ChromeType="None" UseSharedSettings="true" TryInplaceQuery="false" ServerInitialRender="true" runat="server">                          </SearchWC:SearchBoxScriptWebPart>
+                                       
+                                                    </div>
+                                                    <!-- end sharepoint search -->
+                                                </div>
+                                            </div>
+                                        </form>    
+                                    </li>
+                                    <li>
+                                        <a class="search" href="#">
+                                            <span class="sr-only">Toggle website search
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="main-menu" href="#">
+                                            <span class="sr-only">Toggle main menu
+                                            </span>Menu</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--/.masterHead section -->
+                <!-- Header -->
+                <header class="header-nav-container"> 
+                <div id="header" role="banner">
+                    <section class="sectionHeader">
+                        <div class="container-fluid">
+                            <div class="col-sm-6 col-xs-12 removeSidePadding header-left">
+                             <SharePoint:SPSimpleSiteLink runat="server" CssClass="logo img-responsive" ID="x7917ecc8c38d4bd69f58e338eab54c8c"><span></span></SharePoint:SPSimpleSiteLink>
+                            </div>
+                            <div class="col-sm-6 col-xs-12 removeSidePadding header-right">
+                            </div>
+                        </div>
+                    </section>
+                    </div>
+                    <!-- main nav -->
+                    <nav id="main-menu" class="main-nav" role="navigation">
+                        <div class="container-fluid">
+                            <!-- sharepoint nav -->
+                            <div data-name="main_nav">
+                            <SharePoint:AjaxDelta ID="DeltaTopNavigation" BlockElement="true" CssClass="ms-displayInline ms-core-navigation ms-dialogHidden" runat="server">                         <SharePoint:DelegateControl runat="server" ControlId="TopNavigationDataSource" Id="topNavigationDelegate">                           <Template_Controls>                             <asp:SiteMapDataSource ShowStartingNode="True" SiteMapProvider="SPNavigationProvider" ID="topSiteMap" runat="server" StartingNodeUrl="sid:1002">                             </asp:SiteMapDataSource></Template_Controls></SharePoint:DelegateControl>                         <a name="startNavigation">                         </a>                         <asp:ContentPlaceHolder ID="PlaceHolderTopNavBar" runat="server">                             <SharePoint:AspMenu ID="TopNavigationMenu" runat="server" EnableViewState="false" DataSourceID="topSiteMap" AccessKey="&lt;%$Resources:wss,navigation_accesskey%&gt;" UseSimpleRendering="true" UseSeparateCss="false" Orientation="Horizontal" StaticDisplayLevels="4"   AdjustForShowStartingNode="false" MaximumDynamicDisplayLevels="0" SkipLinkText="">                            </SharePoint:AspMenu>                         </asp:ContentPlaceHolder>                      </SharePoint:AjaxDelta>
+                            </div>
+                            <!--/.sharepoint nav -->
+                        </div>
+                        <!-- /.container -->
+                    </nav>
+                    <!-- /.main-menu -->
+                </header>
+                <!-- /.header-nav-container -->
+
+                <!--[if (lt IE 9) & (!IEMobile)]>
+                    <![if (IE 8)]>
+                        <div class="browser-alert"><div class="container-fluid"><div class="row"><div class="col-lg-12"><span>This site is optimised for modern web browsers, and does not fully support your version of Internet Explorer</span></div></div></div></div>
+                    <![endif]>
+
+                    <![if (IE 7)]>
+                        <div class="browser-alert"><div class="container-fluid"><div class="row"><div class="col-lg-12"><span>This site is optimised for modern web browsers, and does not fully support your version of Internet Explorer</span></div></div></div></div>
+                    <![endif]>
+
+                    <![if (IE 6)]>
+                        <div class="browser-alert"><div class="container-fluid"><div class="row"><div class="col-lg-12"><span>This site is optimised for modern web browsers, and does not fully support your version of Internet Explorer</span></div></div></div></div>
+                    <![endif]>
+                <![endif]-->
+
+                  <!-- ALERTS -->
+                  <div id="alert">
+                    <InsiteAlerts:CCWP runat="server" AlwaysRenderOnServer="False" 
+                        CacheDuration="1"
+                        KQL="ContentType:&#34;Insite Alert&#34; AlertStatusOWSBOOL:1 refinabledate10&lt;=Today refinabledate11&gt;=Today (AlertGlobalOWSBOOL:1 OR owstaxIdAlertCategories:{Page.PageCategory})"
+                        Hidden="False"
+                        RowLimit="5"
+                        Direction="NotSet"
+                        AllowConnect=""
+                        AllowZoneChange="True"
+                        ExportMode="All"
+                        AllowHide="True"
+                        AllowEdit="True"
+                        Description="My Web Part"
+                        AllowClose="True"
+                        ChromeType="None"
+                        SortProperties="PromoOrderByOWSNMBR"
+                        ChromeState="Normal"
+                        HelpMode="Navigate"
+                        XsltPath="/Style%20Library/XSL%20Style%20Sheets/LCC/InsiteAlerts.xslt"
+                        AllowMinimize="True"
+                        Title="LCC Alerts"
+                        SelectProperties="AlertLinkOWSURLH,Title,AlertContentOWSHTML,AlertCSSOWSTEXT">
+                    </InsiteAlerts:CCWP>
+                </div>
+                 <!-- /ALERTS -->
+
+                <!-- MAIN CONTENT -->
+                <div data-name="bodycontent">
+                  <SharePoint:AjaxDelta ID="DeltaPlaceHolderMain" IsMainContent="true" runat="server">                         <asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server">                         </asp:ContentPlaceHolder>                     </SharePoint:AjaxDelta>
+                </div>
+                <!-- /MAIN CONTENT -->
+                <!-- footer -->
+                <footer class="main" role="contentinfo">
+                    <section class="footerGlobal">
+                        <div class="container-fluid">
+                            <div class="item link-item">
+                                <div class="secondaryFooter">
+                                    <div class="container-fluid"> 
+                                        <div class="col-lg-12" style="padding-top: 20px;">
+                                        <nav>
+                                            <ul>
+                                                <li> 
+                                                    <a href="mailto:InSite@leeds.gov.uk" target="_blank">Send us feedback</a></li>
+                                                <li> 
+                                                    <a href="/Pages/Site-Pages-A-to-Z.aspx" target="_blank">A to Z</a></li>
+                                                <li> 
+                                                    <a href="/pages/termsandconditions.aspx" target="_blank">Terms and conditions</a></li>
+                                                <li> 
+                                                    <a href="/pages/insite-publishers.aspx" target="_blank">InSite publishers</a></li>
+                                                <li> 
+                                                    <a href="/pages/accessibility.aspx" target="_blank">Accessibility</a></li>
+                                            </ul> </nav> </div>
+                                        <div class="col-lg-12 logo-footer text-left"> 
+                                        <br/>
+                                        <img alt="Leeds City Council logo" src="/_catalogs/masterpage/public/stylesheets/images/lcc-logo-white-01.svg"/> 
+                                        <p>Copyright © Leeds City Council 2019</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="GoogleAnalytics"></div>
+                        </div>
+                        <!-- /.row -->
+                    </section>
+                </footer>
+                <!-- BACK TO TOP -->
+                <a href="#0" class="cd-top" data-module="back-to-top">Back to top</a>         
+            </div>
+        </div> 
+        <SharePoint:AjaxDelta id="DeltaFormDigest" BlockElement="true" runat="server"><asp:ContentPlaceHolder id="PlaceHolderFormDigest" runat="server"><SharePoint:formdigest runat="server" /></asp:ContentPlaceHolder></SharePoint:AjaxDelta></SharePoint:SharePointForm><SharePoint:AjaxDelta id="DeltaPlaceHolderUtilityContent" runat="server"><asp:ContentPlaceHolder id="PlaceHolderUtilityContent" runat="server" /></SharePoint:AjaxDelta><asp:ContentPlaceHolder id="PlaceHolderTitleAreaClass" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderTitleBreadcrumb" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderGlobalNavigationSiteMap" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderGlobalNavigation" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderSearchArea" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBar" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderHorizontalNav" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBarDataSource" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderCalendarNavigator" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftActions" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBarTop" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderSiteName" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderPageDescription" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderPageImage" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderTitleLeftBorder" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderMiniConsole" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderTitleRightMargin" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderTitleAreaSeparator" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderNavSpacer" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderLeftNavBarBorder" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderBodyLeftBorder" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderBodyRightMargin" Visible="False" runat="server" /><asp:ContentPlaceHolder id="WSSDesignConsole" Visible="False" runat="server" /><asp:ContentPlaceHolder id="SPNavigation" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderQuickLaunchTop" Visible="False" runat="server" /><asp:ContentPlaceHolder id="PlaceHolderQuickLaunchBottom" Visible="False" runat="server" /><script type="text/javascript">if (typeof browseris !== "undefined") {browseris.ie = false;}</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript">//<![CDATA[//]]></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js" type="text/javascript">//<![CDATA[//]]></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript">//<![CDATA[//]]></script><script src="https://static.atgsvcs.com/js/atgsvcs.js" type="text/javascript">//<![CDATA[//]]></script>  
+        <script src="/_catalogs/masterpage/public/javascripts/lcc-template.js?1.1.108" type="text/javascript"></script>
+        <script src="/_catalogs/masterpage/public/javascripts/application.js?1.1.108" type="text/javascript"></script>
+        <asp:ContentPlaceHolder id="AdditionalPageScripts" runat="server"></asp:ContentPlaceHolder> 
+        
+ 
+   </body>
+</SharePoint:SPHtmlTag>

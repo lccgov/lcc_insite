@@ -57,8 +57,18 @@ gulp.task('sync:assets', ['clean:dist'], (done) => {
     }).catch((err) => { done(err);})
 });
 
+//Sync any additional master pages to public folder
+gulp.task('sync:masterpage', ['sync:assets'], (done) => {
+    syncy(['app/assets/*.master'], './dist/_catalogs/masterpage', {
+            base: 'app/assets',
+            updateAndDelete: false
+        }).then(() => { 
+            done();
+    }).catch((err) => { done(err);})
+});
+
 //Sync lcc_frontend_toolkit to lcc_modules to be used for SASS partial compilation
-gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
+gulp.task('sync:lcc_frontend_toolkit', ['sync:masterpage'], (done) => {
     syncy(['node_modules/lcc_frontend_toolkit/**'], 'lcc_modules/lcc_frontend_toolkit', {
             base: 'node_modules/lcc_frontend_toolkit',
             updateAndDelete: true
@@ -99,8 +109,14 @@ gulp.task('sync:lcc_sharepoint_toolkit_displaytemplates', ['sync:lcc_sharepoint_
     }).pipe(gulp.dest('dist/_catalogs/masterpage/Display Templates'))
 });
 
+//Sync xslstylesheets to dist/Style Library/XSL Style Sheets
+gulp.task('sync:xslstylesheets', ['sync:lcc_sharepoint_toolkit_displaytemplates'], (done) => {
+    return gulp.src('app/assets/xslstylesheets/**/*.xslt')
+        .pipe(gulp.dest('dist/Style Library/XSL Style Sheets'))
+});
+
 //Sync node_modules/lcc_sharepoint_toolkit/xslstylesheets to dist/Style Library/XSL Style Sheets
-gulp.task('sync:lcc_sharepoint_toolkit_xslstylesheets', ['sync:lcc_sharepoint_toolkit_displaytemplates'], (done) => {
+gulp.task('sync:lcc_sharepoint_toolkit_xslstylesheets', ['sync:xslstylesheets'], (done) => {
     return gulp.src('node_modules/lcc_sharepoint_toolkit/xslstylesheets/*.xsl')
         .pipe(gulp.dest('dist/Style Library/XSL Style Sheets'))
 });
@@ -294,5 +310,5 @@ gulp.task('sp-upload', ['prompt'], (done) => {
     );
 });
 
-gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:lcc_frontend_toolkit', 'sync:javascripts', 'sync:lcc_sharepoint_toolkit_webparts', 'sync:lcc_sharepoint_toolkit_displaytemplates', 'sync:lcc_sharepoint_toolkit_xslstylesheets', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_stylesheets', 'sync:lcc_templates_sharepoint_javascript', 'sync:lcc_templates_sharepoint_views', 'sync:lcc_templates_sharepoint_master', 'sass', 'sass:subsites', 'sync:subsites_master']);
+gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:lcc_frontend_toolkit', 'sync:javascripts', 'sync:lcc_sharepoint_toolkit_webparts', 'sync:lcc_sharepoint_toolkit_displaytemplates', 'sync:xslstylesheets', 'sync:lcc_sharepoint_toolkit_xslstylesheets', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_stylesheets', 'sync:lcc_templates_sharepoint_javascript', 'sync:lcc_templates_sharepoint_views', 'sync:lcc_templates_sharepoint_master', 'sass', 'sass:subsites', 'sync:subsites_master']);
 gulp.task('upload',  ['default', 'sp-upload']);
