@@ -38,13 +38,11 @@
                 <li>
                     <div class="col-md-12" style="padding-top:2px;padding-right:2px;padding-left:2px;padding-bottom:30px; margin:2px"> 
                         <div class="col-md-3">
-                            <xsl:if test="string-length(Properties/PromoProperty[@Key='PublishingImage']/Value) > 0">
                                 <img class="img-content" alt="">
                                     <xsl:attribute name="src">
                                         <xsl:value-of select="substring-before(substring-after(Properties/PromoProperty[@Key='PublishingImage'], 'src=&quot;'), '&quot; style')" />
                                     </xsl:attribute> 
                                 </img>
-                            </xsl:if>
                         </div>
                         <div class="col-md-9">
                             <h4 style="border-bottom:0px !important; margin:0px;">

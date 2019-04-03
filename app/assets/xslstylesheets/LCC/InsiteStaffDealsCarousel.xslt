@@ -26,7 +26,7 @@
                                     <div class="col-sm-12">
                                         <p class="font-bold text-padding-left" style="padding-left: 1em"><xsl:value-of select="Title"/></p> 				
                                         <p class="fontsize text-padding-left" style="padding-left: 1em"><xsl:value-of select="concat('Category : ',Properties/PromoProperty[@Key='StaffDealsCategory'])" /></p>
-                                        <p class="fontsize text-padding-left" style="padding-left: 1em"><xsl:value-of select="concat('Expiry date : ',Properties/PromoProperty[@Key='RefinableString07'])" /></p>
+                                        <p class="fontsize text-padding-left" style="padding-left: 1em"><xsl:value-of select="concat('Expiry date : ',Properties/PromoProperty[@Key='StaffDealsExpiryDateOWSDATE'])" /></p>
                                     </div>
                                 </div>
                             </div>

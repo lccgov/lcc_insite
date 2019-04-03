@@ -123,29 +123,34 @@
 
                   <!-- ALERTS -->
                   <div id="alert">
-                    <InsiteAlerts:CCWP runat="server" AlwaysRenderOnServer="False" 
-                        CacheDuration="1"
-                        KQL="ContentType:&#34;Insite Alert&#34; AlertStatusOWSBOOL:1 refinabledate10&lt;=Today refinabledate11&gt;=Today (AlertGlobalOWSBOOL:1 OR owstaxIdAlertCategories:{Page.PageCategory})"
-                        Hidden="False"
-                        RowLimit="5"
-                        Direction="NotSet"
-                        AllowConnect=""
-                        AllowZoneChange="True"
-                        ExportMode="All"
-                        AllowHide="True"
-                        AllowEdit="True"
-                        Description="My Web Part"
-                        AllowClose="True"
-                        ChromeType="None"
-                        SortProperties="PromoOrderByOWSNMBR"
-                        ChromeState="Normal"
-                        HelpMode="Navigate"
-                        XsltPath="/Style%20Library/XSL%20Style%20Sheets/LCC/InsiteAlerts.xslt"
-                        AllowMinimize="True"
-                        Title="LCC Alerts"
-                        SelectProperties="AlertLinkOWSURLH,Title,AlertContentOWSHTML,AlertCSSOWSTEXT">
-                    </InsiteAlerts:CCWP>
+                    <div id="LCCAlerts">
+                        <InsiteAlerts:CCWP runat="server" AlwaysRenderOnServer="False" 
+                            CacheDuration="1"
+                            KQL="ContentType:&#34;Insite Alert&#34; AlertStatusOWSBOOL:1 refinabledate10&lt;=Today refinabledate11&gt;=Today (AlertGlobalOWSBOOL:1 OR owstaxIdAlertCategories:{Page.PageCategory})"
+                            Hidden="False"
+                            RowLimit="5"
+                            Direction="NotSet"
+                            AllowConnect=""
+                            AllowZoneChange="True"
+                            ExportMode="All"
+                            AllowHide="True"
+                            AllowEdit="True"
+                            Description="My Web Part"
+                            AllowClose="True"
+                            ChromeType="None"
+                            SortProperties="PromoOrderByOWSNMBR"
+                            ChromeState="Normal"
+                            HelpMode="Navigate"
+                            XsltPath="/Style%20Library/XSL%20Style%20Sheets/LCC/InsiteAlerts.xslt"
+                            AllowMinimize="True"
+                            Title="LCC Alerts"
+                            SelectProperties="AlertLinkOWSURLH,Title,AlertContentOWSHTML,AlertCSSOWSTEXT">
+                        </InsiteAlerts:CCWP>
+                    </div>
+                    <div id="HNSCAlerts" class="hide">
+                    </div>
                 </div>
+
                  <!-- /ALERTS -->
 
                 <!-- MAIN CONTENT -->
