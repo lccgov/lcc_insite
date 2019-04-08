@@ -75,7 +75,8 @@ ctx['ItemRenderWrapper'] = ListRenderRenderWrapper;
    var containerId = encodedId + "container";
 
 AddPostRenderCallback(ctx, function () {		
-		LCC.modules.start($('#' + containerId));		
+        LCC.modules.start($('#' + containerId));
+        LCC.modules.start($('[data-module="building-locations"]'));		
 });
 
 ctx['ItemRenderWrapper'] = ListRenderRenderWrapper;
