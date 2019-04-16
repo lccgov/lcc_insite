@@ -26,7 +26,7 @@
                                     <xsl:choose>
                                         <xsl:when test="string-length(Properties/PromoProperty[@Key='EventImageOWSIMGE']/Value) > 0">
                                             <div class="col-sm-5">
-                                                <img style="width: 100%; padding-left: 1em">
+                                                <img alt="" style="width: 100%; padding-left: 1em">
                                                     <xsl:attribute name="src">
                                                         <xsl:value-of select="substring-before(substring-after(Properties/PromoProperty[@Key='EventImageOWSIMGE'], 'src=&quot;'), '&quot; style')" />
                                                     </xsl:attribute> 

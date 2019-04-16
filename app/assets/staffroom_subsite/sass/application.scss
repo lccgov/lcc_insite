@@ -849,7 +849,7 @@ $input-border-color:$grey;
    
    .sideNav.coloredNav > ul {
        margin:0px !important;
-       padding:16px;
+       padding:16px 0px;
        background-color:#dbe4f2;
    }
    
@@ -893,6 +893,9 @@ $input-border-color:$grey;
    }
    .main-nav ul ul ul {
        margin: -60px 0 0 255px;
+        @media (max-width: 767px){
+            margin: 0;
+        }
    }
    .groupPromo ul li a p {
        font-size: 15px !important;
@@ -982,7 +985,7 @@ $input-border-color:$grey;
        box-shadow: 0 0 0 0 #ccd5d7 !important;
    }
    .ui-tabs .ui-tabs-panel {
-       padding: 3px !important;
+       padding: 0px !important;
    }
    .ui-tabs .docList.one li a {
        padding: 13px 4px 7px 35px !important;
@@ -1004,8 +1007,9 @@ $input-border-color:$grey;
    }
    .ui-widget-header {
        border: 0px solid #aaaaaa !important;
-       border-bottom:1px solid #599aab !important; 
+       border-bottom:2px solid #599aab !important; 
        background: none !important;
+       border-radius: 0px;
    }
    .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
        border: 1px solid #599aab;
@@ -1621,6 +1625,18 @@ $input-border-color:$grey;
         position: absolute;
     }
     /* End of fix */
+
+        /* Event calendar styling */
+        a.socialEvent {
+            background-color: #d0ffbc !important;
+        }
+        a.diversityEvent {
+            background-color: #bee5ff !important;
+        }
+        a.businessEvent {
+            background-color: #feebcd !important;
+        }
+        /* END Event calendar styling */
    
     a:focus,
     input[type=submit]:focus,
@@ -1640,6 +1656,62 @@ $input-border-color:$grey;
     .sideNav ul li:first-of-type a:focus, .sideNav ul li:first-of-type a.active:focus,
     .iconLinks li a:focus:after {
     background-color: rgba(0,0,0,0.3) !important; }
+
+    body {
+        nav#main-menu {
+            ul.root{
+                > li {
+                    &:hover, &:focus {
+                        > a {
+                            background-color: #6b1f6b;
+                            color: #FFFFFF;
+                            border-top: 0 !important;
+                        }
+                    }
+                    ul.static {
+                        background: #6b1f6b;
+                        border-top: 0 !important;
+                        padding: 0;
+                        li {
+                            a {
+                                color: #FFFFFF;
+                                &:hover {
+                                    background: rgba(0,0,0,0.3);
+                                    border-top: 0 !important;
+                                }                                
+                            }
+                        }
+                    }
+                }
+            }
+            ul {
+                ul {
+                    ul {
+                        margin: -48px 0 0 255px; 
+                    }
+                }
+            }
+
+            @media (max-width:767px){
+                .container-fluid {
+                    padding: 0;
+                }
+                ul {
+                    ul {
+                        ul {
+                            margin: auto; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    body ul.menu li a.main-menu {
+        &:hover, &:focus {
+            background: #6b1f6b !important;
+        }
+    }
     
    // En of additional stylesheet
    /*# sourceMappingURL=application.css.map */

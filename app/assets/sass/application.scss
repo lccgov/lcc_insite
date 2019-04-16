@@ -25,6 +25,7 @@ $powderblue:#4a8dac;
 $blush:#eeB6B7;
 $cotton:#99ced4;
 $smoke:#6e7376;
+$smokeAccessible: #d5dce0;
 
 // InSite specifi newcolor scheme
 //$paleGold: #C0B283;
@@ -341,12 +342,12 @@ display: none;
 
 .groupPromo.homePageGroupTwo a
 {
-    background-color:$smoke;
+    background-color:$smokeAccessible;
 }
 
 .groupPromo.homePageGroupTwo a:hover
 {
-    background-color:darken($smoke, 15) !important;
+    background-color:darken($smokeAccessible, 15) !important;
 }
 
 .groupPromo.homePageGroupThree a
@@ -951,13 +952,21 @@ display: none;
    
    .sideNav.coloredNav > ul {
        margin:0px !important;
-       padding:16px;
+       padding:16px 0px;
        background-color:#f4f4f4;
    }
 
    .sideNav.coloredNav li:hover {
         background-color: #7FA5FF;
-        color: #FFF; }
+        color: #373737; }
+
+    .sideNav.contactsNav li:hover{
+            background-color: #f4f4f4;
+        }
+    
+    .sideNav.contactsNav a{
+            text-decoration: underline !important;
+        }
 
    .sideNav.coloredNav a {
        text-decoration: none;
@@ -966,8 +975,14 @@ display: none;
 
    .relatedPages ul li a:hover, .sideNav ul li a:hover
     {
-        background-color: #7FA5FF;
-        color: white;
+        //background-color: #7FA5FF;
+        color: #373737;
+    }
+
+    .relatedPages ul li, .sideNav ul li
+    {
+        padding-left: 16px;
+        padding-right: 16px;
     }
    
    /* end of sideNavs */
@@ -1004,12 +1019,16 @@ display: none;
    // }
    .main-nav ul ul li:first-of-type {
        border-top: 1px solid #e3e9e6 !important;
+       color: #fff;
    }
    .main-nav ul ul li {
        border-bottom: 1px solid #e3e9e6 !important;
    }
    .main-nav ul ul ul {
        margin: -60px 0 0 255px;
+       @media (max-width: 767px){
+        margin: 0;
+    }
    }
    .groupPromo ul li a p {
        font-size: 15px !important;
@@ -1099,7 +1118,7 @@ display: none;
        box-shadow: 0 0 0 0 #ccd5d7 !important;
    }
    .ui-tabs .ui-tabs-panel {
-       padding: 3px !important;
+       padding: 0px !important;
    }
    .ui-tabs .docList.one li a {
        padding: 13px 4px 7px 16px !important;
@@ -1125,8 +1144,9 @@ display: none;
    }
    .ui-widget-header {
        border: 0px solid #aaaaaa !important;
-       border-bottom:1px solid #7FA5FF !important; 
+       border-bottom:2px solid #7FA5FF !important; 
        background: none !important;
+       border-radius: 0px;
    }
    .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
        border: 1px solid #599aab;
@@ -1143,7 +1163,7 @@ display: none;
 
     .ui-tabs .docList.one .listWebpart ul li a:hover {
         background-color: #7FA5FF;
-        color: #FFF; }
+        color: #373737; }
 
     .ui-tabs .ui-tabs-nav .ui-tabs-active .ui-tabs-anchor {
         background-color: #7FA5FF !important;      
@@ -1156,6 +1176,7 @@ display: none;
 
     .ui-tabs .ui-tabs-nav li {
         border: solid 2px #7FA5FF;
+        border-bottom: 0px;
     }
    /*Not working yet*/
    /*.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
@@ -1884,7 +1905,64 @@ display: none;
     .promo a:focus span,
     .sideNav ul li:first-of-type a:focus, .sideNav ul li:first-of-type a.active:focus,
     .iconLinks li a:focus:after {
-    background-color: rgba(0,0,0,0.3) !important; }
+    background-color: rgba(0,0,0,0.3) !important; 
+    color: #fff !important}
+
+    body {
+        nav#main-menu {
+            ul.root{
+                > li {
+                    &:hover, &:focus {
+                        > a {
+                            background-color: #006665;
+                            color: #FFFFFF;
+                            border-top: 0 !important;
+                        }
+                    }
+                    ul.static {
+                        background: #006665;
+                        border-top: 0 !important;
+                        padding: 0;
+                        li {
+                            a {
+                                color: #FFFFFF;
+                                &:hover {
+                                    background: rgba(0,0,0,0.3);
+                                    border-top: 0 !important;
+                                }                                
+                            }
+                        }
+                    }
+                }
+            }
+            ul {
+                ul {
+                    ul {
+                        margin: -48px 0 0 255px; 
+                    }
+                }
+            }
+
+            @media (max-width:767px){
+                .container-fluid {
+                    padding: 0;
+                }
+                ul {
+                    ul {
+                        ul {
+                            margin: auto; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    body ul.menu li a.main-menu {
+        &:hover, &:focus {
+            background: #006665 !important;
+        }
+    }
     
    // End of additional stylesheet
    /*# sourceMappingURL=application.css.map */

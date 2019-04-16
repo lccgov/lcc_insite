@@ -16,7 +16,7 @@
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
 <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
 <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
-<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite-at.leeds.gov.uk/_catalogs/masterpage/Display Templates/Content Web Parts/Item_EventsPromo_NoConditional.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://insite.leeds.gov.uk/_catalogs/masterpage/Display Templates/Content Web Parts/Item_EventsPromo_NoConditional.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
 <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
 </mso:CustomDocumentProperties>
@@ -58,19 +58,19 @@ var ContentTypeId = $getItemValue(ctx, "ContentTypeId");
 			_#-->
 
             <li class="_#= PromoCSS =#_" style="margin-bottom: 0.5em">
-                <a href="calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
+                <a class="businessEvent" href="calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
                 <!--#_
                 if(!pictureURL.isEmpty)  {   
                 _#-->
                 
-                    <img src="_#= pictureURL =#_">
+                    <img alt="" src="_#= pictureURL =#_">
                 
                 <!--#_
                 } 
                 _#-->
 
                 <h3>_#= Title =#_</h3>
-            
+
                 <!--#_
                 if(!PromoDesc1.isEmpty)  {   
                 _#-->
@@ -97,23 +97,23 @@ var ContentTypeId = $getItemValue(ctx, "ContentTypeId");
 
 
 			<!--#_
-			}else{
+			}else if(PromoIcon == "Diversity events"){
 			_#-->
 				
 				<li class="_#= PromoCSS =#_" style="margin-bottom: 0.5em">
-			        <a href="calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
+			        <a class="diversityEvent" href="calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
 					<!--#_
                     if(!pictureURL.isEmpty)  {   
                     _#-->
                     
-                        <img src="_#= pictureURL =#_">
+                        <img alt="" src="_#= pictureURL =#_">
                     
                     <!--#_
                     } 
                     _#-->
 
                     <h3>_#= Title =#_</h3>
-				
+
 					<!--#_
                     if(!PromoDesc1.isEmpty)  {   
                     _#-->
@@ -139,9 +139,54 @@ var ContentTypeId = $getItemValue(ctx, "ContentTypeId");
 
 				
 				
-			<!--#_	
-			}	
-            _#-->
+			<!--#_
+			}else{
+			_#-->
+				
+            <li class="_#= PromoCSS =#_" style="margin-bottom: 0.5em">
+                <a class="socialEvent" href="calendars/event-details?ID=_#= ID =#_&ContentTypeId=_#= ContentTypeId =#_">
+                <!--#_
+                if(!pictureURL.isEmpty)  {   
+                _#-->
+                
+                    <img alt="" src="_#= pictureURL =#_">
+                
+                <!--#_
+                } 
+                _#-->
+
+                <h3>_#= Title =#_</h3>
+
+                <!--#_
+                if(!PromoDesc1.isEmpty)  {   
+                _#-->
+                
+                <p>_#= PromoDesc1 =#_</p>
+
+                <!--#_
+                } 
+                _#-->
+                
+                <!--#_
+                if(!PromoDesc2.isEmpty)  {   
+                _#-->
+                
+                <p>_#= PromoDesc2 =#_</p>
+
+                <!--#_
+                } 
+                _#-->		
+                
+                </a>
+            </li>
+
+            
+            
+        <!--#_	
+        }	
+        _#-->
+
+
 
  	</div>       
 </body>
