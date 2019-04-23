@@ -1772,13 +1772,16 @@ display: none;
    }
    
    .carousel-title{
-       padding-top:20px;
-       padding-left:30px;
+        border-bottom: 5px solid #599aab!important;
+        margin: 0 15px 15px 15px;
+        padding: 10px 0;
    }
    
    .carousel-font
    {
-       font-size: 1.5em;
+       font-size: 24px;
+       font-family: $font-secondary, sans-serif;
+       //color: #007299;
    }
    
    .image-left{
@@ -1827,6 +1830,12 @@ display: none;
         color: #fff;
         z-index: 99; }
    /* END - Carousel */
+
+   /* START - SideNav Home page */
+    .sideNav > h3 {
+        color: #4C9CC8
+    }
+    /* END - SideNav Home page */
    
    /* START - News webpat(Home page) */
    .text-color{
@@ -1908,6 +1917,7 @@ display: none;
     background-color: rgba(0,0,0,0.3) !important; 
     color: #fff !important}
 
+    /* START Nav styling */
     body {
         nav#main-menu {
             ul.root{
@@ -1963,6 +1973,8 @@ display: none;
             background: #006665 !important;
         }
     }
+
+    /* END Nav styling */
     
    // End of additional stylesheet
    /*# sourceMappingURL=application.css.map */
