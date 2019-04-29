@@ -10,7 +10,7 @@
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
 <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
-<mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;EventImageOWSIMGE;PublishingImage;PictureURL;PictureThumbnailURL&#39;,&#39;Title&#39;{Promo Title}:&#39;Title&#39;,&#39;EventSummary&#39;{EventSummary}:&#39;EventSummaryOWSTEXT&#39;,&#39;MainBody&#39;{MainBody}:&#39;MainBodyTextOWSHTML&#39;,&#39;EventCost&#39;{EventCost}:&#39;EventCostOWSTEXT&#39;,&#39;EventDate&#39;{EventDate}:&#39;EventDateOWSDATE&#39;,&#39;EventLink&#39;{EventLink}:&#39;EventURLLinkOWSTEXT&#39;,&#39;Custom Title&#39;{Custom Title}:&#39;List Display Web Part&#39;,&#39;PromoDisplayType&#39;{Promo Display Class Type}:&#39;default&#39;,&#39;SecondaryFileExtension&#39;,&#39;ContentTypeId&#39;</mso:ManagedPropertyMapping>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;EventImageOWSIMGE;PublishingImage;PictureURL;PictureThumbnailURL&#39;,&#39;Title&#39;{Promo Title}:&#39;Title&#39;,&#39;EventSummary&#39;{EventSummary}:&#39;EventSummaryOWSTEXT&#39;,&#39;MainBody&#39;{MainBody}:&#39;MainBodyTextOWSHTML&#39;,&#39;EventCost&#39;{EventCost}:&#39;EventCostOWSTEXT&#39;,&#39;EventDate&#39;{EventDate}:&#39;EventDateOWSDATE&#39;,&#39;EndDate&#39;{EndDate}:&#39;EndDateOWSDATE&#39;,&#39;EventLink&#39;{EventLink}:&#39;EventURLLinkOWSTEXT&#39;,&#39;Custom Title&#39;{Custom Title}:&#39;List Display Web Part&#39;,&#39;PromoDisplayType&#39;{Promo Display Class Type}:&#39;default&#39;,&#39;SecondaryFileExtension&#39;,&#39;ContentTypeId&#39;</mso:ManagedPropertyMapping>
 <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
 <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
@@ -42,18 +42,54 @@ var EventSummary = $getItemValue(ctx, "EventSummary");
 var EventCost = $getItemValue(ctx, "EventCost");
 var MainBody = $getItemValue(ctx, "MainBody");
 var EventDate = $getItemValue(ctx, "EventDate");
+var startdate = $getItemValue(ctx, "EventDateOWSDATE").inputValue;
+var enddate = $getItemValue(ctx, "EndDateOWSDATE").inputValue;
 var EventLink = $getItemValue(ctx, "EventLink");
 
 var PromoCSS = $getItemValue(ctx, "Promo CSS");
 var pictureURL = $getItemValue(ctx, "Picture URL");
 var dataDisplayTemplateTitle = "Accordion";
 
+var parsedStartDate = new Date(startdate);
+var parsedEndDate = new Date(enddate);
+var daterange = "";
+
+// If All day event - don't show times
+if (startdate.substring(11,16) == "00:00" && enddate.substring(11,16) == "23:59")
+{
+	// JS adds 1 hour when BST, which pushes end date to next date
+	if (parsedEndDate.getHours() == 0) {
+		parsedEndDate.setDate(parsedEndDate.getDate() - 1);
+	}
+	if (parsedStartDate.format('dd MMMM yyyy') == parsedEndDate.format('dd MMMM yyyy'))
+	{
+		daterange = parsedStartDate.format('dd MMMM yyyy');
+	}
+	else 
+	{
+		daterange = parsedStartDate.format('dd MMMM yyyy') + ' - ' + parsedEndDate.format('dd MMMM yyyy');
+	}	
+}
+else
+{
+	if (parsedStartDate.format('dd MMMM yyyy') == parsedEndDate.format('dd MMMM yyyy'))
+	{
+		daterange = parsedStartDate.format('dd MMMM yyyy HH:mm') + ' - ' + parsedEndDate.format('HH:mm');
+	}
+	else
+	{
+		daterange = parsedStartDate.format('dd MMMM yyyy HH:mm') + ' - ' + parsedEndDate.format('dd MMMM yyyy HH:mm');
+	}
+	
+}
+
+
  _#-->
 			
 		<div class="_#= PromoCSS =#_">
 	       <div class="freeContentArea">
 	       <h2>_#= Title =#_</h2>
-  			<h3 class="eventDate">_#= EventDate =#_</h3>
+			  <h3 class="eventDate">_#= daterange =#_</h3>
    				<p class="highLight">_#= EventSummary =#_</p>
    					<hr>
 					<div class="eventDetails">

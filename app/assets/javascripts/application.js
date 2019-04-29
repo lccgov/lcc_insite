@@ -8,6 +8,7 @@
 //= require insite-news-archive-filter
 //= require building-locations
 //= require insite-rating
+//= require insite-event-carousel
 
 $('.cycle ul').cycle({ 
     fx:      'scrollDown', 

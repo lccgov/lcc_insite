@@ -14,7 +14,7 @@
                     <xsl:value-of select="PromoWrapper/@CustomTitle" />
                 </a>		
 		    </div>		
-			<div class="carousel-inner" >
+			<div class="carousel-inner" data-module="event-carousel" >
                 <xsl:for-each select="PromoWrapper/Promos/Promo">
                     <div class="item">
                         <a>
@@ -34,13 +34,17 @@
                                             </div>                                    
                                             <div class="col-sm-7">
                                                 <p class="font-bold"><xsl:value-of select="Title"/></p>
-                                                <p class="fontsize"><xsl:value-of select="concat(Properties/PromoProperty[@Key='EventDateOWSDATE'],' - ',Properties/PromoProperty[@Key='EndDateOWSDATE'])" /></p>
+                                                <p class="fontsize">
+                                                    <span class="js-event-start"><xsl:value-of select="Properties/PromoProperty[@Key='EventDateOWSDATE']" /></span> - <span class="js-event-end"><xsl:value-of select="Properties/PromoProperty[@Key='EndDateOWSDATE']" /></span>
+                                                </p>
                                             </div>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <div class="col-sm-12">
                                                 <p class="font-bold" style="padding-left: 1em"><xsl:value-of select="Title"/></p>
-                                                <p class="fontsize" style="padding-left: 1em"><xsl:value-of select="concat(Properties/PromoProperty[@Key='EventDateOWSDATE'],' - ',Properties/PromoProperty[@Key='EndDateOWSDATE'])" /></p>
+                                                <p class="fontsize">
+                                                    <span class="js-event-start"><xsl:value-of select="Properties/PromoProperty[@Key='EventDateOWSDATE']" /></span> - <span class="js-event-end"><xsl:value-of select="Properties/PromoProperty[@Key='EndDateOWSDATE']" /></span>
+                                                </p>
                                             </div>
                                         </xsl:otherwise>
                                     </xsl:choose>
