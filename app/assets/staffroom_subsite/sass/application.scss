@@ -623,7 +623,7 @@ $input-border-color:$grey;
    /* styles for sideNavs */
 
    .sideNav.relDocsNav::before{
-       content: "\f15c";
+       content: "\f0c5";
    }
  
    
@@ -637,7 +637,7 @@ $input-border-color:$grey;
   
    
    .sideNav.doItOnlineNav::before{
-       content: "\f059";
+       content: "\f245";
    }
    
    .sideNav.contactsNav::before{
@@ -657,6 +657,10 @@ $input-border-color:$grey;
    .sideNav.policiesNav::before{
        content: "\f129";
    }
+
+   .sideNav.videoNav::before{
+        content: "\f03d";
+    }
    
 //    /* relDocsNav */
    
@@ -834,24 +838,53 @@ $input-border-color:$grey;
    
    .sideNav.coloredNav > h3{
        margin-top:8px;
-       margin-left:32px;
+       margin-left:38px;
        margin-bottom:0px;
        /*padding:0px;*/
        border-bottom:none !important;
-       color:#FFF;
+       color:#202020;
    }
    
    .sideNav.coloredNav {
        padding:0px !important;
-       border:solid 2px #294772;
+       border:solid 2px #7FA5FF;
        background-color:#7FA5FF !important
    }
    
    .sideNav.coloredNav > ul {
        margin:0px !important;
        padding:16px 0px;
-       background-color:#dbe4f2;
+       background-color:#f4f4f4;
    }
+
+   .sideNav.coloredNav li:hover {
+        background-color: #7FA5FF;
+        color: #373737; }
+
+    .sideNav.contactsNav li:hover{
+            background-color: #f4f4f4;
+        }
+
+    .sideNav.contactsNav a{
+            text-decoration: underline !important;
+        }
+
+    .sideNav.coloredNav a {
+    text-decoration: none;
+    color: #537072;
+    }
+
+    .relatedPages ul li a:hover, .sideNav ul li a:hover
+    {
+        //background-color: #7FA5FF;
+        color: #373737;
+    }
+
+    .relatedPages ul li, .sideNav ul li
+    {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
    
    /* end of sideNavs */
    
@@ -988,9 +1021,13 @@ $input-border-color:$grey;
        padding: 0px !important;
    }
    .ui-tabs .docList.one li a {
-       padding: 13px 4px 7px 35px !important;
-   
+       padding: 13px 4px 7px 16px !important;
+       border-bottom: none;
    }
+   .ui-tabs .docList.one .listWebpart ul li a {
+        border-top: none;
+        font-size: 16px;
+    }
    .ui-tabs .docList.one .listWebpart ul li a:before {
        top: 15px;
    }
@@ -1007,7 +1044,7 @@ $input-border-color:$grey;
    }
    .ui-widget-header {
        border: 0px solid #aaaaaa !important;
-       border-bottom:2px solid #599aab !important; 
+       border-bottom:2px solid #7FA5FF !important; 
        background: none !important;
        border-radius: 0px;
    }
@@ -1023,6 +1060,24 @@ $input-border-color:$grey;
        font-weight: normal !important;
        color: #555555 !important;
    }
+   .ui-tabs .docList.one .listWebpart ul li a:hover {
+        background-color: #7FA5FF;
+        color: #373737; }
+
+    .ui-tabs .ui-tabs-nav .ui-tabs-active .ui-tabs-anchor {
+        background-color: #7FA5FF !important;      
+    }
+
+    .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+        color: #202020; 
+        font-weight: 600;
+    }
+
+    .ui-tabs .ui-tabs-nav li {
+        border: solid 2px #7FA5FF;
+        border-bottom: 0px;
+    }
+   
    .ui-widget {
        font-family: "Open Sans",sans-serif,sans-serif !important;
        font-size: .8em !important;
@@ -1389,11 +1444,16 @@ $input-border-color:$grey;
    /* START - Toolkit guidance border styling */
    .ui-widget-content-nav {
    
-       border:solid 2px #294772 !important;
-       background-color:#dbe4f2 !important;
+       border:solid 2px #7FA5FF !important;
+       background-color:#F4F4F4 !important;
        margin: 0 0 30px !important;
-       padding: 15px !important;
+       padding: 0 !important;
    }
+
+   .ui-widget-content-nav a{
+   
+        color:#537072;
+    }
    
    .tookit-nav {
    
@@ -1401,16 +1461,33 @@ $input-border-color:$grey;
        //margin-top: 0;
        //margin-bottom: 15px;
        //margin: 0 0 15px;
-       margin:-15px;
+       margin:8px;
+       margin-left: 38px;
        //padding: 0 0 10px;
-       padding:9px;
+       //padding:9px;
        font-size: 24px;
        font-weight: 600;
        font-family: Montserrat,sans-serif,sans-serif !important;
        background-color: #7FA5FF;
        color: #FFF;
    }
-   
+   .toolkit-header::before {
+        content: "\f15c";
+        color: #fff;
+        font-family: FontAwesome;
+        font-size: x-large;
+        position: absolute;
+        margin: 8px;
+    }
+
+    .toolkit-header {
+        background-color: #7FA5FF;
+        padding: 1px;
+    }
+
+   .ui-widget-content-nav .docList a::before{
+       content: none;
+   }
    
    /* END - Toolkit guidance border styling */
    
