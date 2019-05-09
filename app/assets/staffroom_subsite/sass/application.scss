@@ -1007,7 +1007,12 @@ $input-border-color:$grey;
    
    /* END Update site colours and a few correctional styles */
    
-   
+      /* Jquery datepicker overrides */
+      .ui-datepicker .ui-datepicker-header {
+        background: #3b7088;
+    }
+   /* End Jquery datepicker overrides */
+
    /* Jquery Tabs styles for toolkit guidance */
    
    .ui-widget-content {
@@ -1045,7 +1050,7 @@ $input-border-color:$grey;
    .ui-widget-header {
        border: 0px solid #aaaaaa !important;
        border-bottom:2px solid #7FA5FF !important; 
-       background: none !important;
+       background: none;
        border-radius: 0px;
    }
    .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {

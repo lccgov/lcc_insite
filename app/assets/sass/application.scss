@@ -1107,7 +1107,12 @@ display: none;
    
    /* END Update site colours and a few correctional styles */
    
-   
+   /* Jquery datepicker overrides */
+   .ui-datepicker .ui-datepicker-header {
+        background: #3b7088;
+    }
+   /* End Jquery datepicker overrides */
+
    /* Jquery Tabs styles for toolkit guidance */
    
    .ui-widget-content {
@@ -1144,10 +1149,11 @@ display: none;
    }
    .ui-widget-header {
        border: 0px solid #aaaaaa !important;
-       border-bottom:2px solid #7FA5FF !important; 
-       background: none !important;
+       border-bottom:2px solid #7FA5FF !important;
+       background: none;
        border-radius: 0px;
    }
+   
    .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
        border: 1px solid #599aab;
        // background: #599aab42 url() 50% 50% repeat-x !important;
@@ -1157,7 +1163,7 @@ display: none;
    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
         border: 1px solid #599aab;
        background: none !important;
-       font-weight: normal !important;
+       font-weight: normal !important;  
        color: #555555 !important;
    }
 
@@ -1188,8 +1194,8 @@ display: none;
    }*/
 
    .ui-widget {
-       font-family: "Open Sans",sans-serif,sans-serif !important;
-       font-size: .8em !important;
+       font-family: "Open Sans",sans-serif,sans-serif !important;  //change font
+       font-size: .8em !important;  //bigger
    }
    .docList.five, .docList.four, .docList.one, .docList.three, .docList.two {
        margin: 10px 0 !important;
