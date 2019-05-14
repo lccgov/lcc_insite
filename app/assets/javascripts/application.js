@@ -6,9 +6,10 @@
 //= require insite-date-range-filter
 //= require insite-keyword-filter
 //= require insite-news-archive-filter
-//= require building-locations
+//= require insite-building-locations
 //= require insite-rating
 //= require insite-event-carousel
+//= require insite-contacts
 
 $('.cycle ul').cycle({ 
     fx:      'scrollDown', 

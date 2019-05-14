@@ -10,7 +10,7 @@
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
 <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
-<mso:ManagedPropertyMapping msdt:dt="string">Title{Promo Title}:Title,contactLine1{contactLine1}:contactLine1OWSTEXT,contactLine2{contactLine2}:contactLine2OWSTEXT,contactLine3{contactLine3}:contactLine3OWSTEXT,contactLine4{contactLine4}:contactLine4OWSTEXT,&#39;Custom Title&#39;{Custom Title}:&#39;List Display Web Part&#39;,&#39;Custom Css Class&#39;{Custom CSS class}:&#39;&#39;,PromoHTML{Promo HTML}:PromoHTMLContentOWSHTML</mso:ManagedPropertyMapping>
+<mso:ManagedPropertyMapping msdt:dt="string">Title{Promo Title}:Title,LCCContact{LCCContact}:LCCContactOWSUSER,ListItemID{ListItemID}:ListItemID,contactLine1{contactLine1}:contactLine1OWSTEXT,contactLine2{contactLine2}:contactLine2OWSTEXT,contactLine3{contactLine3}:contactLine3OWSTEXT,contactLine4{contactLine4}:contactLine4OWSTEXT,&#39;Custom Title&#39;{Custom Title}:&#39;List Display Web Part&#39;,&#39;Custom Css Class&#39;{Custom CSS class}:&#39;&#39;,PromoHTML{Promo HTML}:PromoHTMLContentOWSHTML</mso:ManagedPropertyMapping>
 <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
 <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
@@ -31,18 +31,20 @@
 
     <div id="Item_Contact">
 
-<!--#_
+	<!--#_
 
-var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_Accordion_");
+	var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_Accordion_");
 
 
 
-var Title = $getItemValue(ctx, "Title");
-var contactLine1 = $getItemValue(ctx, "contactLine1");
-var contactLine2 = $getItemValue(ctx, "contactLine2");
-var contactLine3 = $getItemValue(ctx, "contactLine3");
-var contactLine4 = $getItemValue(ctx, "contactLine4");
-var PromoHTML = $getItemValue(ctx, "PromoHTML");
+	var Title = $getItemValue(ctx, "Title");
+	var LCCContact = $getItemValue(ctx, "LCCContact");
+	var ListItemID = $getItemValue(ctx, "ListItemID");
+	var contactLine1 = $getItemValue(ctx, "contactLine1");
+	var contactLine2 = $getItemValue(ctx, "contactLine2");
+	var contactLine3 = $getItemValue(ctx, "contactLine3");
+	var contactLine4 = $getItemValue(ctx, "contactLine4");
+	var PromoHTML = $getItemValue(ctx, "PromoHTML");
 
 	var ListRenderRenderWrapper = function(itemRenderResult, inCtx, tpl)
 	{
@@ -53,7 +55,9 @@ var PromoHTML = $getItemValue(ctx, "PromoHTML");
 	    return iStr.join('');
 	}
 
-
+	AddPostRenderCallback(ctx, function () {		
+			LCC.modules.start($('[data-module="insite-contacts"]'));		
+	});
 
 	ctx['ItemRenderWrapper'] = ListRenderRenderWrapper;
 	
@@ -71,41 +75,55 @@ var PromoHTML = $getItemValue(ctx, "PromoHTML");
 		}
 
 
- _#-->  
+ 	_#-->  
+		<!--#_
+		if(!LCCContact.isEmpty)  {   
+		_#-->
+			<div data-module="insite-contacts" data-listitemid="_#= ListItemID =#_">
+				<div class="contactPanel">
+					<a class="personalUrlPlaceholder" href="" target="_blank"><strong class="titlePlaceholder"></strong></a>
+					<p  class="jobTitlePlaceholder"></p>      	
+					<p>t: <span><a  class="workPhonePlaceholder" href=""></a></span></p> 					
+					<p>m: <span><a  class="mobilePhonePlaceholder" href=""></a></span></p> 
+					<p>e: <span><a class="contact-email emailPlaceholder" href=""></a></span> </p>			
+				</div>  
+			</div>
+		<!--#_
+		} 
+		else {
+		_#-->
+			<div class="contactPanel">	 
+				<strong>_#= Title =#_</strong>
 
-     <div class="contactPanel">
-    <strong>_#= Title =#_</strong>
-    		<!--#_
-			if(!contactLine1.isEmpty)  {   
-			_#-->
-     <p>_#= contactLine1 =#_</p> 
-     	
-			<!--#_
-			} 
-			_#-->
-			
-			<!--#_
-			if(!contactLine2.isEmpty)  {   
-			_#-->
-     <p> 
-     t: <span><a href="tel:_#= contactLine2 =#_">_#= contactLine2 =#_ </a></span></p> 
-     	
-			<!--#_
-			} 
-			_#-->
-			
-			
-            	<!--#_
-			if(!contactLine3.isEmpty)  {   
-			_#-->
-     <p>
-	 e: <span><a class="contact-email" href="mailto:_#= contactLine3 =#_">_#= contactLine3 =#_ </a></span> </p>
-     	<!--#_
-			} 
-			_#-->
-     _#= PromoHTML =#_
-    
-</div>  
-</div>
+				<!--#_
+				if(!contactLine1.isEmpty)  {   
+				_#-->
+				<p>_#= contactLine1 =#_</p>      	
+				<!--#_
+				} 
+				_#-->
+
+				<!--#_
+				if(!contactLine2.isEmpty)  {   
+				_#-->
+				<p>t: <span><a href="tel:_#= contactLine2 =#_">_#= contactLine2 =#_ </a></span></p>      	
+				<!--#_
+				} 
+				_#-->
+
+				<!--#_
+				if(!contactLine3.isEmpty)  {   
+				_#-->
+				<p>e: <span><a class="contact-email" href="mailto:_#= contactLine3 =#_">_#= contactLine3 =#_ </a></span> </p>
+				<!--#_
+				} 
+				_#-->
+				_#= PromoHTML =#_
+		
+			</div>  
+		<!--#_
+		} 
+		_#-->
+	</div>
 </body>
 </html>
