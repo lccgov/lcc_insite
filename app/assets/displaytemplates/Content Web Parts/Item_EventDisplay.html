@@ -96,12 +96,18 @@ else
 						<img src="_#= pictureURL =#_" />
 						_#= MainBody =#_
 						<hr>
+						<!--#_
+                    	if(!EventCost.isEmpty)  {   
+                    	_#-->
 						<p class="eventLabel">Price: <span>_#= EventCost =#_</span></p>
+						<!--#_
+                    	} 
+                    	_#-->
 						<!--#_
                     	if(!EventLink.isEmpty)  {   
                     	_#-->
                     		<hr>
-        					<p class="eventLink">Event Link: <span><a href="_#= EventLink =#_">Follow link to view event and book your place</a></span></p>
+        					<p class="eventLink"><span><a href="_#= EventLink =#_">More information</a></span></p>
         				<!--#_
                     	} 
                     	_#-->
