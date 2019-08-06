@@ -19,7 +19,7 @@
                     <div class="item">
                         <a>
                             <xsl:attribute name="href">
-                                <xsl:value-of select="concat('/staffroom/buying-and-selling/staff-deals/staff-deals-results?ID=',Properties/PromoProperty[@Key='ListItemID'])" />
+                                <xsl:value-of select="concat('/staffroom/staff-deals/staff-deals-results?ID=',Properties/PromoProperty[@Key='ListItemID'])" />
                             </xsl:attribute> 
                             <div class="carousel-caption white-background">
                                 <div class="row">
