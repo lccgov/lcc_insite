@@ -76,7 +76,9 @@
 			function createRatingComment(rating) {
 				
 				var clientContext = new SP.ClientContext.get_current();
-				var oList = clientContext.get_web().get_lists().getByTitle('ratingComments');			
+				var oSite = clientContext.get_site();
+				var oWebsite = oSite.get_rootWeb();
+				var oList = oWebsite.get_lists().getByTitle('ratingComments');			
 				var itemCreateInfo = new SP.ListItemCreationInformation();
 				var oListItem = oList.addItem(itemCreateInfo);
 				
