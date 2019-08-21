@@ -10,7 +10,7 @@
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
 <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
-<mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;EventImageOWSIMGE;PublishingImage;PictureURL;PictureThumbnailURL&#39;,&#39;Title&#39;&#39;ListItemID&#39;:&#39;ListItemID&#39;,&#39;ExpiryDate&#39;:&#39;RefinableString07&#39;,&#39;StaffDealsCategory&#39;:&#39;StaffDealsCategory&#39;,&#39;Title&#39;:&#39;Title&#39;,&#39;DealDescription&#39;:&#39;MainBodyTextOWSHTML&#39;</mso:ManagedPropertyMapping>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;EventImageOWSIMGE;PublishingImage;PictureURL;PictureThumbnailURL&#39;,&#39;Title&#39;&#39;ListItemID&#39;:&#39;ListItemID&#39;,&#39;ExpiryDate&#39;:&#39;StaffDealsExpiryDateOWSDATE&#39;,&#39;StaffDealsCategory&#39;:&#39;StaffDealsCategory&#39;,&#39;Title&#39;:&#39;Title&#39;,&#39;DealDescription&#39;:&#39;MainBodyTextOWSHTML&#39;</mso:ManagedPropertyMapping>
 <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
 <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
@@ -33,12 +33,6 @@
 
 <!--#_
 
-function getMonthNameByMonthNumber(mm) { 
-   var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
-   return months[mm]; 
-}
-
 var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_Accordion_");
 
 
@@ -47,10 +41,8 @@ var Title = $getItemValue(ctx, "Title");
 var Description = $getItemValue(ctx, "MainBodyTextOWSHTML");
 var DealCategory = $getItemValue(ctx, "StaffDealsCategory");
 
-var ExpiryDate = new Date($getItemValue(ctx,"RefinableString07"));
-var datenumber= ExpiryDate.getDate();
-var datemonth= getMonthNameByMonthNumber(ExpiryDate.getMonth());
-var dateyear= ExpiryDate.getFullYear();
+var StaffDealsExpiryDate = new Date($getItemValue(ctx,"StaffDealsExpiryDateOWSDATE"));
+var displayStaffDealsExpiryDate = StaffDealsExpiryDate.format('dd MMMM yyyy');
 
 var PromoCSS = $getItemValue(ctx, "Promo CSS");
 var pictureURL = $getItemValue(ctx, "Picture URL");
@@ -61,7 +53,7 @@ var dataDisplayTemplateTitle = "Accordion";
 		<!--<div class="_#= PromoCSS =#_">!-->
 	       <div class="freeContentArea">
 	       <h2>_#= Title =#_</h2>
-  			<h3 class="eventDate">Expiry Date: _#= datenumber =#_ _#= datemonth =#_ _#= dateyear =#_</h3>
+  			<h3 class="eventDate">Expiry Date: _#= displayStaffDealsExpiryDate =#_</h3>
    					<hr>
 					<div class="eventDetails">
 						_#= Description =#_
