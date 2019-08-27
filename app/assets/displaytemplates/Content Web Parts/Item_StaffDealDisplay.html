@@ -41,7 +41,7 @@ var Title = $getItemValue(ctx, "Title");
 var Description = $getItemValue(ctx, "MainBodyTextOWSHTML");
 var DealCategory = $getItemValue(ctx, "StaffDealsCategory");
 
-var StaffDealsExpiryDate = new Date($getItemValue(ctx,"StaffDealsExpiryDateOWSDATE"));
+var StaffDealsExpiryDate = new Date($getItemValue(ctx,"StaffDealsExpiryDateOWSDATE").inputValue);
 var displayStaffDealsExpiryDate = StaffDealsExpiryDate.format('dd MMMM yyyy');
 
 var PromoCSS = $getItemValue(ctx, "Promo CSS");

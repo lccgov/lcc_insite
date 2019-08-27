@@ -2,7 +2,14 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:attribute-set name="link-set">
-  <xsl:attribute name="href"><xsl:value-of select="Properties/PromoProperty[@Key='Path']" /></xsl:attribute>
+    <xsl:choose>
+        <xsl:when test="string-length(Properties/PromoProperty[@Key='customPostId']/Value) > 0">
+            <xsl:value-of select="concat('/InSite-blogs/Lists/Posts/ViewPost.aspx?ID=',Properties/PromoProperty[@Key='customPostId'])"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="Properties/PromoProperty[@Key='Path']"/>
+        </xsl:otherwise>
+    </xsl:choose>
   <xsl:attribute name="title"><xsl:value-of select="Properties/PromoProperty[@Key='LCCBasicDisplayTitle']" /></xsl:attribute>
 </xsl:attribute-set>
 
