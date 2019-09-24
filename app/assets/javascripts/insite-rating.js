@@ -10,7 +10,7 @@
 			var listIdDivContents = document.getElementById('rateThis').getAttribute('data-list-id');
 			var listId = listIdDivContents == "" ? _spPageContextInfo.pageListId : listIdDivContents;
 			JSRequest.EnsureSetup(); 
-			var itemId = JSRequest.QueryString["ID"] === undefined ? _spPageContextInfo.pageItemId : JSRequest.QueryString["ID"];	
+			var itemId = JSRequest.QueryString["ID"] === undefined ? JSRequest.QueryString["AskID"] === undefined ? _spPageContextInfo.pageItemId : JSRequest.QueryString["AskID"] : JSRequest.QueryString["ID"];	
 				
 			var modal = document.getElementById('ratingModal');
 			
