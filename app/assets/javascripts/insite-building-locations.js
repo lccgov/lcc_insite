@@ -10,7 +10,7 @@
 				function populateList(menuId)
 				{
 					$.ajax({
-						url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists(guid'8973E6C5-CBA5-4064-AF35-C772EFCD9D87')/Items?$select=Title,PostCode&$top=1000",
+						url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists(guid'8973E6C5-CBA5-4064-AF35-C772EFCD9D87')/Items?$select=Title,PostCode&$orderby=Title&$top=1000",
 						type: "GET",
 						dataType: "json",
 						headers: { "accept": "application/json;odata=verbose" },
