@@ -13,6 +13,9 @@
 			var itemId = JSRequest.QueryString["ID"] === undefined ? JSRequest.QueryString["AskID"] === undefined ? _spPageContextInfo.pageItemId : JSRequest.QueryString["AskID"] : JSRequest.QueryString["ID"];	
 				
 			var modal = document.getElementById('ratingModal');
+			var ratingSubmitButton = document.getElementsByClassName("js-rating-submit")[0];
+			ratingSubmitButton.disabled = true;
+			$('input[name=rating]').removeAttr('checked');
 			
 			SP.SOD.registerSod('reputation.js', '/_layouts/15/reputation.js');
 			
@@ -110,9 +113,16 @@
 				$("#fourStar").removeClass("rating-checked");
 				$("#fiveStar").removeClass("rating-checked");
 			}
+
+			function resetModal () {
+				modal.style.display = "none";
+				ratingSubmitButton.disabled = true;
+				modal.getElementsByTagName('p')[0].style.color = "black";
+			}
 			
 			element.on('click', '.js-open-modal', function () {	
 				modal.style.display = "block";
+				ratingSubmitButton.disabled = false;
 				return false;
 			});
 			
@@ -142,28 +152,29 @@
 				} 
 				
 				if (ratingChosen === 0) {
+					modal.getElementsByTagName('p')[0].style.color = "red";
 					return false;
 				}
 				else {		
 					updatePageRating(ratingChosen);
 					createRatingComment(ratingChosen);									
-					modal.style.display = "none";															
+					resetModal ();														
 					return false;
 				}
 			});			
 			
 			element.on('click', '.js-rating-cancel', function () {		
-				modal.style.display = "none";
+				resetModal ();
 				return false;
 			});
 
 			element.on('click', '.js-close-modal', function () {
-				modal.style.display = "none";
+				resetModal ();
 			});
 
 			window.onclick = function(event) {
 				if (event.target == modal) {
-					modal.style.display = "none";
+					resetModal ();
 				}
 			} 
 	
