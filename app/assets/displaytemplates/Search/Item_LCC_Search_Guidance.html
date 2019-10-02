@@ -28,6 +28,8 @@
 	&#39;FileType&#39;:&#39;FileType&#39;,
 	&#39;Size&#39;:&#39;Size&#39;,
 	&#39;IsContainer&#39;:&#39;IsContainer&#39;,
+	&#39;GuidanceLink1OWSLINK&#39;:&#39;GuidanceLink1OWSLINK&#39;,
+	&#39;GuidanceLink2OWSLINK&#39;:&#39;GuidanceLink2OWSLINK&#39;,
 	&#39;SecondaryFileExtension&#39;:&#39;SecondaryFileExtension&#39;,
 	&#39;DisplayAuthor&#39;:&#39;DisplayAuthor&#39;
 </mso:ManagedPropertyMapping>
@@ -61,6 +63,8 @@
 			var FileSize = ctx.CurrentItem.Size;
 			var HitHighlightedSummary = ctx.CurrentItem.HitHighlightedSummary;
 			var html = "html";
+			var GuidanceLink1 = ctx.CurrentItem.GuidanceLink1OWSLINK;
+			var GuidanceLink2 = ctx.CurrentItem.GuidanceLink2OWSLINK;
 			
 			FileSize = FileSize/1024;
 				if(FileSize > 1024){
@@ -104,9 +108,17 @@ _#-->
 									_#= Summary =#_ <br>
 									
 									<!--#_
-										if(!/No guidance/.test(OnlineFormCategory) && OnlineFormCategory !== null && OnlineFormCategory !== "")  {   
+										if(GuidanceLink1 !== null)  {   
 									_#-->
-									<a href="/do-it-online/forms-and-guidance/guidance?cat=_#= OnlineFormCategory =#_" class="ms-srch-item-link" title="_#= OnlineFormCategory =#_"> > Further guidance </a>
+									_#= GuidanceLink1 =#_
+									<br>
+									<!--#_
+									}
+									_#-->
+									<!--#_
+										if(GuidanceLink2 !== null)  {   
+									_#-->
+									_#= GuidanceLink2 =#_
 									<br>
 									<!--#_
 									}
