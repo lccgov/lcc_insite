@@ -26,7 +26,7 @@
 						urlElem.href = "https://mysite.leeds.gov.uk/Person.aspx?accountname=" + encodeURIComponent(data.d.LCCContact.Name);
 						titleElem.innerHTML = data.d.LCCContact.Title;
 						jobTitleElem.innerHTML = data.d.LCCContact.JobTitle;
-						if (data.d.LCCContact.workPhoneElem === null) {
+						if (data.d.LCCContact.WorkPhone === null) {
 							workPhoneElem.parentNode.parentNode.style.display = "none";
 						}
 						else {
