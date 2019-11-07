@@ -1983,6 +1983,12 @@ display: none;
             background: #006665 !important;
         }
     }
+	
+	.cbs-List .content-block ul  {
+		list-style-image:none;
+		padding-left:20px; 
+		list-style-type: disc;
+	} 
 
     /* END Nav styling */
     
