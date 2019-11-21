@@ -4,8 +4,8 @@
 <xsl:attribute-set name="link-set">
     <xsl:attribute name="href"> 
         <xsl:choose>
-            <xsl:when test="string-length(Properties/PromoProperty[@Key='customPostId']/Value) > 0">
-                <xsl:value-of select="concat('/InSite-blogs/Lists/Posts/ViewPost.aspx?ID=',Properties/PromoProperty[@Key='customPostId'])"/>
+            <xsl:when test="Properties/PromoProperty[@Key='ContentType'] = 'Message'">
+                <xsl:value-of select="Properties/PromoProperty[@Key='ParentLink']"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="Properties/PromoProperty[@Key='Path']"/>
