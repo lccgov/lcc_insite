@@ -42,7 +42,7 @@
                                         <xsl:otherwise>
                                             <div class="col-sm-12">
                                                 <p class="font-bold" style="padding-left: 1em"><xsl:value-of select="Title"/></p>
-                                                <p class="fontsize">
+                                                <p class="fontsize" style="padding-left: 1em">
                                                     <span class="js-event-start"><xsl:value-of select="Properties/PromoProperty[@Key='EventDateOWSDATE']" /></span> - <span class="js-event-end"><xsl:value-of select="Properties/PromoProperty[@Key='EndDateOWSDATE']" /></span>
                                                 </p>
                                             </div>
