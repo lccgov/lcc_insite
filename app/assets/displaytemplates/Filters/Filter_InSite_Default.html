@@ -231,10 +231,14 @@
     }
     else if (hasControl && !$isNull(listData))
     {
-
+		var theRefinementName = "";
         for(var i in listData)
         {
         	listData[i].RefinementName=listData[i].RefinementName.replace('string;#','');
+			
+			theRefinementName = listData[i].RefinementName.split("\n")
+			listData[i].RefinementName = theRefinementName[0]
+			
 			listData[i].RefinementValue=listData[i].RefinementValue.replace('string;#','');
             listData[i].RefinementTokens = [listData[i].RefinementToken];
             listData[i].RefinementTokenWrappedValues = [Srch.RefinementUtil.stringValueToEqualsToken(listData[i].RefinementValue)];

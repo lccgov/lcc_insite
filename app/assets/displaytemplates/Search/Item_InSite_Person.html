@@ -113,8 +113,10 @@ _#-->
                                                                 var encodedJtitle = $htmlEncode(ctx.CurrentItem.JobTitle);
                                                                 var displayJtitle = Srch.U.getSingleHHXMLNodeValue(hhProps, "jobtitle");
                                                                 if ($isEmptyString(displayJtitle)) { displayJtitle = encodedJtitle }
+																$parsedTitle = displayJtitle.split("\n")
                                 _#--> 
-                                                                <div id="JobTitleValue" class="ms-srch-ellipsis" title="_#= encodedJtitle =#_"><small> _#= displayJtitle =#_ </small></div>
+                                                              <!--  <div id="JobTitleValue" class="ms-srch-ellipsis" title="_#= encodedJtitle =#_"><small> _#= displayJtitle =#_ </small></div>   -->
+															  <div id="JobTitleValue" class="ms-srch-ellipsis" title="_#= encodedJtitle =#_"><small> _#= $parsedTitle[0] =#_ </small></div>   
                                                             </div>
                                 <!--#_ 
                                                         }
