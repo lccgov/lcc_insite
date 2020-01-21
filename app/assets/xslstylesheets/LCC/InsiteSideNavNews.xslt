@@ -69,7 +69,7 @@
                     <xsl:attribute name="href">
                         <xsl:value-of select="PromoWrapper/@NavUrl" />
                     </xsl:attribute>
-                    more news...
+                    more...
                 </a>
             </div>
 
