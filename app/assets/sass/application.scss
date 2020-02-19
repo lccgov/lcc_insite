@@ -1357,6 +1357,11 @@ display: none;
        content: "\f245";
        color: #007299;
    }
+
+   .ms-srch-result .formsandguidance.ms-srch-item-link::before {
+        content: "\f245";
+        color: #007299;
+    }
    
    .search-results-title {
        margin: 50px 0 15px!important;
