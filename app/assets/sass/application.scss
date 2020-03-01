@@ -1851,6 +1851,12 @@ display: none;
         color: #4C9CC8
     }
     /* END - SideNav Home page */
+
+    /* START - Nav span Home page */
+    .nav.ShowHide span {
+        word-break: break-all;
+    }
+    /* END - Nav span Home page */   
    
    /* START - News webpat(Home page) */
    .text-color{
