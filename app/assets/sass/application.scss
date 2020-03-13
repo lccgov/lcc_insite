@@ -1576,7 +1576,8 @@ display: none;
        background-color: #599aab;
    }
    
-   ul.menu li a {
+   /* START Fix Mobile Search Bar */
+   /*ul.menu li a {
        font-size: 17px;
        font-weight: 700;
        padding: 11px 15px;
@@ -1586,7 +1587,52 @@ display: none;
        position: absolute;
        top: 7px;
        right: 31px;
-   }
+   }*/
+   ms-srch-sb-navLink {
+    	position: absolute;
+    	right: 35px;
+    	top: 7px;
+    	min-height: 27px;
+    	min-width: 28px;
+    }
+
+    .ms-srch-sb > .ms-srch-sb-navLink {
+        position: absolute;
+        right: 35px;
+        top: 0;
+        min-height: auto;
+        min-width: auto;
+        padding: 0;
+        height: auto;
+        width: 40px;
+        text-align: center;
+        border: 0;
+        line-height: 38px;
+        }
+
+        
+        a#ctl00_ctl58_csr_NavButton:before {
+        content: "\f107";
+        font-family: FontAwesome;
+        font-size: 25px;
+        color: #00ABA9;
+        }
+        
+        .ms-srch-sb-navImg {
+        display: none;
+        }
+        
+        // Hover styling
+        .ms-srch-sb-navLink:hover, .ms-srch-sb-navLink:focus {
+        background: #FFBF47 !important;
+        }
+        
+        .ms-srch-sb-navLink:hover  a#ctl00_ctl58_csr_NavButton:before, .ms-srch-sb-navLink:focus  a#ctl00_ctl58_csr_NavButton:before  {
+        color: black;
+        }
+            
+    /* END Fix Mobile Search Bar */
+
    ul.menu li a:focus, ul.menu li a:hover {
        background: #f3f3f4!important;
    }
