@@ -1677,14 +1677,13 @@ display: none;
         line-height: 38px;
         }
 
-        
-        a#ctl00_ctl58_csr_NavButton:before {
-        content: "\f107";
-        font-family: FontAwesome;
-        font-size: 25px;
-        color: #00ABA9;
+        a.ms-srch-sb-navLink:before {
+            content: "\f107";
+            font-family: FontAwesome;
+            font-size: 25px;
+            color: #00ABA9;
         }
-        
+            
         .ms-srch-sb-navImg {
         display: none;
         }
