@@ -3,7 +3,7 @@
 
 <xsl:attribute-set name="link-set">
   <xsl:attribute name="href"><xsl:value-of select="Properties/PromoProperty[@Key='Path']" /></xsl:attribute>
-  <xsl:attribute name="title"><xsl:value-of select="Title" /></xsl:attribute>
+  <xsl:attribute name="title"><xsl:value-of select="Properties/PromoProperty[@Key='LCCSearchTitle']" /></xsl:attribute>
 </xsl:attribute-set>
 
 <xsl:template name="trimComment">
@@ -47,7 +47,7 @@
                         <div class="col-md-9">
                             <h4 style="border-bottom:0px !important; margin:0px;">
                                 <a class="item" xsl:use-attribute-sets="link-set">
-                                    <xsl:value-of select="Title"/>     
+                                    <xsl:value-of select="Properties/PromoProperty[@Key='LCCSearchTitle']"/>     
                                 </a>
                             </h4>
                             <small>
