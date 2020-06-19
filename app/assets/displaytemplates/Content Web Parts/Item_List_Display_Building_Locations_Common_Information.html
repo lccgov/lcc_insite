@@ -193,7 +193,7 @@
 					
                     <p>
                         <b>Workspaces?</b>
-                        <br> _#= STSHtmlDecode(WorkspaceTypes.value) =#_
+                        <br> _#= STSHtmlDecode(WorkspaceTypes.value.replace(/#/g,' ')) =#_
                     </p>
 					
 					<!--#_
