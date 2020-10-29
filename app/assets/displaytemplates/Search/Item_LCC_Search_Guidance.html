@@ -10,6 +10,7 @@
 <mso:TargetControlType msdt:dt="string">;#SearchResults;#</mso:TargetControlType>
 <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
 <mso:ManagedPropertyMapping msdt:dt="string">    &#39;Title&#39;:&#39;Title&#39;,
+	&#39;LCCSearchTitle&#39;:&#39;LCCSearchTitle&#39;,
     &#39;Filename&#39;:&#39;Filename&#39;,
 	&#39;Path&#39;:&#39;Path&#39;,
 	&#39;Description&#39;:&#39;Description&#39;,
@@ -50,7 +51,8 @@
             var sz = "KB";
             var itemId = id + Srch.U.Ids.item;
 			var hoverId = id + Srch.U.Ids.hover;
-            var Title = ctx.CurrentItem.Title;
+			var Title = ctx.CurrentItem.Title;
+			var LCCSearchTitle = ctx.CurrentItem.LCCSearchTitle;
             var Filename = ctx.CurrentItem.Filename;
 			var Path = ctx.CurrentItem.Path;
 			var SeoMetaDescriptionOWSTEXT = ctx.CurrentItem.SeoMetaDescriptionOWSTEXT;
@@ -93,11 +95,11 @@ _#-->
 									<!--#_
 									 if(FileType === html){
 									_#-->
-										<a rel="_#= FileType =#_" href="_#= Path =#_" class="ms-srch-item-link" title="_#= Title =#_">_#= Title =#_ </a>
+										<a rel="_#= FileType =#_" href="_#= Path =#_" class="ms-srch-item-link" title="_#= LCCSearchTitle =#_">_#= LCCSearchTitle =#_ </a>
 									<!--#_
 									}else{
 									_#-->
-										<a rel="_#= FileType =#_" href="_#= Path =#_" class="ms-srch-item-link" title="_#= Title =#_">_#= Title =#_ <span>(_#= FileType =#_, _#= FSTotal =#__#= sz =#_)</span><span class="sr-only">Opens in new window</span></a>
+										<a rel="_#= FileType =#_" href="_#= Path =#_" class="ms-srch-item-link" title="_#= LCCSearchTitle =#_">_#= LCCSearchTitle =#_ <span>(_#= FileType =#_, _#= FSTotal =#__#= sz =#_)</span><span class="sr-only">Opens in new window</span></a>
 									<!--#_
 									}
 									_#-->
